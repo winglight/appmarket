@@ -42,17 +42,27 @@ public class AppModel extends Model implements Serializable{
 	@Id
 	public Long id;
 	
-    public String name;
+    public String appname;
     
     public String desc;
-    
-    public String iconurl;
     
     public String downurl;
     
     public UserModel author;
     
-    public String version;
+    public String appVersion;
+    
+    public String appVersionCode;
+    
+    public String packageName;
+    
+    public String minSdkVersion;
+    
+    public String targetSdkVersion;
+    
+    public String maxSdkVersion;
+    
+    public String iconUrl;
     
     public Long downloads;
     
@@ -65,7 +75,7 @@ public class AppModel extends Model implements Serializable{
 	
     // -- Queries
     
-    public static Model.Finder<String,AppModel> find = new Model.Finder(String.class, AppModel.class);
+    public static Model.Finder<Long,AppModel> find = new Model.Finder(Long.class, AppModel.class);
     
     /**
      * Retrieve all users.
@@ -73,10 +83,23 @@ public class AppModel extends Model implements Serializable{
     public static List<AppModel> findAll() {
         return find.all();
     }
+    
+    public static AppModel findByPkg(String pkgName) {
+        return find.where()
+                .eq("packageName", pkgName)
+                .findUnique();
+    }
 
 	@Override
 	public String toString() {
-		return "User [name:" + name
+		return "User [name:" + appname
 				+ "]";
+	}
+
+	public static boolean isOwner(Long app, String username) {
+		return find.where()
+	            .eq("author.name", username)
+	            .eq("id", app)
+	            .findRowCount() > 0;
 	}
 }

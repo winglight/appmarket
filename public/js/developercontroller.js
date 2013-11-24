@@ -1,19 +1,7 @@
-function HotController($scope) {
-  $scope.page = {};
-  $scope.hotapps = {};
+function AppsController($scope) {
+  $scope.apps = [];
 
-  $scope.prevPage = function() {
-    $scope.page.currentPage = $scope.page.currentPage - 1;
-    //go to currentPage;
+  $scope.deleteApp = function(id) {
+    //delete app;
   }
-  
-  $scope.nextPage = function() {
-    $scope.page.currentPage = $scope.page.currentPage + 1;
-    //go to currentPage;
-  }
-
-  $scope.gotoPage = function() {
-    ;
-  };
-
 }

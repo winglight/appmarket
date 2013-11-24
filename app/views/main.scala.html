@@ -69,10 +69,10 @@
     
     <div class="header">
     	<ul class="headermenu">
-        	<li><a href="dashboard.html"><span class="icon icon-flatscreen"></span>HOT APPS</a></li>
+        	<li><a href="@routes.Application.index()"><span class="icon icon-flatscreen"></span>HOT APPS</a></li>
             <li><a href="manageblog.html"><span class="icon icon-pencil"></span>Categories</a></li>
             <li><a href="messages.html"><span class="icon icon-message"></span>Newest</a></li>
-            <li><a href="reports.html"><span class="icon icon-chart"></span>Upload</a></li>
+            <li><a href="@routes.Developer.index()"><span class="icon icon-chart"></span>Upload</a></li>
         </ul>
         
         <div class="headerwidget">
@@ -92,6 +92,10 @@
     
 	@content
 <!--bodywrapper-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script type="text/javascript" src=@routes.Assets.at("js/plugins/jquery-ui-1.8.16.custom.min.js")></script>
+<script type="text/javascript" src=@routes.Assets.at("js/vendor/jquery.ui.widget.js")></script>
+<script type="text/javascript" src=@routes.Assets.at("js/plugins/jquery.cookie.js")></script>
 <script type="text/javascript" src="@routes.Assets.at("js/custom/general.js")"></script>
 <script type="text/javascript" src="@routes.Assets.at("js/custom/productlist.js")"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js")"></script>

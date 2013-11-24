@@ -73,7 +73,7 @@ public class UserModel extends Model implements Serializable{
 	
     // -- Queries
     
-    public static Model.Finder<String,UserModel> find = new Model.Finder(String.class, UserModel.class);
+    public static Model.Finder<Long,UserModel> find = new Model.Finder(Long.class, UserModel.class);
     
     /**
      * Retrieve all users.

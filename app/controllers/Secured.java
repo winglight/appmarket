@@ -18,4 +18,19 @@ public class Secured extends Security.Authenticator {
         return redirect(routes.Application.login());
     }
     
+    public static boolean isOwnerOf(String userName) {
+        return Context.current().session().get(Constants.SESSION_USER_NAME).equals(userName);
+    }
+    
+    public static boolean isOwnerOf(Long app) {
+        return AppModel.isOwner(
+                app,
+                Context.current().request().username()
+            );
+    }
+    
+    public static UserModel getCurrentUser() {
+        String name = Context.current().session().get(Constants.SESSION_USER_NAME);
+        return UserModel.findByloginName(name);
+    }
 }
