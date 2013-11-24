@@ -1,0 +1,74 @@
+@(user: UserModel)
+
+@main(user, "Upload") {
+
+    <div class="centercontent">
+          <div class="contenttitle2">
+                	<h3>Upload Your APP</h3>
+                </div><!--contenttitle-->
+                						<p>
+				                        <span class="btn btn-success fileinput-button">
+									        <i class="glyphicon glyphicon-plus"></i>
+									        <span>选择文件...</span>
+									        <!-- The file input field used as target for the file upload widget -->
+									        <input id="file_upload" name="files[]" type="file" multiple="false" data-url='@routes.Courses.uploadImages(courseForm.get.id)'>
+									    </span>
+									    <br>
+									    <!-- The global progress bar -->
+									    <div id="progress" class="progress">
+									        <div class="progress-bar progress-bar-success"></div>
+									    </div>
+				                        </p>
+                <table cellpadding="0" cellspacing="0" border="0" class="stdtable" id="dyntable2">
+                    <colgroup>
+                        <col class="con0" style="width: 4%" />
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                        <col class="con0" />
+                    </colgroup>
+                    <thead>
+                        <tr>
+                          <th class="head0 nosort"><input type="checkbox" /></th>
+                            <th class="head0">菜名</th>
+                            <th class="head1">图片</th>
+                            <th class="head0">编号</th>
+                            <th class="head1">类别</th>
+                            <th class="head0">价格</th>
+                            <th class="head1">状态</th>
+                            <th class="head0" style="width:10%">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @courses.map { course =>
+                        <tr class="gradeX">
+                          <td align="center"><span class="center">
+                            <input type="checkbox" value="@course.id"/>
+                          </span></td>
+                            <td>@course.name</td>
+                            <td><img src='@course.photo' style="width:100px;height:100px"/></td>
+                            <td>@course.code</td>
+                            <td class="center">
+                            @if(course.courseType != null){
+                            @course.courseType.name
+                            }
+                            </td>
+                            <td class="center">@course.price</td>
+                            <td class="center">
+                            @if(course.status != null){
+                            @course.status.getDisplayName()
+                            }
+                            </td>
+                            <td class="center">
+                            <ul class="buttonlist">
+		                        <li class="editCourse"><button data-url="@routes.Courses.uploadImages(course.id)" href="@routes.Courses.editCourse(course.id)" class="stdbtn btn_lime">编辑</button></li>
+		                        <li class="deleteCourse"><button  href="@routes.Courses.deleteCourse(course.id)" class="stdbtn btn_red">删除</button></li>
+		                   </ul>
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+	</div><!-- centercontent -->    
+	<script type="text/javascript" src="@routes.Assets.at("js/developercontroller.js")"></script>
+}    
