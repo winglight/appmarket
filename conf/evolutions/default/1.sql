@@ -9,12 +9,12 @@ create table app_model (
   appname                   varchar(255),
   desc                      varchar(255),
   downurl                   varchar(255),
+  author_id                 bigint,
   app_version               varchar(255),
   app_version_code          varchar(255),
   package_name              varchar(255),
   min_sdk_version           varchar(255),
   target_sdk_version        varchar(255),
-  max_sdk_version           varchar(255),
   icon_url                  varchar(255),
   downloads                 bigint,
   created_at                timestamp,
@@ -49,6 +49,8 @@ create sequence app_model_seq;
 
 create sequence user_model_seq;
 
+alter table app_model add constraint fk_app_model_author_1 foreign key (author_id) references user_model (id) on delete restrict on update restrict;
+create index ix_app_model_author_1 on app_model (author_id);
 
 
 

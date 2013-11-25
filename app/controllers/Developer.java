@@ -1,6 +1,7 @@
 package controllers;
 
 import play.Play;
+import play.libs.Json;
 import play.mvc.*;
 import play.mvc.Http.Context;
 import play.mvc.Http.MultipartFormData;
@@ -18,9 +19,11 @@ import java.util.*;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 
-import apk.AndroidApk;
+import apkReader.ApkInfo;
+import apkReader.ApkReader;
 
 import models.*;
+import models.dto.MessageModel;
 
 import util.Constants;
 import util.Utils;
@@ -42,6 +45,13 @@ public class Developer extends Controller {
             developer.render(user)
         );
     }
+    
+    public static Result getApps() {
+		MessageModel<List<AppModel>> mm = new MessageModel<List<AppModel>>();
+		mm.setFlag(true);
+		mm.setData(AppModel.findAppsByAuthor(Secured.getCurrentUser()));
+		return ok(Json.toJson(mm));
+	}
     
 public static Result downloadApk(String fileName) {
 		
@@ -95,8 +105,14 @@ public static Result showImage(String filename) {
 		    	File tempFile = new File(tmpPath + fileTempName);
 				IOUtils.copy(new FileInputStream(file), new FileOutputStream(tempFile));
 				try {
-		            AndroidApk apk = new AndroidApk(tempFile);
-		            String apkPkg = apk.getPackageName();
+//		            AndroidApk apk = new AndroidApk(tempFile);
+					ApkReader ar = new ApkReader();
+					ApkInfo ai = new ApkInfo();
+					int res = ar.read(tempFile.getAbsolutePath(), ai);
+					
+					//successfully to parse apk
+					if(res == 0){
+		            final String apkPkg = ai.packageName;
 		            
 		            AppModel am = AppModel.findByPkg(apkPkg);
 		          //judge author is the current user
@@ -106,17 +122,16 @@ public static Result showImage(String filename) {
 		            		am = new AppModel();
 		            		flag = true;
 		            	}
-		            	am.appname = apk.getAppname();
-		            	am.appVersion = apk.getAppVersion();
-		            	am.appVersionCode = apk.getAppVersionCode();
+		            	am.appname = ai.label;
+		            	am.appVersion = ai.versionName;
+		            	am.appVersionCode = ai.versionCode;
 		            	am.author = Secured.getCurrentUser();
 		            	am.createdAt = new Date();
-		            	am.maxSdkVersion = apk.getMaxSdkVersion();
-		            	am.minSdkVersion = apk.getMinSdkVersion();
-		            	am.packageName = apk.getPackageName();
+		            	am.targetSdkVersion = ai.targetSdkVersion;
+		            	am.minSdkVersion = ai.minSdkVersion;
+		            	am.packageName = apkPkg;
 		            	am.downurl = am.packageName + "-" + am.appVersionCode + ".apk";
-		            	am.iconUrl = saveIcon(apk, path);
-		            	am.targetSdkVersion = apk.getTargetSdkVersion();
+		            	am.iconUrl = saveIcon(am.packageName + "-" + am.appVersionCode + ".png", ai.iconFileName, path);
 		            	
 		            	if(flag){
 		            		am.save();
@@ -129,8 +144,9 @@ public static Result showImage(String filename) {
 		            	
 		            }
 		            
-		            System.out.println("  .appVersion     = " + apk.getAppVersion());
-		            System.out.println("  .appVersionCode = " + apk.getAppVersionCode());
+//		            System.out.println("  .appVersion     = " + apk.getAppVersion());
+//		            System.out.println("  .appVersionCode = " + apk.getAppVersionCode());
+					}
 		        } catch(Throwable t) {
 		            t.printStackTrace(System.err);
 		        }
@@ -150,19 +166,26 @@ public static Result showImage(String filename) {
 		  }
 	}
 	
-	private static String saveIcon(AndroidApk apk, String path){
-		byte[] iconBytes = apk.getIconBytes();
-    	String iconUrl = apk.getPackageName() + "-" + apk.getAppVersionCode() + ".png";
-
+	private static String saveIcon(String fileName, List<String> paths, String desPath){
+		if(paths != null && paths.size() > 0){
+			String path = paths.get(0);
+			for(String tmp : paths){
+				if(tmp.contains("hdpi")){
+					path = tmp;
+					break;
+				}
+			}
     	try {
-			IOUtils.write(iconBytes, new FileOutputStream(new File(path + iconUrl)));
-			return iconUrl;
+    		desPath += fileName;
+    		FileUtils.copyFile(new File(path), new File(desPath));
+			return fileName;
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
 		}
     	
     	return null;

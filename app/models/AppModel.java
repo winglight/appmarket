@@ -13,6 +13,7 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 import play.data.format.Formats;
 import play.data.validation.Constraints;
@@ -48,6 +49,7 @@ public class AppModel extends Model implements Serializable{
     
     public String downurl;
     
+    @OneToOne
     public UserModel author;
     
     public String appVersion;
@@ -59,8 +61,6 @@ public class AppModel extends Model implements Serializable{
     public String minSdkVersion;
     
     public String targetSdkVersion;
-    
-    public String maxSdkVersion;
     
     public String iconUrl;
     
@@ -84,6 +84,17 @@ public class AppModel extends Model implements Serializable{
         return find.all();
     }
     
+    public static List<AppModel> findAppsByAuthor(UserModel author) {
+        return find.where()
+                .eq("author", author).findList();
+    }
+    
+    public static List<AppModel> findAppsByHots(int page) {
+        return find.where().orderBy("downloads desc, createdAt desc")
+				.findPagingList(Constants.AMOUNT_PER_PAGE).getPage(page - 1)
+				.getList();
+    }
+    
     public static AppModel findByPkg(String pkgName) {
         return find.where()
                 .eq("packageName", pkgName)
@@ -92,7 +103,7 @@ public class AppModel extends Model implements Serializable{
 
 	@Override
 	public String toString() {
-		return "User [name:" + appname
+		return "APP [name:" + appname
 				+ "]";
 	}
 
