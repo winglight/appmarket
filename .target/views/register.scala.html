@@ -1,0 +1,87 @@
+@(form: Form[Application.Register])
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Register - Ultimate Black APP Market</title>
+<link rel="stylesheet" href=@routes.Assets.at("css/style.default.css") type="text/css" />
+</head>
+
+<body class="loginpage">
+
+	<div class="loginbox">
+    	<div class="loginboxinner">
+        	
+            <div class="logo">
+            	<h1><span>Ultimate Black APP Market</span></h1>
+            </div><!--logo-->
+            
+            <br clear="all" /><br />
+            
+			@helper.form(routes.Application.register(), 'id -> "login") {
+					 
+					 @if(form.hasGlobalErrors) { 
+                <p class="error">
+                <div class="loginmsg">
+                    @form.globalError.message
+                    </div>
+                </p>
+            }
+                <div class="username">
+                	<div class="usernameinner">
+                    	<input type="text" name="username" id="username" value="@form("username").value"  placeholder="User Name"/>
+                    </div>
+                </div>
+                
+                <div class="email">
+                	<div class="emailinner">
+                    	<input type="text" name="email" id="email" value="@form("email").value" placeholder="Email"/>
+                    </div>
+                </div>
+                
+                <div class="password">
+                	<div class="passwordinner">
+                    	<input type="password" name="password" id="password"  placeholder="Password"/>
+                    </div>
+                </div>
+                
+                <div class="password">
+                	<div class="passwordinner">
+                    	<input type="password" name="twicePassword" id="twicePassword" placeholder="Password Twice" />
+                    </div>
+                </div>
+                
+                <button >Sign Up</button>
+                <div align="right">
+                <p>
+                <a href="@routes.Application.login()"><H2>LOG IN
+                </H2></a></p>
+                </div>
+                
+                <div class="keep"><input type="checkbox" /> Keep me logged in</div>
+            
+            }
+            
+        </div><!--loginboxinner-->
+    </div><!--loginbox-->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script type="text/javascript" src=@routes.Assets.at("js/plugins/jquery-ui-1.8.16.custom.min.js")></script>
+<script type="text/javascript" src=@routes.Assets.at("js/vendor/jquery.ui.widget.js")></script>
+<script type="text/javascript" src=@routes.Assets.at("js/plugins/jquery.cookie.js")></script>
+<script type="text/javascript" src="@routes.Assets.at("js/custom/general.js")"></script>
+<!--[if IE 9]>
+    <link rel="stylesheet" media="screen" href=@routes.Assets.at("css/style.ie9.css")/>
+<![endif]-->
+<!--[if IE 8]>
+    <link rel="stylesheet" media="screen" href=@routes.Assets.at("css/style.ie8.css")/>
+<![endif]-->
+<!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+</body>
+
+</html>

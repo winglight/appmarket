@@ -1,0 +1,88 @@
+@(user: UserModel)
+
+@main(user, "Upload") {
+
+    <div class="centercontent" ng-app>
+          <div class="contenttitle2">
+                	<h3>Upload Your APP</h3>
+                </div><!--contenttitle-->
+                						<p>
+				                        <span class="btn btn-success fileinput-button">
+									        <i class="glyphicon glyphicon-plus"></i>
+									        <span>选择文件...</span>
+									        <!-- The file input field used as target for the file upload widget -->
+									        <input id="file_upload" name="files[]" type="file" multiple="false" data-url='@routes.Developer.uploadAPK()'>
+									    </span>
+									    <br>
+									    <!-- The global progress bar -->
+									    <div id="progress" class="progress">
+									        <div class="progress-bar progress-bar-success"></div>
+									    </div>
+				                        </p>
+                <table cellpadding="0" cellspacing="0" border="0" class="stdtable" id="dyntable2" ng-controller="AppsController">
+                    <colgroup>
+                        <col class="con0" style="width: 4%" />
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                        <col class="con0" />
+                        <col class="con1" />
+                    </colgroup>
+                    <thead>
+                        <tr>
+                          <th class="head0 nosort"><input type="checkbox" /></th>
+                            <th class="head0">APP Name</th>
+                            <th class="head1">Version</th>
+                            <th class="head0">Version Code</th>
+                            <th class="head1">Package Name</th>
+                            <th class="head0">Icon</th>
+                            <th class="head1">Downloads</th>
+                            <th class="head0">Upload Time</th>
+                            <th class="head1" style="width:10%">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="gradeX" ng-repeat="app in apps">
+                          <td align="center"><span class="center">
+                            <input type="checkbox" value="{{app.id}}"/>
+                          </span></td>
+                            <td>{{app.appname}}</td>
+                            <td>{{app.appVersion}}</td>
+                            <td>{{app.appVersionCode}}</td>
+                            <td>{{app.packageName}}</td>
+                            <td><img ng-src='@routes.Developer.showImage("{{app.iconUrl}}")' style="width:100px;height:100px"/></td>
+                            <td>
+                            <a ng-href='@routes.Developer.downloadApk("{{app.downurl}}")'>DOWNLOAD</a>
+                            </td>
+                            <td>{{app.createdAt}}</td>
+                            <td class="center">
+                            <ul class="buttonlist">
+		                        <li class="deleteCourse"><button  ng-click='deleteApp("{{app.id}}")' class="stdbtn btn_red">Delete</button></li>
+		                   </ul>
+                            </td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+	</div><!-- centercontent -->    
+	<script type="text/javascript" src="@routes.Assets.at("js/developercontroller.js")"></script>
+	<link rel="stylesheet" href=@routes.Assets.at("css/jquery.fileupload.css")>
+<link rel="stylesheet" href=@routes.Assets.at("css/jquery.fileupload-ui.css")>
+<script type="text/javascript" src=@routes.Assets.at("js/jquery.fileupload.js")></script>
+	<script>
+//load upload image file
+	jQuery('#file_upload').fileupload({
+        url: '@routes.Developer.uploadAPK()',
+        dataType: 'json',
+        done: function (e, data) {
+        	alert(e);
+        	alert(data);
+        	if(data.index("error:") > 0){
+        	alert(data);
+        	}else{
+			alert("Successfully upload apk!");
+			}
+        }
+    }).prop('disabled', !jQuery.support.fileInput)
+        .parent().addClass(jQuery.support.fileInput ? undefined : 'disabled');
+        </script>
