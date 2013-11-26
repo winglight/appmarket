@@ -91,7 +91,6 @@ public static Result showImage(String filename) {
 		  if (apkfile != null) {
 			  String tmpPath = Play.application().path().getPath() + "/tmp/";
 			  String path = Play.application().path().getPath() + "/upload/";
-		    String fileName = apkfile.getFilename();
 		    String fileTempName = String.valueOf(System.currentTimeMillis());
 		    
 		    String contentType = apkfile.getContentType(); 
@@ -104,9 +103,11 @@ public static Result showImage(String filename) {
 		    try {
 		    	File tempFile = new File(tmpPath + fileTempName);
 				IOUtils.copy(new FileInputStream(file), new FileOutputStream(tempFile));
+				
+				ApkReader ar = null;
 				try {
 //		            AndroidApk apk = new AndroidApk(tempFile);
-					ApkReader ar = new ApkReader();
+					ar = new ApkReader();
 					ApkInfo ai = new ApkInfo();
 					int res = ar.read(tempFile.getAbsolutePath(), ai);
 					
@@ -130,15 +131,19 @@ public static Result showImage(String filename) {
 		            	am.targetSdkVersion = ai.targetSdkVersion;
 		            	am.minSdkVersion = ai.minSdkVersion;
 		            	am.packageName = apkPkg;
-		            	am.downurl = am.packageName + "-" + am.appVersionCode + ".apk";
+		            	
+		            	String apkName = am.packageName + "-" + am.appVersionCode + ".apk";
+		            	am.downurl = routes.Developer.downloadApk(apkName).absoluteURL(request());
 		            	am.iconUrl = saveIcon(am.packageName + "-" + am.appVersionCode + ".png", ai.iconFileName, path);
+		            	am.iconUrl = routes.Developer.showImage(am.iconUrl).absoluteURL(request()); 
 		            	
 		            	if(flag){
 		            		am.save();
 		            	}else{
 		            		am.update();
 		            	}
-		            	FileUtils.moveFile(tempFile, new File(path + am.downurl));
+		            	FileUtils.copyFile(tempFile, new File(path + apkName));
+		            	FileUtils.forceDelete(tempFile);
 		            }else{
 		            	//TODO:return no permission to update other's app
 		            	
@@ -149,6 +154,10 @@ public static Result showImage(String filename) {
 					}
 		        } catch(Throwable t) {
 		            t.printStackTrace(System.err);
+		        }finally{
+		        	if(ar != null){
+		        		ar.cleanup();
+		        	}
 		        }
 				
 				return redirect(routes.Developer.index());

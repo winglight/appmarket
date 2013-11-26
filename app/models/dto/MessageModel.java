@@ -5,6 +5,7 @@ public class MessageModel<T> {
 	private boolean flag; // true - successful ; false - failed
 	private int errorCode;
 	private String message;
+	private PageInfo page;
 	private T data;
 	
 	public boolean isFlag() {
@@ -33,6 +34,12 @@ public class MessageModel<T> {
 	}
 	public void setErrorCode(int errorCode) {
 		this.errorCode = errorCode;
+	}
+	public PageInfo getPage() {
+		return page;
+	}
+	public void setPage(PageInfo page) {
+		this.page = page;
 	}
 	
 	

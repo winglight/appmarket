@@ -1,4 +1,4 @@
-jQuery(document).ready(function(){
+function refreshProduct(){
 	
 	///// PRODUCT DISPLAY INFO WHEN HOVERING THUMBNAILS /////
 	jQuery('.prodlist li').hover(function(){
@@ -46,4 +46,4 @@ jQuery(document).ready(function(){
 	jQuery(window).resize(function(){
 		rearrangelist();
 	});
-});
+};

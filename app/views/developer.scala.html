@@ -9,7 +9,7 @@
                 						<p>
 				                        <span class="btn btn-success fileinput-button">
 									        <i class="glyphicon glyphicon-plus"></i>
-									        <span>选择文件...</span>
+									        <span>Please click to select APK file...</span>
 									        <!-- The file input field used as target for the file upload widget -->
 									        <input id="file_upload" name="files[]" type="file" multiple="false" data-url='@routes.Developer.uploadAPK()'>
 									    </span>
@@ -50,9 +50,9 @@
                             <td>{{app.appVersion}}</td>
                             <td>{{app.appVersionCode}}</td>
                             <td>{{app.packageName}}</td>
-                            <td><img ng-src='@routes.Developer.showImage("{{app.iconUrl}}")' style="width:100px;height:100px"/></td>
+                            <td><img ng-src='{{app.iconUrl}}' style="width:100px;height:100px"/></td>
                             <td>
-                            <a ng-href='@routes.Developer.downloadApk("{{app.downurl}}")'>DOWNLOAD</a>
+                            <a ng-href='{{app.downurl}}'>DOWNLOAD</a>
                             </td>
                             <td>{{app.createdAt}}</td>
                             <td class="center">
@@ -64,7 +64,7 @@
                     }
                     </tbody>
                 </table>
-	</div><!-- centercontent -->    
+	</div><!-- centercontent -->   
 	<script type="text/javascript" src="@routes.Assets.at("js/developercontroller.js")"></script>
 	<link rel="stylesheet" href=@routes.Assets.at("css/jquery.fileupload.css")>
 <link rel="stylesheet" href=@routes.Assets.at("css/jquery.fileupload-ui.css")>

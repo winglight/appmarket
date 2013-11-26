@@ -17,6 +17,8 @@ create table app_model (
   target_sdk_version        varchar(255),
   icon_url                  varchar(255),
   downloads                 bigint,
+  top_position              bigint,
+  delete_flag               boolean,
   created_at                timestamp,
   constraint pk_app_model primary key (id))
 ;

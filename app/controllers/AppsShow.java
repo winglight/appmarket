@@ -24,6 +24,7 @@ import apkReader.ApkReader;
 
 import models.*;
 import models.dto.MessageModel;
+import models.dto.PageInfo;
 
 import util.Constants;
 import util.Utils;
@@ -32,9 +33,16 @@ import views.html.*;
 public class AppsShow extends Controller {
   
     public static Result getHotapps(Long page) {
+    	List<AppModel> list = AppModel.findAppsByHots(page.intValue());
+    	PageInfo pageInfo = AppModel.getHotAppsPageInfo(page.intValue());
+    	if(list.size() < Constants.AMOUNT_PER_PAGE){
+    		pageInfo.setEnd(list.size());
+    	}
+    	
 		MessageModel<List<AppModel>> mm = new MessageModel<List<AppModel>>();
 		mm.setFlag(true);
-		mm.setData(AppModel.findAppsByHots(page.intValue()));
+		mm.setPage(pageInfo);
+		mm.setData(list);
 		return ok(Json.toJson(mm));
 	}
     

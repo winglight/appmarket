@@ -5,7 +5,10 @@ function HotController($scope, $http) {
 
   $http.get('/apps/hots/' + $scope.page.currentPage).success(function(data, status, headers, config) {
     if(data.flag){
-      $scope.apps = data.data;
+      $scope.page = data.page;
+      $scope.hotapps = data.data;
+      
+      $scope.$evalAsync(refreshProduct());
     }else{
       alert("Couldn't get any app: " + data.errorMessage);
     }
@@ -24,5 +27,6 @@ function HotController($scope, $http) {
   $scope.gotoPage = function() {
     ;
   };
-
+  
 }
+

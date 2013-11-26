@@ -548,25 +548,26 @@ public class ApkReader {
                         return errCode;
 
                 try {
+                	if (info == null){
+                        info = new ApkInfo();
+                	}
                         apkJar = new JarFile(apkPath);
                         if ((errCode = parseJar(apkJar)) != ApkInfo.FINE)
                                 return errCode;
                         info.entryList = entryList;
                         // Extract all file needed
-                        if (info == null)
-                                info = new ApkInfo();
                         errCode = extractFiles(apkPath, info);
                         apkJar.close();
                 } catch (IOException e) {
                         // e.printStackTrace();
                 } finally {
-                        cleanup();
+//                        cleanup();
                 }
                 // System.out.println(info);
                 return errCode;
         }
 
-        private void cleanup() {
+        public void cleanup() {
                 for (String tmpFile : tmpFiles) {
                         if (!(new File(tmpFile)).delete()) {
                                 (new File(tmpFile)).deleteOnExit();

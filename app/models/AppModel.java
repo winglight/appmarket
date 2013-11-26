@@ -20,6 +20,7 @@ import play.data.validation.Constraints;
 import play.db.ebean.Model;
 import util.Constants;
 
+import models.dto.PageInfo;
 import models.status.UserRole;
 import models.status.UserStatus;
 
@@ -66,6 +67,10 @@ public class AppModel extends Model implements Serializable{
     
     public Long downloads;
     
+    public Long topPosition;//Top ten position: 1 - 10
+    
+    public boolean deleteFlag;
+    
 	@Formats.DateTime(pattern="yyyy-MM-dd")
 	public Date createdAt; 
     
@@ -86,13 +91,25 @@ public class AppModel extends Model implements Serializable{
     
     public static List<AppModel> findAppsByAuthor(UserModel author) {
         return find.where()
+        		.eq("deleteFlag", false)
                 .eq("author", author).findList();
     }
     
     public static List<AppModel> findAppsByHots(int page) {
-        return find.where().orderBy("downloads desc, createdAt desc")
+        return find.where()
+        		.eq("deleteFlag", false)
+//        		.orderBy("downloads desc, createdAt desc")
 				.findPagingList(Constants.AMOUNT_PER_PAGE).getPage(page - 1)
 				.getList();
+    }
+    
+    public static PageInfo getHotAppsPageInfo(int page) {
+        int total = find.where()
+        		.eq("deleteFlag", false).findRowCount();
+        int start = (page - 1)*Constants.AMOUNT_PER_PAGE + 1;
+        int end = start + Constants.AMOUNT_PER_PAGE;
+        
+        return new PageInfo(page, start, end, total);
     }
     
     public static AppModel findByPkg(String pkgName) {

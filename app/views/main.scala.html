@@ -96,9 +96,24 @@
 <script type="text/javascript" src=@routes.Assets.at("js/plugins/jquery-ui-1.8.16.custom.min.js")></script>
 <script type="text/javascript" src=@routes.Assets.at("js/vendor/jquery.ui.widget.js")></script>
 <script type="text/javascript" src=@routes.Assets.at("js/plugins/jquery.cookie.js")></script>
-<script type="text/javascript" src="@routes.Assets.at("js/custom/general.js")"></script>
-<script type="text/javascript" src="@routes.Assets.at("js/custom/productlist.js")"></script>
+<script type="text/javascript" src=@routes.Assets.at("js/custom/general.js")></script>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js")"></script>
+
+<script>
+var appModule = angular.module('appsList', []);
+
+      appModule.directive('prodHover', function() {
+        return {
+          link: function(scope, element, attrs, controller) {
+            jQuery(element).hover(function(){
+				jQuery(this).find('.contentinner').stop().animate({marginTop: 0});
+				},function(){
+					jQuery(this).find('.contentinner').stop().animate({marginTop: '132px'});
+				});
+          }
+        };
+      });
+</script>
   
 <!--[if IE 9]>
     <link rel="stylesheet" media="screen" href="@routes.Assets.at("css/style.ie9.css")"/>

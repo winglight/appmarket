@@ -1,433 +1,13 @@
-2013-11-25 17:09:39,760 - [INFO] - from play in pool-4-thread-2 
+2013-11-26 08:44:42,098 - [INFO] - from play in pool-4-thread-3 
 Listening for HTTP on /0.0.0.0:9000
 
-2013-11-25 17:09:44,775 - [INFO] - from play in play-internal-execution-context-1 
+2013-11-26 08:44:46,931 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:h2:file:play
 
-2013-11-25 17:09:45,282 - [ERROR] - from application in New I/O worker #1 
-
-
-! @6gcg4hp32 - Internal server error, for (GET) [/developer/index] ->
-
-play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evolution![An SQL script need to be run on your database.]
-	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1$$anonfun$apply$1.apply$mcV$sp(Evolutions.scala:486) ~[play-jdbc_2.10.jar:2.2.1]
-	at play.api.db.evolutions.EvolutionsPlugin.withLock(Evolutions.scala:507) ~[play-jdbc_2.10.jar:2.2.1]
-	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:461) ~[play-jdbc_2.10.jar:2.2.1]
-	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:459) ~[play-jdbc_2.10.jar:2.2.1]
-	at scala.collection.immutable.List.foreach(List.scala:318) ~[scala-library.jar:na]
-	at play.api.db.evolutions.EvolutionsPlugin.onStart(Evolutions.scala:459) ~[play-jdbc_2.10.jar:2.2.1]
-	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:88) ~[play_2.10.jar:2.2.1]
-	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:88) ~[play_2.10.jar:2.2.1]
-	at scala.collection.immutable.List.foreach(List.scala:318) ~[scala-library.jar:na]
-	at play.api.Play$$anonfun$start$1.apply$mcV$sp(Play.scala:88) ~[play_2.10.jar:2.2.1]
-	at play.api.Play$$anonfun$start$1.apply(Play.scala:88) ~[play_2.10.jar:2.2.1]
-	at play.api.Play$$anonfun$start$1.apply(Play.scala:88) ~[play_2.10.jar:2.2.1]
-	at play.utils.Threads$.withContextClassLoader(Threads.scala:18) ~[play_2.10.jar:2.2.1]
-	at play.api.Play$.start(Play.scala:87) ~[play_2.10.jar:2.2.1]
-	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:139) ~[play_2.10.jar:2.2.1]
-	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:112) ~[play_2.10.jar:2.2.1]
-	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
-	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:112) ~[play_2.10.jar:2.2.1]
-	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:110) ~[play_2.10.jar:2.2.1]
-	at scala.util.Success.flatMap(Try.scala:200) ~[scala-library.jar:na]
-	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:110) ~[play_2.10.jar:2.2.1]
-	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.1]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
-
-2013-11-25 17:09:48,759 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:h2:file:play
-
-2013-11-25 17:09:48,932 - [INFO] - from play in play-internal-execution-context-1 
+2013-11-26 08:44:47,580 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 
-2013-11-25 17:09:49,690 - [ERROR] - from play in play-internal-execution-context-1 
-Cannot invoke the action, eventually got an error: java.lang.NullPointerException
-
-2013-11-25 17:09:49,703 - [ERROR] - from application in play-internal-execution-context-1 
-
-
-! @6gcg4i5h8 - Internal server error, for (GET) [/developer/apps] ->
-
-play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
-	at play.api.Application$class.handleError(Application.scala:293) ~[play_2.10.jar:2.2.1]
-	at play.api.DefaultApplication.handleError(Application.scala:399) [play_2.10.jar:2.2.1]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.1]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.1]
-	at scala.Option.map(Option.scala:145) [scala-library.jar:na]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.1]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:257) [play_2.10.jar:2.2.1]
-	at scala.runtime.AbstractPartialFunction.apply(AbstractPartialFunction.scala:33) [scala-library.jar:na]
-	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:411) [scala-library.jar:na]
-	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:408) [scala-library.jar:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:29) [scala-library.jar:na]
-	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:43) [play-iteratees_2.10.jar:2.2.1]
-	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:37) [scala-library.jar:na]
-	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:133) [scala-library.jar:na]
-	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library.jar:na]
-	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:58) [scala-library.jar:na]
-	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:254) [scala-library.jar:na]
-	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:249) [scala-library.jar:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:29) [scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) [scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library.jar:na]
-Caused by: java.lang.NullPointerException: null
-	at controllers.Developer.getApps(Developer.java:52) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$8$$anonfun$apply$8.apply(routes_routing.scala:149) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$8$$anonfun$apply$8.apply(routes_routing.scala:149) ~[na:na]
-	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.invocation(Router.scala:183) ~[play_2.10.jar:2.2.1]
-	at play.core.Router$Routes$$anon$1.invocation(Router.scala:377) ~[play_2.10.jar:2.2.1]
-	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:56) ~[play_2.10.jar:2.2.1]
-	at play.mvc.Security$AuthenticatedAction.call(Security.java:45) ~[play_2.10.jar:2.2.1]
-	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:91) ~[play_2.10.jar:2.2.1]
-	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:90) ~[play_2.10.jar:2.2.1]
-	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10.jar:2.2.1]
-	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10.jar:2.2.1]
-	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:278) ~[scala-library.jar:na]
-	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:274) ~[scala-library.jar:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:29) [scala-library.jar:na]
-	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:37) ~[play_2.10.jar:2.2.1]
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:42) ~[akka-actor_2.10.jar:2.2.0]
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) ~[akka-actor_2.10.jar:2.2.0]
-	... 4 common frames omitted
-
-2013-11-25 17:10:08,423 - [ERROR] - from play in play-internal-execution-context-3 
-Cannot invoke the action, eventually got an error: java.lang.NullPointerException
-
-2013-11-25 17:10:08,428 - [ERROR] - from application in play-internal-execution-context-3 
-
-
-! @6gcg4j79d - Internal server error, for (GET) [/developer/apps] ->
-
-play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
-	at play.api.Application$class.handleError(Application.scala:293) ~[play_2.10.jar:2.2.1]
-	at play.api.DefaultApplication.handleError(Application.scala:399) [play_2.10.jar:2.2.1]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.1]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.1]
-	at scala.Option.map(Option.scala:145) [scala-library.jar:na]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.1]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:257) [play_2.10.jar:2.2.1]
-	at scala.runtime.AbstractPartialFunction.apply(AbstractPartialFunction.scala:33) [scala-library.jar:na]
-	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:411) [scala-library.jar:na]
-	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:408) [scala-library.jar:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:29) [scala-library.jar:na]
-	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:43) [play-iteratees_2.10.jar:2.2.1]
-	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:37) [scala-library.jar:na]
-	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:133) [scala-library.jar:na]
-	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library.jar:na]
-	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:58) [scala-library.jar:na]
-	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:254) [scala-library.jar:na]
-	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:249) [scala-library.jar:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:29) [scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) [scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library.jar:na]
-Caused by: java.lang.NullPointerException: null
-	at com.avaje.ebeaninternal.server.deploy.BeanPropertyAssoc.createElPropertyValue(BeanPropertyAssoc.java:126) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.server.deploy.BeanPropertyAssocOne.buildElPropertyValue(BeanPropertyAssocOne.java:164) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.server.deploy.BeanDescriptor.buildElGetValue(BeanDescriptor.java:1709) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.server.deploy.BeanDescriptor.getElPropertyValue(BeanDescriptor.java:1677) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.server.deploy.BeanDescriptor.getElPropertyDeploy(BeanDescriptor.java:1670) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.server.expression.AbstractExpression.containsMany(AbstractExpression.java:45) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.util.DefaultExpressionList.containsMany(DefaultExpressionList.java:108) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.server.querydefn.DefaultOrmQuery.initManyWhereJoins(DefaultOrmQuery.java:325) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.server.core.DefaultServer.createQueryRequest(DefaultServer.java:1091) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.server.core.DefaultServer.createQueryRequest(DefaultServer.java:1057) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.server.core.DefaultServer.findList(DefaultServer.java:1451) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.server.querydefn.DefaultOrmQuery.findList(DefaultOrmQuery.java:885) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.util.DefaultExpressionList.findList(DefaultExpressionList.java:177) ~[avaje-ebeanorm.jar:na]
-	at models.AppModel.findAppsByAuthor(AppModel.java:86) ~[na:na]
-	at controllers.Developer.getApps(Developer.java:52) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$8$$anonfun$apply$8.apply(routes_routing.scala:149) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$8$$anonfun$apply$8.apply(routes_routing.scala:149) ~[na:na]
-	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.invocation(Router.scala:183) ~[play_2.10.jar:2.2.1]
-	at play.core.Router$Routes$$anon$1.invocation(Router.scala:377) ~[play_2.10.jar:2.2.1]
-	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:56) ~[play_2.10.jar:2.2.1]
-	at play.mvc.Security$AuthenticatedAction.call(Security.java:45) ~[play_2.10.jar:2.2.1]
-	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:91) ~[play_2.10.jar:2.2.1]
-	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:90) ~[play_2.10.jar:2.2.1]
-	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10.jar:2.2.1]
-	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10.jar:2.2.1]
-	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:278) ~[scala-library.jar:na]
-	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:274) ~[scala-library.jar:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:29) [scala-library.jar:na]
-	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:37) ~[play_2.10.jar:2.2.1]
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:42) ~[akka-actor_2.10.jar:2.2.0]
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) ~[akka-actor_2.10.jar:2.2.0]
-	... 4 common frames omitted
-
-2013-11-25 17:11:33,176 - [INFO] - from play in play-internal-execution-context-1 
-database [default] connected at jdbc:h2:file:play
-
-2013-11-25 17:11:33,252 - [INFO] - from play in play-internal-execution-context-1 
-Application started (Dev)
-
-2013-11-25 17:11:33,790 - [ERROR] - from play in play-internal-execution-context-7 
-Cannot invoke the action, eventually got an error: java.lang.NullPointerException
-
-2013-11-25 17:11:33,794 - [ERROR] - from application in play-internal-execution-context-7 
-
-
-! @6gcg4o3gm - Internal server error, for (GET) [/developer/apps] ->
-
-play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
-	at play.api.Application$class.handleError(Application.scala:293) ~[play_2.10.jar:2.2.1]
-	at play.api.DefaultApplication.handleError(Application.scala:399) [play_2.10.jar:2.2.1]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.1]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.1]
-	at scala.Option.map(Option.scala:145) [scala-library.jar:na]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.1]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:257) [play_2.10.jar:2.2.1]
-	at scala.runtime.AbstractPartialFunction.apply(AbstractPartialFunction.scala:33) [scala-library.jar:na]
-	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:411) [scala-library.jar:na]
-	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:408) [scala-library.jar:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:29) [scala-library.jar:na]
-	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:43) [play-iteratees_2.10.jar:2.2.1]
-	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:37) [scala-library.jar:na]
-	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:133) [scala-library.jar:na]
-	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library.jar:na]
-	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:58) [scala-library.jar:na]
-	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:254) [scala-library.jar:na]
-	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:249) [scala-library.jar:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:29) [scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) [scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library.jar:na]
-Caused by: java.lang.NullPointerException: null
-	at com.avaje.ebeaninternal.server.deploy.BeanPropertyAssocOne.getAssocOneIdValues(BeanPropertyAssocOne.java:402) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.server.expression.SimpleExpression.addBindValues(SimpleExpression.java:50) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.util.DefaultExpressionList.buildBindValues(DefaultExpressionList.java:277) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.server.query.CQueryPredicates.prepare(CQueryPredicates.java:278) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.server.query.CQueryPredicates.prepare(CQueryPredicates.java:260) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.server.query.CQueryBuilder.buildQuery(CQueryBuilder.java:200) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.server.query.CQueryEngine.findMany(CQueryEngine.java:158) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.server.query.DefaultOrmQueryEngine.findMany(DefaultOrmQueryEngine.java:77) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.server.core.OrmQueryRequest.findList(OrmQueryRequest.java:265) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.server.core.DefaultServer.findList(DefaultServer.java:1460) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.server.querydefn.DefaultOrmQuery.findList(DefaultOrmQuery.java:885) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.util.DefaultExpressionList.findList(DefaultExpressionList.java:177) ~[avaje-ebeanorm.jar:na]
-	at models.AppModel.findAppsByAuthor(AppModel.java:86) ~[na:na]
-	at controllers.Developer.getApps(Developer.java:52) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$8$$anonfun$apply$8.apply(routes_routing.scala:149) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$8$$anonfun$apply$8.apply(routes_routing.scala:149) ~[na:na]
-	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.invocation(Router.scala:183) ~[play_2.10.jar:2.2.1]
-	at play.core.Router$Routes$$anon$1.invocation(Router.scala:377) ~[play_2.10.jar:2.2.1]
-	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:56) ~[play_2.10.jar:2.2.1]
-	at play.mvc.Security$AuthenticatedAction.call(Security.java:45) ~[play_2.10.jar:2.2.1]
-	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:91) ~[play_2.10.jar:2.2.1]
-	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:90) ~[play_2.10.jar:2.2.1]
-	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10.jar:2.2.1]
-	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10.jar:2.2.1]
-	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:278) ~[scala-library.jar:na]
-	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:274) ~[scala-library.jar:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:29) [scala-library.jar:na]
-	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:37) ~[play_2.10.jar:2.2.1]
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:42) ~[akka-actor_2.10.jar:2.2.0]
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) ~[akka-actor_2.10.jar:2.2.0]
-	... 4 common frames omitted
-
-2013-11-25 17:17:41,498 - [ERROR] - from play in play-internal-execution-context-6 
-Cannot invoke the action, eventually got an error: java.lang.NullPointerException
-
-2013-11-25 17:17:41,503 - [ERROR] - from application in play-internal-execution-context-6 
-
-
-! @6gcg5j1fc - Internal server error, for (GET) [/developer/apps] ->
-
-play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
-	at play.api.Application$class.handleError(Application.scala:293) ~[play_2.10.jar:2.2.1]
-	at play.api.DefaultApplication.handleError(Application.scala:399) [play_2.10.jar:2.2.1]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.1]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.1]
-	at scala.Option.map(Option.scala:145) [scala-library.jar:na]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.1]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:257) [play_2.10.jar:2.2.1]
-	at scala.runtime.AbstractPartialFunction.apply(AbstractPartialFunction.scala:33) [scala-library.jar:na]
-	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:411) [scala-library.jar:na]
-	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:408) [scala-library.jar:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:29) [scala-library.jar:na]
-	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:43) [play-iteratees_2.10.jar:2.2.1]
-	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:37) [scala-library.jar:na]
-	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:133) [scala-library.jar:na]
-	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library.jar:na]
-	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:58) [scala-library.jar:na]
-	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:254) [scala-library.jar:na]
-	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:249) [scala-library.jar:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:29) [scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) [scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library.jar:na]
-Caused by: java.lang.NullPointerException: null
-	at com.avaje.ebeaninternal.server.deploy.BeanPropertyAssocOne.getAssocOneIdValues(BeanPropertyAssocOne.java:402) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.server.expression.SimpleExpression.addBindValues(SimpleExpression.java:50) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.util.DefaultExpressionList.buildBindValues(DefaultExpressionList.java:277) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.server.query.CQueryPredicates.prepare(CQueryPredicates.java:278) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.server.query.CQueryPredicates.prepare(CQueryPredicates.java:260) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.server.query.CQueryBuilder.buildQuery(CQueryBuilder.java:200) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.server.query.CQueryEngine.findMany(CQueryEngine.java:158) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.server.query.DefaultOrmQueryEngine.findMany(DefaultOrmQueryEngine.java:77) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.server.core.OrmQueryRequest.findList(OrmQueryRequest.java:265) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.server.core.DefaultServer.findList(DefaultServer.java:1460) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.server.querydefn.DefaultOrmQuery.findList(DefaultOrmQuery.java:885) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.util.DefaultExpressionList.findList(DefaultExpressionList.java:177) ~[avaje-ebeanorm.jar:na]
-	at models.AppModel.findAppsByAuthor(AppModel.java:86) ~[na:na]
-	at controllers.Developer.getApps(Developer.java:52) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$8$$anonfun$apply$8.apply(routes_routing.scala:149) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$8$$anonfun$apply$8.apply(routes_routing.scala:149) ~[na:na]
-	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.invocation(Router.scala:183) ~[play_2.10.jar:2.2.1]
-	at play.core.Router$Routes$$anon$1.invocation(Router.scala:377) ~[play_2.10.jar:2.2.1]
-	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:56) ~[play_2.10.jar:2.2.1]
-	at play.mvc.Security$AuthenticatedAction.call(Security.java:45) ~[play_2.10.jar:2.2.1]
-	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:91) ~[play_2.10.jar:2.2.1]
-	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:90) ~[play_2.10.jar:2.2.1]
-	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10.jar:2.2.1]
-	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10.jar:2.2.1]
-	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:278) ~[scala-library.jar:na]
-	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:274) ~[scala-library.jar:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:29) [scala-library.jar:na]
-	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:37) ~[play_2.10.jar:2.2.1]
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:42) ~[akka-actor_2.10.jar:2.2.0]
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) ~[akka-actor_2.10.jar:2.2.0]
-	... 4 common frames omitted
-
-2013-11-25 17:24:24,138 - [ERROR] - from play in play-internal-execution-context-8 
-Cannot invoke the action, eventually got an error: java.lang.NullPointerException
-
-2013-11-25 17:24:24,142 - [ERROR] - from application in play-internal-execution-context-8 
-
-
-! @6gcg6fp5g - Internal server error, for (GET) [/developer/apps] ->
-
-play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
-	at play.api.Application$class.handleError(Application.scala:293) ~[play_2.10.jar:2.2.1]
-	at play.api.DefaultApplication.handleError(Application.scala:399) [play_2.10.jar:2.2.1]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.1]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.1]
-	at scala.Option.map(Option.scala:145) [scala-library.jar:na]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.1]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:257) [play_2.10.jar:2.2.1]
-	at scala.runtime.AbstractPartialFunction.apply(AbstractPartialFunction.scala:33) [scala-library.jar:na]
-	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:411) [scala-library.jar:na]
-	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:408) [scala-library.jar:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:29) [scala-library.jar:na]
-	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:43) [play-iteratees_2.10.jar:2.2.1]
-	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:37) [scala-library.jar:na]
-	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:133) [scala-library.jar:na]
-	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library.jar:na]
-	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:58) [scala-library.jar:na]
-	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:254) [scala-library.jar:na]
-	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:249) [scala-library.jar:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:29) [scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) [scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library.jar:na]
-Caused by: java.lang.NullPointerException: null
-	at com.avaje.ebeaninternal.server.deploy.BeanPropertyAssocOne.getAssocOneIdValues(BeanPropertyAssocOne.java:402) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.server.expression.SimpleExpression.addBindValues(SimpleExpression.java:50) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.util.DefaultExpressionList.buildBindValues(DefaultExpressionList.java:277) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.server.query.CQueryPredicates.prepare(CQueryPredicates.java:278) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.server.query.CQueryPredicates.prepare(CQueryPredicates.java:260) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.server.query.CQueryBuilder.buildQuery(CQueryBuilder.java:200) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.server.query.CQueryEngine.findMany(CQueryEngine.java:158) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.server.query.DefaultOrmQueryEngine.findMany(DefaultOrmQueryEngine.java:77) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.server.core.OrmQueryRequest.findList(OrmQueryRequest.java:265) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.server.core.DefaultServer.findList(DefaultServer.java:1460) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.server.querydefn.DefaultOrmQuery.findList(DefaultOrmQuery.java:885) ~[avaje-ebeanorm.jar:na]
-	at com.avaje.ebeaninternal.util.DefaultExpressionList.findList(DefaultExpressionList.java:177) ~[avaje-ebeanorm.jar:na]
-	at models.AppModel.findAppsByAuthor(AppModel.java:86) ~[classes/:2.2.1]
-	at controllers.Developer.getApps(Developer.java:52) ~[classes/:2.2.1]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$8$$anonfun$apply$8.apply(routes_routing.scala:149) ~[classes/:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$8$$anonfun$apply$8.apply(routes_routing.scala:149) ~[classes/:na]
-	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.invocation(Router.scala:183) ~[play_2.10.jar:2.2.1]
-	at play.core.Router$Routes$$anon$1.invocation(Router.scala:377) ~[play_2.10.jar:2.2.1]
-	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:56) ~[play_2.10.jar:2.2.1]
-	at play.mvc.Security$AuthenticatedAction.call(Security.java:45) ~[play_2.10.jar:2.2.1]
-	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:91) ~[play_2.10.jar:2.2.1]
-	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:90) ~[play_2.10.jar:2.2.1]
-	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10.jar:2.2.1]
-	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10.jar:2.2.1]
-	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:278) ~[scala-library.jar:na]
-	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:274) ~[scala-library.jar:na]
-	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:29) [scala-library.jar:na]
-	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:37) ~[play_2.10.jar:2.2.1]
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:42) ~[akka-actor_2.10.jar:2.2.0]
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) ~[akka-actor_2.10.jar:2.2.0]
-	... 4 common frames omitted
-
-2013-11-25 17:24:24,442 - [INFO] - from play in play-internal-execution-context-6 
-database [default] connected at jdbc:h2:file:play
-
-2013-11-25 17:24:24,536 - [ERROR] - from application in New I/O worker #5 
-
-
-! @6gcg6fpkk - Internal server error, for (GET) [/developer/index] ->
-
-play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evolution![An SQL script need to be run on your database.]
-	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1$$anonfun$apply$1.apply$mcV$sp(Evolutions.scala:486) ~[play-jdbc_2.10.jar:2.2.1]
-	at play.api.db.evolutions.EvolutionsPlugin.withLock(Evolutions.scala:507) ~[play-jdbc_2.10.jar:2.2.1]
-	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:461) ~[play-jdbc_2.10.jar:2.2.1]
-	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:459) ~[play-jdbc_2.10.jar:2.2.1]
-	at scala.collection.immutable.List.foreach(List.scala:318) ~[scala-library.jar:na]
-	at play.api.db.evolutions.EvolutionsPlugin.onStart(Evolutions.scala:459) ~[play-jdbc_2.10.jar:2.2.1]
-	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:88) ~[play_2.10.jar:2.2.1]
-	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:88) ~[play_2.10.jar:2.2.1]
-	at scala.collection.immutable.List.foreach(List.scala:318) ~[scala-library.jar:na]
-	at play.api.Play$$anonfun$start$1.apply$mcV$sp(Play.scala:88) ~[play_2.10.jar:2.2.1]
-	at play.api.Play$$anonfun$start$1.apply(Play.scala:88) ~[play_2.10.jar:2.2.1]
-	at play.api.Play$$anonfun$start$1.apply(Play.scala:88) ~[play_2.10.jar:2.2.1]
-	at play.utils.Threads$.withContextClassLoader(Threads.scala:18) ~[play_2.10.jar:2.2.1]
-	at play.api.Play$.start(Play.scala:87) ~[play_2.10.jar:2.2.1]
-	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:139) ~[play_2.10.jar:2.2.1]
-	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:112) ~[play_2.10.jar:2.2.1]
-	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
-	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:112) ~[play_2.10.jar:2.2.1]
-	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:110) ~[play_2.10.jar:2.2.1]
-	at scala.util.Success.flatMap(Try.scala:200) ~[scala-library.jar:na]
-	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:110) ~[play_2.10.jar:2.2.1]
-	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.1]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
-
-2013-11-25 17:24:28,068 - [INFO] - from play in play-internal-execution-context-6 
-database [default] connected at jdbc:h2:file:play
-
-2013-11-25 17:24:28,176 - [INFO] - from play in play-internal-execution-context-6 
-Application started (Dev)
-
-2013-11-25 17:41:40,721 - [INFO] - from play in play-internal-execution-context-18 
-database [default] connected at jdbc:h2:file:play
-
-2013-11-25 17:41:40,789 - [INFO] - from play in play-internal-execution-context-18 
-Application started (Dev)
-
-2013-11-25 17:41:41,507 - [INFO] - from play in play-internal-execution-context-18 
-database [default] connected at jdbc:h2:file:play
-
-2013-11-25 17:41:41,576 - [INFO] - from play in play-internal-execution-context-18 
-Application started (Dev)
-
-2013-11-25 17:43:17,394 - [ERROR] - from play in play-internal-execution-context-22 
+2013-11-26 08:44:48,835 - [ERROR] - from play in play-internal-execution-context-1 
 Cannot invoke the action, eventually got an error: javax.persistence.PersistenceException: java.util.concurrent.ExecutionException: javax.persistence.PersistenceException: Query threw SQLException:Syntax error in SQL statement "SELECT T0.DTYPE C0, T0.ID C1, T0.APPNAME C2, T0.DESC C3, T0.DOWNURL C4, T0.APP_VERSION C5, T0.APP_VERSION_CODE C6, T0.PACKAGE_NAME C7, T0.MIN_SDK_VERSION C8, T0.TARGET_SDK_VERSION C9, T0.ICON_URL C10, T0.DOWNLOADS C11, T0.CREATED_AT C12, T1.DTYPE C13, T0.AUTHOR_ID C14 FROM APP_MODEL T0 LEFT OUTER JOIN USER_MODEL T1 ON T1.ID = T0.AUTHOR_ID AND T1.DTYPE = 'user'  ORDER BY T0.DOWNLOADS T0[*].DESC, T0.CREATED_AT T0.DESC 
 LIMIT 501 "; SQL statement:
 select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.created_at c12, t1.dtype c13, t0.author_id c14 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc, t0.created_at t0.desc 
@@ -439,10 +19,10 @@ limit 501
 
 
 
-2013-11-25 17:43:17,401 - [ERROR] - from application in play-internal-execution-context-22 
+2013-11-26 08:44:48,859 - [ERROR] - from application in play-internal-execution-context-1 
 
 
-! @6gcg92bgc - Internal server error, for (GET) [/apps/hots/1] ->
+! @6gcknc0eo - Internal server error, for (GET) [/apps/hots/1] ->
 
 play.api.Application$$anon$1: Execution exception[[PersistenceException: java.util.concurrent.ExecutionException: javax.persistence.PersistenceException: Query threw SQLException:Syntax error in SQL statement "SELECT T0.DTYPE C0, T0.ID C1, T0.APPNAME C2, T0.DESC C3, T0.DOWNURL C4, T0.APP_VERSION C5, T0.APP_VERSION_CODE C6, T0.PACKAGE_NAME C7, T0.MIN_SDK_VERSION C8, T0.TARGET_SDK_VERSION C9, T0.ICON_URL C10, T0.DOWNLOADS C11, T0.CREATED_AT C12, T1.DTYPE C13, T0.AUTHOR_ID C14 FROM APP_MODEL T0 LEFT OUTER JOIN USER_MODEL T1 ON T1.ID = T0.AUTHOR_ID AND T1.DTYPE = 'user'  ORDER BY T0.DOWNLOADS T0[*].DESC, T0.CREATED_AT T0.DESC 
 LIMIT 501 "; SQL statement:
@@ -565,36 +145,75 @@ limit 501 [42000-172]
 	at com.avaje.ebeaninternal.server.query.CQueryEngine.findMany(CQueryEngine.java:162) ~[avaje-ebeanorm.jar:na]
 	... 10 common frames omitted
 
-2013-11-25 17:44:31,574 - [INFO] - from play in play-internal-execution-context-21 
+2013-11-26 08:47:12,503 - [INFO] - from play in play-internal-execution-context-3 
 database [default] connected at jdbc:h2:file:play
 
-2013-11-25 17:44:31,646 - [INFO] - from play in play-internal-execution-context-21 
+2013-11-26 08:47:12,609 - [ERROR] - from application in New I/O worker #6 
+
+
+! @6gcknk560 - Internal server error, for (GET) [/] ->
+
+play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evolution![An SQL script need to be run on your database.]
+	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1$$anonfun$apply$1.apply$mcV$sp(Evolutions.scala:486) ~[play-jdbc_2.10.jar:2.2.1]
+	at play.api.db.evolutions.EvolutionsPlugin.withLock(Evolutions.scala:507) ~[play-jdbc_2.10.jar:2.2.1]
+	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:461) ~[play-jdbc_2.10.jar:2.2.1]
+	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:459) ~[play-jdbc_2.10.jar:2.2.1]
+	at scala.collection.immutable.List.foreach(List.scala:318) ~[scala-library.jar:na]
+	at play.api.db.evolutions.EvolutionsPlugin.onStart(Evolutions.scala:459) ~[play-jdbc_2.10.jar:2.2.1]
+	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:88) ~[play_2.10.jar:2.2.1]
+	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:88) ~[play_2.10.jar:2.2.1]
+	at scala.collection.immutable.List.foreach(List.scala:318) ~[scala-library.jar:na]
+	at play.api.Play$$anonfun$start$1.apply$mcV$sp(Play.scala:88) ~[play_2.10.jar:2.2.1]
+	at play.api.Play$$anonfun$start$1.apply(Play.scala:88) ~[play_2.10.jar:2.2.1]
+	at play.api.Play$$anonfun$start$1.apply(Play.scala:88) ~[play_2.10.jar:2.2.1]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:18) ~[play_2.10.jar:2.2.1]
+	at play.api.Play$.start(Play.scala:87) ~[play_2.10.jar:2.2.1]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:139) ~[play_2.10.jar:2.2.1]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:112) ~[play_2.10.jar:2.2.1]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:112) ~[play_2.10.jar:2.2.1]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:110) ~[play_2.10.jar:2.2.1]
+	at scala.util.Success.flatMap(Try.scala:200) ~[scala-library.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:110) ~[play_2.10.jar:2.2.1]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.1]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
+
+2013-11-26 08:47:15,579 - [INFO] - from play in play-internal-execution-context-3 
+database [default] connected at jdbc:h2:file:play
+
+2013-11-26 08:47:15,728 - [INFO] - from play in play-internal-execution-context-3 
 Application started (Dev)
 
-2013-11-25 17:44:32,128 - [ERROR] - from play in play-internal-execution-context-23 
-Cannot invoke the action, eventually got an error: javax.persistence.PersistenceException: java.util.concurrent.ExecutionException: javax.persistence.PersistenceException: Query threw SQLException:Syntax error in SQL statement "SELECT T0.DTYPE C0, T0.ID C1, T0.APPNAME C2, T0.DESC C3, T0.DOWNURL C4, T0.APP_VERSION C5, T0.APP_VERSION_CODE C6, T0.PACKAGE_NAME C7, T0.MIN_SDK_VERSION C8, T0.TARGET_SDK_VERSION C9, T0.ICON_URL C10, T0.DOWNLOADS C11, T0.CREATED_AT C12, T1.DTYPE C13, T0.AUTHOR_ID C14 FROM APP_MODEL T0 LEFT OUTER JOIN USER_MODEL T1 ON T1.ID = T0.AUTHOR_ID AND T1.DTYPE = 'user'  ORDER BY T0.CREATED_AT T0[*].DESC 
+2013-11-26 08:47:16,203 - [ERROR] - from play in play-internal-execution-context-4 
+Cannot invoke the action, eventually got an error: javax.persistence.PersistenceException: java.util.concurrent.ExecutionException: javax.persistence.PersistenceException: Query threw SQLException:Syntax error in SQL statement "SELECT T0.DTYPE C0, T0.ID C1, T0.APPNAME C2, T0.DESC C3, T0.DOWNURL C4, T0.APP_VERSION C5, T0.APP_VERSION_CODE C6, T0.PACKAGE_NAME C7, T0.MIN_SDK_VERSION C8, T0.TARGET_SDK_VERSION C9, T0.ICON_URL C10, T0.DOWNLOADS C11, T0.TOP_POSITION C12, T0.DELETE_FLAG C13, T0.CREATED_AT C14, T1.DTYPE C15, T0.AUTHOR_ID C16 FROM APP_MODEL T0 LEFT OUTER JOIN USER_MODEL T1 ON T1.ID = T0.AUTHOR_ID AND T1.DTYPE = 'user'  ORDER BY T0.DOWNLOADS T0[*].DESC, T0.CREATED_AT T0.DESC 
 LIMIT 501 "; SQL statement:
-select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.created_at c12, t1.dtype c13, t0.author_id c14 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.created_at t0.desc 
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc, t0.created_at t0.desc 
 limit 501 [42000-172] 
 Bind values:[null] 
 Query was:
-select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.created_at c12, t1.dtype c13, t0.author_id c14 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.created_at t0.desc 
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc, t0.created_at t0.desc 
 limit 501 
 
 
 
-2013-11-25 17:44:32,136 - [ERROR] - from application in play-internal-execution-context-23 
+2013-11-26 08:47:16,209 - [ERROR] - from application in play-internal-execution-context-4 
 
 
-! @6gcg96i4m - Internal server error, for (GET) [/apps/hots/1] ->
+! @6gcknkaec - Internal server error, for (GET) [/apps/hots/1] ->
 
-play.api.Application$$anon$1: Execution exception[[PersistenceException: java.util.concurrent.ExecutionException: javax.persistence.PersistenceException: Query threw SQLException:Syntax error in SQL statement "SELECT T0.DTYPE C0, T0.ID C1, T0.APPNAME C2, T0.DESC C3, T0.DOWNURL C4, T0.APP_VERSION C5, T0.APP_VERSION_CODE C6, T0.PACKAGE_NAME C7, T0.MIN_SDK_VERSION C8, T0.TARGET_SDK_VERSION C9, T0.ICON_URL C10, T0.DOWNLOADS C11, T0.CREATED_AT C12, T1.DTYPE C13, T0.AUTHOR_ID C14 FROM APP_MODEL T0 LEFT OUTER JOIN USER_MODEL T1 ON T1.ID = T0.AUTHOR_ID AND T1.DTYPE = 'user'  ORDER BY T0.CREATED_AT T0[*].DESC 
+play.api.Application$$anon$1: Execution exception[[PersistenceException: java.util.concurrent.ExecutionException: javax.persistence.PersistenceException: Query threw SQLException:Syntax error in SQL statement "SELECT T0.DTYPE C0, T0.ID C1, T0.APPNAME C2, T0.DESC C3, T0.DOWNURL C4, T0.APP_VERSION C5, T0.APP_VERSION_CODE C6, T0.PACKAGE_NAME C7, T0.MIN_SDK_VERSION C8, T0.TARGET_SDK_VERSION C9, T0.ICON_URL C10, T0.DOWNLOADS C11, T0.TOP_POSITION C12, T0.DELETE_FLAG C13, T0.CREATED_AT C14, T1.DTYPE C15, T0.AUTHOR_ID C16 FROM APP_MODEL T0 LEFT OUTER JOIN USER_MODEL T1 ON T1.ID = T0.AUTHOR_ID AND T1.DTYPE = 'user'  ORDER BY T0.DOWNLOADS T0[*].DESC, T0.CREATED_AT T0.DESC 
 LIMIT 501 "; SQL statement:
-select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.created_at c12, t1.dtype c13, t0.author_id c14 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.created_at t0.desc 
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc, t0.created_at t0.desc 
 limit 501 [42000-172] 
 Bind values:[null] 
 Query was:
-select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.created_at c12, t1.dtype c13, t0.author_id c14 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.created_at t0.desc 
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc, t0.created_at t0.desc 
 limit 501 
 
 ]]
@@ -622,18 +241,18 @@ limit 501
 	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library.jar:na]
-Caused by: javax.persistence.PersistenceException: java.util.concurrent.ExecutionException: javax.persistence.PersistenceException: Query threw SQLException:Syntax error in SQL statement "SELECT T0.DTYPE C0, T0.ID C1, T0.APPNAME C2, T0.DESC C3, T0.DOWNURL C4, T0.APP_VERSION C5, T0.APP_VERSION_CODE C6, T0.PACKAGE_NAME C7, T0.MIN_SDK_VERSION C8, T0.TARGET_SDK_VERSION C9, T0.ICON_URL C10, T0.DOWNLOADS C11, T0.CREATED_AT C12, T1.DTYPE C13, T0.AUTHOR_ID C14 FROM APP_MODEL T0 LEFT OUTER JOIN USER_MODEL T1 ON T1.ID = T0.AUTHOR_ID AND T1.DTYPE = 'user'  ORDER BY T0.CREATED_AT T0[*].DESC 
+Caused by: javax.persistence.PersistenceException: java.util.concurrent.ExecutionException: javax.persistence.PersistenceException: Query threw SQLException:Syntax error in SQL statement "SELECT T0.DTYPE C0, T0.ID C1, T0.APPNAME C2, T0.DESC C3, T0.DOWNURL C4, T0.APP_VERSION C5, T0.APP_VERSION_CODE C6, T0.PACKAGE_NAME C7, T0.MIN_SDK_VERSION C8, T0.TARGET_SDK_VERSION C9, T0.ICON_URL C10, T0.DOWNLOADS C11, T0.TOP_POSITION C12, T0.DELETE_FLAG C13, T0.CREATED_AT C14, T1.DTYPE C15, T0.AUTHOR_ID C16 FROM APP_MODEL T0 LEFT OUTER JOIN USER_MODEL T1 ON T1.ID = T0.AUTHOR_ID AND T1.DTYPE = 'user'  ORDER BY T0.DOWNLOADS T0[*].DESC, T0.CREATED_AT T0.DESC 
 LIMIT 501 "; SQL statement:
-select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.created_at c12, t1.dtype c13, t0.author_id c14 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.created_at t0.desc 
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc, t0.created_at t0.desc 
 limit 501 [42000-172] 
 Bind values:[null] 
 Query was:
-select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.created_at c12, t1.dtype c13, t0.author_id c14 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.created_at t0.desc 
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc, t0.created_at t0.desc 
 limit 501 
 
 
 	at com.avaje.ebeaninternal.server.query.LimitOffsetPage.getList(LimitOffsetPage.java:64) ~[avaje-ebeanorm.jar:na]
-	at models.AppModel.findAppsByHots(AppModel.java:93) ~[na:na]
+	at models.AppModel.findAppsByHots(AppModel.java:98) ~[na:na]
 	at controllers.AppsShow.getHotapps(AppsShow.java:37) ~[na:na]
 	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$13$$anonfun$apply$13.apply(routes_routing.scala:193) ~[na:na]
 	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$13$$anonfun$apply$13.apply(routes_routing.scala:193) ~[na:na]
@@ -651,13 +270,13 @@ limit 501
 	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:42) ~[akka-actor_2.10.jar:2.2.0]
 	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) ~[akka-actor_2.10.jar:2.2.0]
 	... 4 common frames omitted
-Caused by: java.util.concurrent.ExecutionException: javax.persistence.PersistenceException: Query threw SQLException:Syntax error in SQL statement "SELECT T0.DTYPE C0, T0.ID C1, T0.APPNAME C2, T0.DESC C3, T0.DOWNURL C4, T0.APP_VERSION C5, T0.APP_VERSION_CODE C6, T0.PACKAGE_NAME C7, T0.MIN_SDK_VERSION C8, T0.TARGET_SDK_VERSION C9, T0.ICON_URL C10, T0.DOWNLOADS C11, T0.CREATED_AT C12, T1.DTYPE C13, T0.AUTHOR_ID C14 FROM APP_MODEL T0 LEFT OUTER JOIN USER_MODEL T1 ON T1.ID = T0.AUTHOR_ID AND T1.DTYPE = 'user'  ORDER BY T0.CREATED_AT T0[*].DESC 
+Caused by: java.util.concurrent.ExecutionException: javax.persistence.PersistenceException: Query threw SQLException:Syntax error in SQL statement "SELECT T0.DTYPE C0, T0.ID C1, T0.APPNAME C2, T0.DESC C3, T0.DOWNURL C4, T0.APP_VERSION C5, T0.APP_VERSION_CODE C6, T0.PACKAGE_NAME C7, T0.MIN_SDK_VERSION C8, T0.TARGET_SDK_VERSION C9, T0.ICON_URL C10, T0.DOWNLOADS C11, T0.TOP_POSITION C12, T0.DELETE_FLAG C13, T0.CREATED_AT C14, T1.DTYPE C15, T0.AUTHOR_ID C16 FROM APP_MODEL T0 LEFT OUTER JOIN USER_MODEL T1 ON T1.ID = T0.AUTHOR_ID AND T1.DTYPE = 'user'  ORDER BY T0.DOWNLOADS T0[*].DESC, T0.CREATED_AT T0.DESC 
 LIMIT 501 "; SQL statement:
-select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.created_at c12, t1.dtype c13, t0.author_id c14 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.created_at t0.desc 
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc, t0.created_at t0.desc 
 limit 501 [42000-172] 
 Bind values:[null] 
 Query was:
-select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.created_at c12, t1.dtype c13, t0.author_id c14 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.created_at t0.desc 
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc, t0.created_at t0.desc 
 limit 501 
 
 
@@ -666,13 +285,13 @@ limit 501
 	at com.avaje.ebeaninternal.server.query.BaseFuture.get(BaseFuture.java:29) ~[avaje-ebeanorm.jar:na]
 	at com.avaje.ebeaninternal.server.query.LimitOffsetPage.getList(LimitOffsetPage.java:62) ~[avaje-ebeanorm.jar:na]
 	... 21 common frames omitted
-javax.persistence.PersistenceException: Query threw SQLException:Syntax error in SQL statement "SELECT T0.DTYPE C0, T0.ID C1, T0.APPNAME C2, T0.DESC C3, T0.DOWNURL C4, T0.APP_VERSION C5, T0.APP_VERSION_CODE C6, T0.PACKAGE_NAME C7, T0.MIN_SDK_VERSION C8, T0.TARGET_SDK_VERSION C9, T0.ICON_URL C10, T0.DOWNLOADS C11, T0.CREATED_AT C12, T1.DTYPE C13, T0.AUTHOR_ID C14 FROM APP_MODEL T0 LEFT OUTER JOIN USER_MODEL T1 ON T1.ID = T0.AUTHOR_ID AND T1.DTYPE = 'user'  ORDER BY T0.CREATED_AT T0[*].DESC 
+javax.persistence.PersistenceException: Query threw SQLException:Syntax error in SQL statement "SELECT T0.DTYPE C0, T0.ID C1, T0.APPNAME C2, T0.DESC C3, T0.DOWNURL C4, T0.APP_VERSION C5, T0.APP_VERSION_CODE C6, T0.PACKAGE_NAME C7, T0.MIN_SDK_VERSION C8, T0.TARGET_SDK_VERSION C9, T0.ICON_URL C10, T0.DOWNLOADS C11, T0.TOP_POSITION C12, T0.DELETE_FLAG C13, T0.CREATED_AT C14, T1.DTYPE C15, T0.AUTHOR_ID C16 FROM APP_MODEL T0 LEFT OUTER JOIN USER_MODEL T1 ON T1.ID = T0.AUTHOR_ID AND T1.DTYPE = 'user'  ORDER BY T0.DOWNLOADS T0[*].DESC, T0.CREATED_AT T0.DESC 
 LIMIT 501 "; SQL statement:
-select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.created_at c12, t1.dtype c13, t0.author_id c14 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.created_at t0.desc 
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc, t0.created_at t0.desc 
 limit 501 [42000-172] 
 Bind values:[null] 
 Query was:
-select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.created_at c12, t1.dtype c13, t0.author_id c14 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.created_at t0.desc 
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc, t0.created_at t0.desc 
 limit 501 
 
 
@@ -689,9 +308,9 @@ limit 501
 	at com.avaje.ebeaninternal.server.lib.thread.PooledThread.doTheWork(PooledThread.java:156) ~[avaje-ebeanorm.jar:na]
 	at com.avaje.ebeaninternal.server.lib.thread.PooledThread.run(PooledThread.java:123) ~[avaje-ebeanorm.jar:na]
 	at java.lang.Thread.run(Unknown Source) ~[na:1.6.0_43]
-Caused by: org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT T0.DTYPE C0, T0.ID C1, T0.APPNAME C2, T0.DESC C3, T0.DOWNURL C4, T0.APP_VERSION C5, T0.APP_VERSION_CODE C6, T0.PACKAGE_NAME C7, T0.MIN_SDK_VERSION C8, T0.TARGET_SDK_VERSION C9, T0.ICON_URL C10, T0.DOWNLOADS C11, T0.CREATED_AT C12, T1.DTYPE C13, T0.AUTHOR_ID C14 FROM APP_MODEL T0 LEFT OUTER JOIN USER_MODEL T1 ON T1.ID = T0.AUTHOR_ID AND T1.DTYPE = 'user'  ORDER BY T0.CREATED_AT T0[*].DESC 
+Caused by: org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT T0.DTYPE C0, T0.ID C1, T0.APPNAME C2, T0.DESC C3, T0.DOWNURL C4, T0.APP_VERSION C5, T0.APP_VERSION_CODE C6, T0.PACKAGE_NAME C7, T0.MIN_SDK_VERSION C8, T0.TARGET_SDK_VERSION C9, T0.ICON_URL C10, T0.DOWNLOADS C11, T0.TOP_POSITION C12, T0.DELETE_FLAG C13, T0.CREATED_AT C14, T1.DTYPE C15, T0.AUTHOR_ID C16 FROM APP_MODEL T0 LEFT OUTER JOIN USER_MODEL T1 ON T1.ID = T0.AUTHOR_ID AND T1.DTYPE = 'user'  ORDER BY T0.DOWNLOADS T0[*].DESC, T0.CREATED_AT T0.DESC 
 LIMIT 501 "; SQL statement:
-select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.created_at c12, t1.dtype c13, t0.author_id c14 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.created_at t0.desc 
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc, t0.created_at t0.desc 
 limit 501 [42000-172]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329) ~[h2.jar:1.3.172]
 	at org.h2.message.DbException.get(DbException.java:169) ~[h2.jar:1.3.172]
@@ -709,36 +328,30 @@ limit 501 [42000-172]
 	at com.avaje.ebeaninternal.server.query.CQueryEngine.findMany(CQueryEngine.java:162) ~[avaje-ebeanorm.jar:na]
 	... 10 common frames omitted
 
-2013-11-25 17:46:27,489 - [INFO] - from play in play-internal-execution-context-21 
-database [default] connected at jdbc:h2:file:play
-
-2013-11-25 17:46:27,554 - [INFO] - from play in play-internal-execution-context-21 
-Application started (Dev)
-
-2013-11-25 17:46:28,072 - [ERROR] - from play in play-internal-execution-context-27 
-Cannot invoke the action, eventually got an error: javax.persistence.PersistenceException: java.util.concurrent.ExecutionException: javax.persistence.PersistenceException: Query threw SQLException:Syntax error in SQL statement "SELECT T0.DTYPE C0, T0.ID C1, T0.APPNAME C2, T0.DESC C3, T0.DOWNURL C4, T0.APP_VERSION C5, T0.APP_VERSION_CODE C6, T0.PACKAGE_NAME C7, T0.MIN_SDK_VERSION C8, T0.TARGET_SDK_VERSION C9, T0.ICON_URL C10, T0.DOWNLOADS C11, T0.CREATED_AT C12, T1.DTYPE C13, T0.AUTHOR_ID C14 FROM APP_MODEL T0 LEFT OUTER JOIN USER_MODEL T1 ON T1.ID = T0.AUTHOR_ID AND T1.DTYPE = 'user'  ORDER BY T0.DOWNLOADS T0[*].DESC 
+2013-11-26 08:47:31,058 - [ERROR] - from play in play-internal-execution-context-6 
+Cannot invoke the action, eventually got an error: javax.persistence.PersistenceException: java.util.concurrent.ExecutionException: javax.persistence.PersistenceException: Query threw SQLException:Syntax error in SQL statement "SELECT T0.DTYPE C0, T0.ID C1, T0.APPNAME C2, T0.DESC C3, T0.DOWNURL C4, T0.APP_VERSION C5, T0.APP_VERSION_CODE C6, T0.PACKAGE_NAME C7, T0.MIN_SDK_VERSION C8, T0.TARGET_SDK_VERSION C9, T0.ICON_URL C10, T0.DOWNLOADS C11, T0.TOP_POSITION C12, T0.DELETE_FLAG C13, T0.CREATED_AT C14, T1.DTYPE C15, T0.AUTHOR_ID C16 FROM APP_MODEL T0 LEFT OUTER JOIN USER_MODEL T1 ON T1.ID = T0.AUTHOR_ID AND T1.DTYPE = 'user'  ORDER BY T0.DOWNLOADS T0[*].DESC, T0.CREATED_AT T0.DESC 
 LIMIT 501 "; SQL statement:
-select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.created_at c12, t1.dtype c13, t0.author_id c14 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc 
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc, t0.created_at t0.desc 
 limit 501 [42000-172] 
 Bind values:[null] 
 Query was:
-select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.created_at c12, t1.dtype c13, t0.author_id c14 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc 
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc, t0.created_at t0.desc 
 limit 501 
 
 
 
-2013-11-25 17:46:28,078 - [ERROR] - from application in play-internal-execution-context-27 
+2013-11-26 08:47:31,064 - [ERROR] - from application in play-internal-execution-context-6 
 
 
-! @6gcg9d7i4 - Internal server error, for (GET) [/apps/hots/1] ->
+! @6gcknl6dl - Internal server error, for (GET) [/apps/hots/1] ->
 
-play.api.Application$$anon$1: Execution exception[[PersistenceException: java.util.concurrent.ExecutionException: javax.persistence.PersistenceException: Query threw SQLException:Syntax error in SQL statement "SELECT T0.DTYPE C0, T0.ID C1, T0.APPNAME C2, T0.DESC C3, T0.DOWNURL C4, T0.APP_VERSION C5, T0.APP_VERSION_CODE C6, T0.PACKAGE_NAME C7, T0.MIN_SDK_VERSION C8, T0.TARGET_SDK_VERSION C9, T0.ICON_URL C10, T0.DOWNLOADS C11, T0.CREATED_AT C12, T1.DTYPE C13, T0.AUTHOR_ID C14 FROM APP_MODEL T0 LEFT OUTER JOIN USER_MODEL T1 ON T1.ID = T0.AUTHOR_ID AND T1.DTYPE = 'user'  ORDER BY T0.DOWNLOADS T0[*].DESC 
+play.api.Application$$anon$1: Execution exception[[PersistenceException: java.util.concurrent.ExecutionException: javax.persistence.PersistenceException: Query threw SQLException:Syntax error in SQL statement "SELECT T0.DTYPE C0, T0.ID C1, T0.APPNAME C2, T0.DESC C3, T0.DOWNURL C4, T0.APP_VERSION C5, T0.APP_VERSION_CODE C6, T0.PACKAGE_NAME C7, T0.MIN_SDK_VERSION C8, T0.TARGET_SDK_VERSION C9, T0.ICON_URL C10, T0.DOWNLOADS C11, T0.TOP_POSITION C12, T0.DELETE_FLAG C13, T0.CREATED_AT C14, T1.DTYPE C15, T0.AUTHOR_ID C16 FROM APP_MODEL T0 LEFT OUTER JOIN USER_MODEL T1 ON T1.ID = T0.AUTHOR_ID AND T1.DTYPE = 'user'  ORDER BY T0.DOWNLOADS T0[*].DESC, T0.CREATED_AT T0.DESC 
 LIMIT 501 "; SQL statement:
-select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.created_at c12, t1.dtype c13, t0.author_id c14 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc 
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc, t0.created_at t0.desc 
 limit 501 [42000-172] 
 Bind values:[null] 
 Query was:
-select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.created_at c12, t1.dtype c13, t0.author_id c14 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc 
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc, t0.created_at t0.desc 
 limit 501 
 
 ]]
@@ -766,18 +379,18 @@ limit 501
 	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library.jar:na]
-Caused by: javax.persistence.PersistenceException: java.util.concurrent.ExecutionException: javax.persistence.PersistenceException: Query threw SQLException:Syntax error in SQL statement "SELECT T0.DTYPE C0, T0.ID C1, T0.APPNAME C2, T0.DESC C3, T0.DOWNURL C4, T0.APP_VERSION C5, T0.APP_VERSION_CODE C6, T0.PACKAGE_NAME C7, T0.MIN_SDK_VERSION C8, T0.TARGET_SDK_VERSION C9, T0.ICON_URL C10, T0.DOWNLOADS C11, T0.CREATED_AT C12, T1.DTYPE C13, T0.AUTHOR_ID C14 FROM APP_MODEL T0 LEFT OUTER JOIN USER_MODEL T1 ON T1.ID = T0.AUTHOR_ID AND T1.DTYPE = 'user'  ORDER BY T0.DOWNLOADS T0[*].DESC 
+Caused by: javax.persistence.PersistenceException: java.util.concurrent.ExecutionException: javax.persistence.PersistenceException: Query threw SQLException:Syntax error in SQL statement "SELECT T0.DTYPE C0, T0.ID C1, T0.APPNAME C2, T0.DESC C3, T0.DOWNURL C4, T0.APP_VERSION C5, T0.APP_VERSION_CODE C6, T0.PACKAGE_NAME C7, T0.MIN_SDK_VERSION C8, T0.TARGET_SDK_VERSION C9, T0.ICON_URL C10, T0.DOWNLOADS C11, T0.TOP_POSITION C12, T0.DELETE_FLAG C13, T0.CREATED_AT C14, T1.DTYPE C15, T0.AUTHOR_ID C16 FROM APP_MODEL T0 LEFT OUTER JOIN USER_MODEL T1 ON T1.ID = T0.AUTHOR_ID AND T1.DTYPE = 'user'  ORDER BY T0.DOWNLOADS T0[*].DESC, T0.CREATED_AT T0.DESC 
 LIMIT 501 "; SQL statement:
-select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.created_at c12, t1.dtype c13, t0.author_id c14 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc 
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc, t0.created_at t0.desc 
 limit 501 [42000-172] 
 Bind values:[null] 
 Query was:
-select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.created_at c12, t1.dtype c13, t0.author_id c14 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc 
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc, t0.created_at t0.desc 
 limit 501 
 
 
 	at com.avaje.ebeaninternal.server.query.LimitOffsetPage.getList(LimitOffsetPage.java:64) ~[avaje-ebeanorm.jar:na]
-	at models.AppModel.findAppsByHots(AppModel.java:93) ~[na:na]
+	at models.AppModel.findAppsByHots(AppModel.java:98) ~[na:na]
 	at controllers.AppsShow.getHotapps(AppsShow.java:37) ~[na:na]
 	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$13$$anonfun$apply$13.apply(routes_routing.scala:193) ~[na:na]
 	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$13$$anonfun$apply$13.apply(routes_routing.scala:193) ~[na:na]
@@ -795,13 +408,13 @@ limit 501
 	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:42) ~[akka-actor_2.10.jar:2.2.0]
 	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) ~[akka-actor_2.10.jar:2.2.0]
 	... 4 common frames omitted
-Caused by: java.util.concurrent.ExecutionException: javax.persistence.PersistenceException: Query threw SQLException:Syntax error in SQL statement "SELECT T0.DTYPE C0, T0.ID C1, T0.APPNAME C2, T0.DESC C3, T0.DOWNURL C4, T0.APP_VERSION C5, T0.APP_VERSION_CODE C6, T0.PACKAGE_NAME C7, T0.MIN_SDK_VERSION C8, T0.TARGET_SDK_VERSION C9, T0.ICON_URL C10, T0.DOWNLOADS C11, T0.CREATED_AT C12, T1.DTYPE C13, T0.AUTHOR_ID C14 FROM APP_MODEL T0 LEFT OUTER JOIN USER_MODEL T1 ON T1.ID = T0.AUTHOR_ID AND T1.DTYPE = 'user'  ORDER BY T0.DOWNLOADS T0[*].DESC 
+Caused by: java.util.concurrent.ExecutionException: javax.persistence.PersistenceException: Query threw SQLException:Syntax error in SQL statement "SELECT T0.DTYPE C0, T0.ID C1, T0.APPNAME C2, T0.DESC C3, T0.DOWNURL C4, T0.APP_VERSION C5, T0.APP_VERSION_CODE C6, T0.PACKAGE_NAME C7, T0.MIN_SDK_VERSION C8, T0.TARGET_SDK_VERSION C9, T0.ICON_URL C10, T0.DOWNLOADS C11, T0.TOP_POSITION C12, T0.DELETE_FLAG C13, T0.CREATED_AT C14, T1.DTYPE C15, T0.AUTHOR_ID C16 FROM APP_MODEL T0 LEFT OUTER JOIN USER_MODEL T1 ON T1.ID = T0.AUTHOR_ID AND T1.DTYPE = 'user'  ORDER BY T0.DOWNLOADS T0[*].DESC, T0.CREATED_AT T0.DESC 
 LIMIT 501 "; SQL statement:
-select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.created_at c12, t1.dtype c13, t0.author_id c14 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc 
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc, t0.created_at t0.desc 
 limit 501 [42000-172] 
 Bind values:[null] 
 Query was:
-select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.created_at c12, t1.dtype c13, t0.author_id c14 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc 
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc, t0.created_at t0.desc 
 limit 501 
 
 
@@ -810,13 +423,13 @@ limit 501
 	at com.avaje.ebeaninternal.server.query.BaseFuture.get(BaseFuture.java:29) ~[avaje-ebeanorm.jar:na]
 	at com.avaje.ebeaninternal.server.query.LimitOffsetPage.getList(LimitOffsetPage.java:62) ~[avaje-ebeanorm.jar:na]
 	... 21 common frames omitted
-javax.persistence.PersistenceException: Query threw SQLException:Syntax error in SQL statement "SELECT T0.DTYPE C0, T0.ID C1, T0.APPNAME C2, T0.DESC C3, T0.DOWNURL C4, T0.APP_VERSION C5, T0.APP_VERSION_CODE C6, T0.PACKAGE_NAME C7, T0.MIN_SDK_VERSION C8, T0.TARGET_SDK_VERSION C9, T0.ICON_URL C10, T0.DOWNLOADS C11, T0.CREATED_AT C12, T1.DTYPE C13, T0.AUTHOR_ID C14 FROM APP_MODEL T0 LEFT OUTER JOIN USER_MODEL T1 ON T1.ID = T0.AUTHOR_ID AND T1.DTYPE = 'user'  ORDER BY T0.DOWNLOADS T0[*].DESC 
+javax.persistence.PersistenceException: Query threw SQLException:Syntax error in SQL statement "SELECT T0.DTYPE C0, T0.ID C1, T0.APPNAME C2, T0.DESC C3, T0.DOWNURL C4, T0.APP_VERSION C5, T0.APP_VERSION_CODE C6, T0.PACKAGE_NAME C7, T0.MIN_SDK_VERSION C8, T0.TARGET_SDK_VERSION C9, T0.ICON_URL C10, T0.DOWNLOADS C11, T0.TOP_POSITION C12, T0.DELETE_FLAG C13, T0.CREATED_AT C14, T1.DTYPE C15, T0.AUTHOR_ID C16 FROM APP_MODEL T0 LEFT OUTER JOIN USER_MODEL T1 ON T1.ID = T0.AUTHOR_ID AND T1.DTYPE = 'user'  ORDER BY T0.DOWNLOADS T0[*].DESC, T0.CREATED_AT T0.DESC 
 LIMIT 501 "; SQL statement:
-select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.created_at c12, t1.dtype c13, t0.author_id c14 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc 
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc, t0.created_at t0.desc 
 limit 501 [42000-172] 
 Bind values:[null] 
 Query was:
-select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.created_at c12, t1.dtype c13, t0.author_id c14 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc 
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc, t0.created_at t0.desc 
 limit 501 
 
 
@@ -833,9 +446,9 @@ limit 501
 	at com.avaje.ebeaninternal.server.lib.thread.PooledThread.doTheWork(PooledThread.java:156) ~[avaje-ebeanorm.jar:na]
 	at com.avaje.ebeaninternal.server.lib.thread.PooledThread.run(PooledThread.java:123) ~[avaje-ebeanorm.jar:na]
 	at java.lang.Thread.run(Unknown Source) ~[na:1.6.0_43]
-Caused by: org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT T0.DTYPE C0, T0.ID C1, T0.APPNAME C2, T0.DESC C3, T0.DOWNURL C4, T0.APP_VERSION C5, T0.APP_VERSION_CODE C6, T0.PACKAGE_NAME C7, T0.MIN_SDK_VERSION C8, T0.TARGET_SDK_VERSION C9, T0.ICON_URL C10, T0.DOWNLOADS C11, T0.CREATED_AT C12, T1.DTYPE C13, T0.AUTHOR_ID C14 FROM APP_MODEL T0 LEFT OUTER JOIN USER_MODEL T1 ON T1.ID = T0.AUTHOR_ID AND T1.DTYPE = 'user'  ORDER BY T0.DOWNLOADS T0[*].DESC 
+Caused by: org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT T0.DTYPE C0, T0.ID C1, T0.APPNAME C2, T0.DESC C3, T0.DOWNURL C4, T0.APP_VERSION C5, T0.APP_VERSION_CODE C6, T0.PACKAGE_NAME C7, T0.MIN_SDK_VERSION C8, T0.TARGET_SDK_VERSION C9, T0.ICON_URL C10, T0.DOWNLOADS C11, T0.TOP_POSITION C12, T0.DELETE_FLAG C13, T0.CREATED_AT C14, T1.DTYPE C15, T0.AUTHOR_ID C16 FROM APP_MODEL T0 LEFT OUTER JOIN USER_MODEL T1 ON T1.ID = T0.AUTHOR_ID AND T1.DTYPE = 'user'  ORDER BY T0.DOWNLOADS T0[*].DESC, T0.CREATED_AT T0.DESC 
 LIMIT 501 "; SQL statement:
-select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.created_at c12, t1.dtype c13, t0.author_id c14 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc 
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc, t0.created_at t0.desc 
 limit 501 [42000-172]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329) ~[h2.jar:1.3.172]
 	at org.h2.message.DbException.get(DbException.java:169) ~[h2.jar:1.3.172]
@@ -853,9 +466,441 @@ limit 501 [42000-172]
 	at com.avaje.ebeaninternal.server.query.CQueryEngine.findMany(CQueryEngine.java:162) ~[avaje-ebeanorm.jar:na]
 	... 10 common frames omitted
 
-2013-11-25 17:47:43,324 - [INFO] - from play in play-internal-execution-context-21 
+2013-11-26 08:48:08,914 - [ERROR] - from play in play-internal-execution-context-5 
+Cannot invoke the action, eventually got an error: javax.persistence.PersistenceException: java.util.concurrent.ExecutionException: javax.persistence.PersistenceException: Query threw SQLException:Syntax error in SQL statement "SELECT T0.DTYPE C0, T0.ID C1, T0.APPNAME C2, T0.DESC C3, T0.DOWNURL C4, T0.APP_VERSION C5, T0.APP_VERSION_CODE C6, T0.PACKAGE_NAME C7, T0.MIN_SDK_VERSION C8, T0.TARGET_SDK_VERSION C9, T0.ICON_URL C10, T0.DOWNLOADS C11, T0.TOP_POSITION C12, T0.DELETE_FLAG C13, T0.CREATED_AT C14, T1.DTYPE C15, T0.AUTHOR_ID C16 FROM APP_MODEL T0 LEFT OUTER JOIN USER_MODEL T1 ON T1.ID = T0.AUTHOR_ID AND T1.DTYPE = 'user'  ORDER BY T0.DOWNLOADS T0[*].DESC, T0.CREATED_AT T0.DESC 
+LIMIT 501 "; SQL statement:
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc, t0.created_at t0.desc 
+limit 501 [42000-172] 
+Bind values:[null] 
+Query was:
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc, t0.created_at t0.desc 
+limit 501 
+
+
+
+2013-11-26 08:48:08,920 - [ERROR] - from application in play-internal-execution-context-5 
+
+
+! @6gcknnadl - Internal server error, for (GET) [/apps/hots/1] ->
+
+play.api.Application$$anon$1: Execution exception[[PersistenceException: java.util.concurrent.ExecutionException: javax.persistence.PersistenceException: Query threw SQLException:Syntax error in SQL statement "SELECT T0.DTYPE C0, T0.ID C1, T0.APPNAME C2, T0.DESC C3, T0.DOWNURL C4, T0.APP_VERSION C5, T0.APP_VERSION_CODE C6, T0.PACKAGE_NAME C7, T0.MIN_SDK_VERSION C8, T0.TARGET_SDK_VERSION C9, T0.ICON_URL C10, T0.DOWNLOADS C11, T0.TOP_POSITION C12, T0.DELETE_FLAG C13, T0.CREATED_AT C14, T1.DTYPE C15, T0.AUTHOR_ID C16 FROM APP_MODEL T0 LEFT OUTER JOIN USER_MODEL T1 ON T1.ID = T0.AUTHOR_ID AND T1.DTYPE = 'user'  ORDER BY T0.DOWNLOADS T0[*].DESC, T0.CREATED_AT T0.DESC 
+LIMIT 501 "; SQL statement:
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc, t0.created_at t0.desc 
+limit 501 [42000-172] 
+Bind values:[null] 
+Query was:
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc, t0.created_at t0.desc 
+limit 501 
+
+]]
+	at play.api.Application$class.handleError(Application.scala:293) ~[play_2.10.jar:2.2.1]
+	at play.api.DefaultApplication.handleError(Application.scala:399) [play_2.10.jar:2.2.1]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.1]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.1]
+	at scala.Option.map(Option.scala:145) [scala-library.jar:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.1]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:257) [play_2.10.jar:2.2.1]
+	at scala.runtime.AbstractPartialFunction.apply(AbstractPartialFunction.scala:33) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:411) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:408) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:29) [scala-library.jar:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:43) [play-iteratees_2.10.jar:2.2.1]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:37) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:133) [scala-library.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:58) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:254) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:249) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:29) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library.jar:na]
+Caused by: javax.persistence.PersistenceException: java.util.concurrent.ExecutionException: javax.persistence.PersistenceException: Query threw SQLException:Syntax error in SQL statement "SELECT T0.DTYPE C0, T0.ID C1, T0.APPNAME C2, T0.DESC C3, T0.DOWNURL C4, T0.APP_VERSION C5, T0.APP_VERSION_CODE C6, T0.PACKAGE_NAME C7, T0.MIN_SDK_VERSION C8, T0.TARGET_SDK_VERSION C9, T0.ICON_URL C10, T0.DOWNLOADS C11, T0.TOP_POSITION C12, T0.DELETE_FLAG C13, T0.CREATED_AT C14, T1.DTYPE C15, T0.AUTHOR_ID C16 FROM APP_MODEL T0 LEFT OUTER JOIN USER_MODEL T1 ON T1.ID = T0.AUTHOR_ID AND T1.DTYPE = 'user'  ORDER BY T0.DOWNLOADS T0[*].DESC, T0.CREATED_AT T0.DESC 
+LIMIT 501 "; SQL statement:
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc, t0.created_at t0.desc 
+limit 501 [42000-172] 
+Bind values:[null] 
+Query was:
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc, t0.created_at t0.desc 
+limit 501 
+
+
+	at com.avaje.ebeaninternal.server.query.LimitOffsetPage.getList(LimitOffsetPage.java:64) ~[avaje-ebeanorm.jar:na]
+	at models.AppModel.findAppsByHots(AppModel.java:98) ~[na:na]
+	at controllers.AppsShow.getHotapps(AppsShow.java:37) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$13$$anonfun$apply$13.apply(routes_routing.scala:193) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$13$$anonfun$apply$13.apply(routes_routing.scala:193) ~[na:na]
+	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.invocation(Router.scala:183) ~[play_2.10.jar:2.2.1]
+	at play.core.Router$Routes$$anon$1.invocation(Router.scala:377) ~[play_2.10.jar:2.2.1]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:56) ~[play_2.10.jar:2.2.1]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:91) ~[play_2.10.jar:2.2.1]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:90) ~[play_2.10.jar:2.2.1]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10.jar:2.2.1]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10.jar:2.2.1]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:278) ~[scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:274) ~[scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:29) [scala-library.jar:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:37) ~[play_2.10.jar:2.2.1]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:42) ~[akka-actor_2.10.jar:2.2.0]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) ~[akka-actor_2.10.jar:2.2.0]
+	... 4 common frames omitted
+Caused by: java.util.concurrent.ExecutionException: javax.persistence.PersistenceException: Query threw SQLException:Syntax error in SQL statement "SELECT T0.DTYPE C0, T0.ID C1, T0.APPNAME C2, T0.DESC C3, T0.DOWNURL C4, T0.APP_VERSION C5, T0.APP_VERSION_CODE C6, T0.PACKAGE_NAME C7, T0.MIN_SDK_VERSION C8, T0.TARGET_SDK_VERSION C9, T0.ICON_URL C10, T0.DOWNLOADS C11, T0.TOP_POSITION C12, T0.DELETE_FLAG C13, T0.CREATED_AT C14, T1.DTYPE C15, T0.AUTHOR_ID C16 FROM APP_MODEL T0 LEFT OUTER JOIN USER_MODEL T1 ON T1.ID = T0.AUTHOR_ID AND T1.DTYPE = 'user'  ORDER BY T0.DOWNLOADS T0[*].DESC, T0.CREATED_AT T0.DESC 
+LIMIT 501 "; SQL statement:
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc, t0.created_at t0.desc 
+limit 501 [42000-172] 
+Bind values:[null] 
+Query was:
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc, t0.created_at t0.desc 
+limit 501 
+
+
+	at java.util.concurrent.FutureTask$Sync.innerGet(Unknown Source) ~[na:1.6.0_43]
+	at java.util.concurrent.FutureTask.get(Unknown Source) ~[na:1.6.0_43]
+	at com.avaje.ebeaninternal.server.query.BaseFuture.get(BaseFuture.java:29) ~[avaje-ebeanorm.jar:na]
+	at com.avaje.ebeaninternal.server.query.LimitOffsetPage.getList(LimitOffsetPage.java:62) ~[avaje-ebeanorm.jar:na]
+	... 21 common frames omitted
+javax.persistence.PersistenceException: Query threw SQLException:Syntax error in SQL statement "SELECT T0.DTYPE C0, T0.ID C1, T0.APPNAME C2, T0.DESC C3, T0.DOWNURL C4, T0.APP_VERSION C5, T0.APP_VERSION_CODE C6, T0.PACKAGE_NAME C7, T0.MIN_SDK_VERSION C8, T0.TARGET_SDK_VERSION C9, T0.ICON_URL C10, T0.DOWNLOADS C11, T0.TOP_POSITION C12, T0.DELETE_FLAG C13, T0.CREATED_AT C14, T1.DTYPE C15, T0.AUTHOR_ID C16 FROM APP_MODEL T0 LEFT OUTER JOIN USER_MODEL T1 ON T1.ID = T0.AUTHOR_ID AND T1.DTYPE = 'user'  ORDER BY T0.DOWNLOADS T0[*].DESC, T0.CREATED_AT T0.DESC 
+LIMIT 501 "; SQL statement:
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc, t0.created_at t0.desc 
+limit 501 [42000-172] 
+Bind values:[null] 
+Query was:
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc, t0.created_at t0.desc 
+limit 501 
+
+
+	at com.avaje.ebeaninternal.server.query.CQuery.createPersistenceException(CQuery.java:790) ~[avaje-ebeanorm.jar:na]
+	at com.avaje.ebeaninternal.server.query.CQuery.createPersistenceException(CQuery.java:767) ~[avaje-ebeanorm.jar:na]
+	at com.avaje.ebeaninternal.server.query.CQueryEngine.findMany(CQueryEngine.java:202) ~[avaje-ebeanorm.jar:na]
+	at com.avaje.ebeaninternal.server.query.DefaultOrmQueryEngine.findMany(DefaultOrmQueryEngine.java:77) ~[avaje-ebeanorm.jar:na]
+	at com.avaje.ebeaninternal.server.core.OrmQueryRequest.findList(OrmQueryRequest.java:265) ~[avaje-ebeanorm.jar:na]
+	at com.avaje.ebeaninternal.server.core.DefaultServer.findList(DefaultServer.java:1460) ~[avaje-ebeanorm.jar:na]
+	at com.avaje.ebeaninternal.server.query.CallableQueryList.call(CallableQueryList.java:27) ~[avaje-ebeanorm.jar:na]
+	at com.avaje.ebeaninternal.server.query.CallableQueryList.call(CallableQueryList.java:15) ~[avaje-ebeanorm.jar:na]
+	at java.util.concurrent.FutureTask$Sync.innerRun(Unknown Source) ~[na:1.6.0_43]
+	at java.util.concurrent.FutureTask.run(Unknown Source) ~[na:1.6.0_43]
+	at com.avaje.ebeaninternal.server.lib.thread.PooledThread.doTheWork(PooledThread.java:156) ~[avaje-ebeanorm.jar:na]
+	at com.avaje.ebeaninternal.server.lib.thread.PooledThread.run(PooledThread.java:123) ~[avaje-ebeanorm.jar:na]
+	at java.lang.Thread.run(Unknown Source) ~[na:1.6.0_43]
+Caused by: org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT T0.DTYPE C0, T0.ID C1, T0.APPNAME C2, T0.DESC C3, T0.DOWNURL C4, T0.APP_VERSION C5, T0.APP_VERSION_CODE C6, T0.PACKAGE_NAME C7, T0.MIN_SDK_VERSION C8, T0.TARGET_SDK_VERSION C9, T0.ICON_URL C10, T0.DOWNLOADS C11, T0.TOP_POSITION C12, T0.DELETE_FLAG C13, T0.CREATED_AT C14, T1.DTYPE C15, T0.AUTHOR_ID C16 FROM APP_MODEL T0 LEFT OUTER JOIN USER_MODEL T1 ON T1.ID = T0.AUTHOR_ID AND T1.DTYPE = 'user'  ORDER BY T0.DOWNLOADS T0[*].DESC, T0.CREATED_AT T0.DESC 
+LIMIT 501 "; SQL statement:
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  order by t0.downloads t0.desc, t0.created_at t0.desc 
+limit 501 [42000-172]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329) ~[h2.jar:1.3.172]
+	at org.h2.message.DbException.get(DbException.java:169) ~[h2.jar:1.3.172]
+	at org.h2.message.DbException.get(DbException.java:146) ~[h2.jar:1.3.172]
+	at org.h2.message.DbException.getSyntaxError(DbException.java:181) ~[h2.jar:1.3.172]
+	at org.h2.command.Parser.getSyntaxError(Parser.java:484) ~[h2.jar:1.3.172]
+	at org.h2.command.Parser.prepareCommand(Parser.java:233) ~[h2.jar:1.3.172]
+	at org.h2.engine.Session.prepareLocal(Session.java:425) ~[h2.jar:1.3.172]
+	at org.h2.engine.Session.prepareCommand(Session.java:374) ~[h2.jar:1.3.172]
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1138) ~[h2.jar:1.3.172]
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:70) ~[h2.jar:1.3.172]
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:267) ~[h2.jar:1.3.172]
+	at com.jolbox.bonecp.ConnectionHandle.prepareStatement(ConnectionHandle.java:1024) ~[bonecp.jar:na]
+	at com.avaje.ebeaninternal.server.query.CQuery.prepareBindExecuteQuery(CQuery.java:360) ~[avaje-ebeanorm.jar:na]
+	at com.avaje.ebeaninternal.server.query.CQueryEngine.findMany(CQueryEngine.java:162) ~[avaje-ebeanorm.jar:na]
+	... 10 common frames omitted
+
+2013-11-26 08:49:19,055 - [INFO] - from play in play-internal-execution-context-5 
 database [default] connected at jdbc:h2:file:play
 
-2013-11-25 17:47:43,395 - [INFO] - from play in play-internal-execution-context-21 
+2013-11-26 08:49:19,154 - [INFO] - from play in play-internal-execution-context-5 
+Application started (Dev)
+
+2013-11-26 08:49:19,648 - [ERROR] - from play in play-internal-execution-context-5 
+Cannot invoke the action, eventually got an error: javax.persistence.PersistenceException: java.util.concurrent.ExecutionException: javax.persistence.PersistenceException: Query threw SQLException:Syntax error in SQL statement "SELECT T0.DTYPE C0, T0.ID C1, T0.APPNAME C2, T0.DESC C3, T0.DOWNURL C4, T0.APP_VERSION C5, T0.APP_VERSION_CODE C6, T0.PACKAGE_NAME C7, T0.MIN_SDK_VERSION C8, T0.TARGET_SDK_VERSION C9, T0.ICON_URL C10, T0.DOWNLOADS C11, T0.TOP_POSITION C12, T0.DELETE_FLAG C13, T0.CREATED_AT C14, T1.DTYPE C15, T0.AUTHOR_ID C16 FROM APP_MODEL T0 LEFT OUTER JOIN USER_MODEL T1 ON T1.ID = T0.AUTHOR_ID AND T1.DTYPE = 'user'  WHERE T0.DELETE_FLAG = ?  ORDER BY T0.DOWNLOADS T0[*].DESC, T0.CREATED_AT T0.DESC 
+LIMIT 501 "; SQL statement:
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  where t0.delete_flag = ?  order by t0.downloads t0.desc, t0.created_at t0.desc 
+limit 501 [42000-172] 
+Bind values:[null] 
+Query was:
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  where t0.delete_flag = ?  order by t0.downloads t0.desc, t0.created_at t0.desc 
+limit 501 
+
+
+
+2013-11-26 08:49:19,657 - [ERROR] - from application in play-internal-execution-context-5 
+
+
+! @6gcko1b4c - Internal server error, for (GET) [/apps/hots/1] ->
+
+play.api.Application$$anon$1: Execution exception[[PersistenceException: java.util.concurrent.ExecutionException: javax.persistence.PersistenceException: Query threw SQLException:Syntax error in SQL statement "SELECT T0.DTYPE C0, T0.ID C1, T0.APPNAME C2, T0.DESC C3, T0.DOWNURL C4, T0.APP_VERSION C5, T0.APP_VERSION_CODE C6, T0.PACKAGE_NAME C7, T0.MIN_SDK_VERSION C8, T0.TARGET_SDK_VERSION C9, T0.ICON_URL C10, T0.DOWNLOADS C11, T0.TOP_POSITION C12, T0.DELETE_FLAG C13, T0.CREATED_AT C14, T1.DTYPE C15, T0.AUTHOR_ID C16 FROM APP_MODEL T0 LEFT OUTER JOIN USER_MODEL T1 ON T1.ID = T0.AUTHOR_ID AND T1.DTYPE = 'user'  WHERE T0.DELETE_FLAG = ?  ORDER BY T0.DOWNLOADS T0[*].DESC, T0.CREATED_AT T0.DESC 
+LIMIT 501 "; SQL statement:
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  where t0.delete_flag = ?  order by t0.downloads t0.desc, t0.created_at t0.desc 
+limit 501 [42000-172] 
+Bind values:[null] 
+Query was:
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  where t0.delete_flag = ?  order by t0.downloads t0.desc, t0.created_at t0.desc 
+limit 501 
+
+]]
+	at play.api.Application$class.handleError(Application.scala:293) ~[play_2.10.jar:2.2.1]
+	at play.api.DefaultApplication.handleError(Application.scala:399) [play_2.10.jar:2.2.1]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.1]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2$$anonfun$applyOrElse$3.apply(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.1]
+	at scala.Option.map(Option.scala:145) [scala-library.jar:na]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:261) [play_2.10.jar:2.2.1]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anonfun$2.applyOrElse(PlayDefaultUpstreamHandler.scala:257) [play_2.10.jar:2.2.1]
+	at scala.runtime.AbstractPartialFunction.apply(AbstractPartialFunction.scala:33) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:411) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:408) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:29) [scala-library.jar:na]
+	at play.api.libs.iteratee.Execution$$anon$1.execute(Execution.scala:43) [play-iteratees_2.10.jar:2.2.1]
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:37) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:133) [scala-library.jar:na]
+	at scala.concurrent.Promise$class.complete(Promise.scala:55) [scala-library.jar:na]
+	at scala.concurrent.impl.Promise$DefaultPromise.complete(Promise.scala:58) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:254) [scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$map$1.apply(Future.scala:249) [scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:29) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) [scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) [scala-library.jar:na]
+Caused by: javax.persistence.PersistenceException: java.util.concurrent.ExecutionException: javax.persistence.PersistenceException: Query threw SQLException:Syntax error in SQL statement "SELECT T0.DTYPE C0, T0.ID C1, T0.APPNAME C2, T0.DESC C3, T0.DOWNURL C4, T0.APP_VERSION C5, T0.APP_VERSION_CODE C6, T0.PACKAGE_NAME C7, T0.MIN_SDK_VERSION C8, T0.TARGET_SDK_VERSION C9, T0.ICON_URL C10, T0.DOWNLOADS C11, T0.TOP_POSITION C12, T0.DELETE_FLAG C13, T0.CREATED_AT C14, T1.DTYPE C15, T0.AUTHOR_ID C16 FROM APP_MODEL T0 LEFT OUTER JOIN USER_MODEL T1 ON T1.ID = T0.AUTHOR_ID AND T1.DTYPE = 'user'  WHERE T0.DELETE_FLAG = ?  ORDER BY T0.DOWNLOADS T0[*].DESC, T0.CREATED_AT T0.DESC 
+LIMIT 501 "; SQL statement:
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  where t0.delete_flag = ?  order by t0.downloads t0.desc, t0.created_at t0.desc 
+limit 501 [42000-172] 
+Bind values:[null] 
+Query was:
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  where t0.delete_flag = ?  order by t0.downloads t0.desc, t0.created_at t0.desc 
+limit 501 
+
+
+	at com.avaje.ebeaninternal.server.query.LimitOffsetPage.getList(LimitOffsetPage.java:64) ~[avaje-ebeanorm.jar:na]
+	at models.AppModel.findAppsByHots(AppModel.java:98) ~[na:na]
+	at controllers.AppsShow.getHotapps(AppsShow.java:37) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$13$$anonfun$apply$13.apply(routes_routing.scala:193) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$13$$anonfun$apply$13.apply(routes_routing.scala:193) ~[na:na]
+	at play.core.Router$HandlerInvoker$$anon$7$$anon$2.invocation(Router.scala:183) ~[play_2.10.jar:2.2.1]
+	at play.core.Router$Routes$$anon$1.invocation(Router.scala:377) ~[play_2.10.jar:2.2.1]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:56) ~[play_2.10.jar:2.2.1]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:91) ~[play_2.10.jar:2.2.1]
+	at play.core.j.JavaAction$$anon$3.apply(JavaAction.scala:90) ~[play_2.10.jar:2.2.1]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10.jar:2.2.1]
+	at play.core.j.FPromiseHelper$$anonfun$flatMap$1.apply(FPromiseHelper.scala:82) ~[play_2.10.jar:2.2.1]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:278) ~[scala-library.jar:na]
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:274) ~[scala-library.jar:na]
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:29) [scala-library.jar:na]
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:37) ~[play_2.10.jar:2.2.1]
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:42) ~[akka-actor_2.10.jar:2.2.0]
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:386) ~[akka-actor_2.10.jar:2.2.0]
+	... 4 common frames omitted
+Caused by: java.util.concurrent.ExecutionException: javax.persistence.PersistenceException: Query threw SQLException:Syntax error in SQL statement "SELECT T0.DTYPE C0, T0.ID C1, T0.APPNAME C2, T0.DESC C3, T0.DOWNURL C4, T0.APP_VERSION C5, T0.APP_VERSION_CODE C6, T0.PACKAGE_NAME C7, T0.MIN_SDK_VERSION C8, T0.TARGET_SDK_VERSION C9, T0.ICON_URL C10, T0.DOWNLOADS C11, T0.TOP_POSITION C12, T0.DELETE_FLAG C13, T0.CREATED_AT C14, T1.DTYPE C15, T0.AUTHOR_ID C16 FROM APP_MODEL T0 LEFT OUTER JOIN USER_MODEL T1 ON T1.ID = T0.AUTHOR_ID AND T1.DTYPE = 'user'  WHERE T0.DELETE_FLAG = ?  ORDER BY T0.DOWNLOADS T0[*].DESC, T0.CREATED_AT T0.DESC 
+LIMIT 501 "; SQL statement:
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  where t0.delete_flag = ?  order by t0.downloads t0.desc, t0.created_at t0.desc 
+limit 501 [42000-172] 
+Bind values:[null] 
+Query was:
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  where t0.delete_flag = ?  order by t0.downloads t0.desc, t0.created_at t0.desc 
+limit 501 
+
+
+	at java.util.concurrent.FutureTask$Sync.innerGet(Unknown Source) ~[na:1.6.0_43]
+	at java.util.concurrent.FutureTask.get(Unknown Source) ~[na:1.6.0_43]
+	at com.avaje.ebeaninternal.server.query.BaseFuture.get(BaseFuture.java:29) ~[avaje-ebeanorm.jar:na]
+	at com.avaje.ebeaninternal.server.query.LimitOffsetPage.getList(LimitOffsetPage.java:62) ~[avaje-ebeanorm.jar:na]
+	... 21 common frames omitted
+javax.persistence.PersistenceException: Query threw SQLException:Syntax error in SQL statement "SELECT T0.DTYPE C0, T0.ID C1, T0.APPNAME C2, T0.DESC C3, T0.DOWNURL C4, T0.APP_VERSION C5, T0.APP_VERSION_CODE C6, T0.PACKAGE_NAME C7, T0.MIN_SDK_VERSION C8, T0.TARGET_SDK_VERSION C9, T0.ICON_URL C10, T0.DOWNLOADS C11, T0.TOP_POSITION C12, T0.DELETE_FLAG C13, T0.CREATED_AT C14, T1.DTYPE C15, T0.AUTHOR_ID C16 FROM APP_MODEL T0 LEFT OUTER JOIN USER_MODEL T1 ON T1.ID = T0.AUTHOR_ID AND T1.DTYPE = 'user'  WHERE T0.DELETE_FLAG = ?  ORDER BY T0.DOWNLOADS T0[*].DESC, T0.CREATED_AT T0.DESC 
+LIMIT 501 "; SQL statement:
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  where t0.delete_flag = ?  order by t0.downloads t0.desc, t0.created_at t0.desc 
+limit 501 [42000-172] 
+Bind values:[null] 
+Query was:
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  where t0.delete_flag = ?  order by t0.downloads t0.desc, t0.created_at t0.desc 
+limit 501 
+
+
+	at com.avaje.ebeaninternal.server.query.CQuery.createPersistenceException(CQuery.java:790) ~[avaje-ebeanorm.jar:na]
+	at com.avaje.ebeaninternal.server.query.CQuery.createPersistenceException(CQuery.java:767) ~[avaje-ebeanorm.jar:na]
+	at com.avaje.ebeaninternal.server.query.CQueryEngine.findMany(CQueryEngine.java:202) ~[avaje-ebeanorm.jar:na]
+	at com.avaje.ebeaninternal.server.query.DefaultOrmQueryEngine.findMany(DefaultOrmQueryEngine.java:77) ~[avaje-ebeanorm.jar:na]
+	at com.avaje.ebeaninternal.server.core.OrmQueryRequest.findList(OrmQueryRequest.java:265) ~[avaje-ebeanorm.jar:na]
+	at com.avaje.ebeaninternal.server.core.DefaultServer.findList(DefaultServer.java:1460) ~[avaje-ebeanorm.jar:na]
+	at com.avaje.ebeaninternal.server.query.CallableQueryList.call(CallableQueryList.java:27) ~[avaje-ebeanorm.jar:na]
+	at com.avaje.ebeaninternal.server.query.CallableQueryList.call(CallableQueryList.java:15) ~[avaje-ebeanorm.jar:na]
+	at java.util.concurrent.FutureTask$Sync.innerRun(Unknown Source) ~[na:1.6.0_43]
+	at java.util.concurrent.FutureTask.run(Unknown Source) ~[na:1.6.0_43]
+	at com.avaje.ebeaninternal.server.lib.thread.PooledThread.doTheWork(PooledThread.java:156) ~[avaje-ebeanorm.jar:na]
+	at com.avaje.ebeaninternal.server.lib.thread.PooledThread.run(PooledThread.java:123) ~[avaje-ebeanorm.jar:na]
+	at java.lang.Thread.run(Unknown Source) ~[na:1.6.0_43]
+Caused by: org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "SELECT T0.DTYPE C0, T0.ID C1, T0.APPNAME C2, T0.DESC C3, T0.DOWNURL C4, T0.APP_VERSION C5, T0.APP_VERSION_CODE C6, T0.PACKAGE_NAME C7, T0.MIN_SDK_VERSION C8, T0.TARGET_SDK_VERSION C9, T0.ICON_URL C10, T0.DOWNLOADS C11, T0.TOP_POSITION C12, T0.DELETE_FLAG C13, T0.CREATED_AT C14, T1.DTYPE C15, T0.AUTHOR_ID C16 FROM APP_MODEL T0 LEFT OUTER JOIN USER_MODEL T1 ON T1.ID = T0.AUTHOR_ID AND T1.DTYPE = 'user'  WHERE T0.DELETE_FLAG = ?  ORDER BY T0.DOWNLOADS T0[*].DESC, T0.CREATED_AT T0.DESC 
+LIMIT 501 "; SQL statement:
+select t0.dtype c0, t0.id c1, t0.appname c2, t0.desc c3, t0.downurl c4, t0.app_version c5, t0.app_version_code c6, t0.package_name c7, t0.min_sdk_version c8, t0.target_sdk_version c9, t0.icon_url c10, t0.downloads c11, t0.top_position c12, t0.delete_flag c13, t0.created_at c14, t1.dtype c15, t0.author_id c16 from app_model t0 left outer join user_model t1 on t1.id = t0.author_id and t1.dtype = 'user'  where t0.delete_flag = ?  order by t0.downloads t0.desc, t0.created_at t0.desc 
+limit 501 [42000-172]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:329) ~[h2.jar:1.3.172]
+	at org.h2.message.DbException.get(DbException.java:169) ~[h2.jar:1.3.172]
+	at org.h2.message.DbException.get(DbException.java:146) ~[h2.jar:1.3.172]
+	at org.h2.message.DbException.getSyntaxError(DbException.java:181) ~[h2.jar:1.3.172]
+	at org.h2.command.Parser.getSyntaxError(Parser.java:484) ~[h2.jar:1.3.172]
+	at org.h2.command.Parser.prepareCommand(Parser.java:233) ~[h2.jar:1.3.172]
+	at org.h2.engine.Session.prepareLocal(Session.java:425) ~[h2.jar:1.3.172]
+	at org.h2.engine.Session.prepareCommand(Session.java:374) ~[h2.jar:1.3.172]
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1138) ~[h2.jar:1.3.172]
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:70) ~[h2.jar:1.3.172]
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:267) ~[h2.jar:1.3.172]
+	at com.jolbox.bonecp.ConnectionHandle.prepareStatement(ConnectionHandle.java:1024) ~[bonecp.jar:na]
+	at com.avaje.ebeaninternal.server.query.CQuery.prepareBindExecuteQuery(CQuery.java:360) ~[avaje-ebeanorm.jar:na]
+	at com.avaje.ebeaninternal.server.query.CQueryEngine.findMany(CQueryEngine.java:162) ~[avaje-ebeanorm.jar:na]
+	... 10 common frames omitted
+
+2013-11-26 09:02:16,775 - [INFO] - from play in play-internal-execution-context-10 
+database [default] connected at jdbc:h2:file:play
+
+2013-11-26 09:02:16,876 - [INFO] - from play in play-internal-execution-context-10 
+Application started (Dev)
+
+2013-11-26 09:10:10,089 - [INFO] - from play in play-internal-execution-context-10 
+database [default] connected at jdbc:h2:file:play
+
+2013-11-26 09:10:10,182 - [INFO] - from play in play-internal-execution-context-10 
+Application started (Dev)
+
+2013-11-26 09:23:00,984 - [INFO] - from play in play-internal-execution-context-10 
+database [default] connected at jdbc:h2:file:play
+
+2013-11-26 09:23:01,072 - [INFO] - from play in play-internal-execution-context-10 
+Application started (Dev)
+
+2013-11-26 09:30:39,331 - [INFO] - from play in play-internal-execution-context-10 
+database [default] connected at jdbc:h2:file:play
+
+2013-11-26 09:30:39,418 - [INFO] - from play in play-internal-execution-context-10 
+Application started (Dev)
+
+2013-11-26 09:35:17,262 - [INFO] - from play in play-internal-execution-context-19 
+database [default] connected at jdbc:h2:file:play
+
+2013-11-26 09:35:17,345 - [INFO] - from play in play-internal-execution-context-19 
+Application started (Dev)
+
+2013-11-26 09:37:15,862 - [INFO] - from play in play-internal-execution-context-25 
+database [default] connected at jdbc:h2:file:play
+
+2013-11-26 09:37:15,947 - [INFO] - from play in play-internal-execution-context-25 
+Application started (Dev)
+
+2013-11-26 09:39:36,110 - [INFO] - from play in play-internal-execution-context-26 
+database [default] connected at jdbc:h2:file:play
+
+2013-11-26 09:39:36,192 - [INFO] - from play in play-internal-execution-context-26 
+Application started (Dev)
+
+2013-11-26 09:43:43,395 - [INFO] - from play in play-internal-execution-context-26 
+database [default] connected at jdbc:h2:file:play
+
+2013-11-26 09:43:43,485 - [INFO] - from play in play-internal-execution-context-26 
+Application started (Dev)
+
+2013-11-26 09:45:32,642 - [INFO] - from play in play-internal-execution-context-26 
+database [default] connected at jdbc:h2:file:play
+
+2013-11-26 09:45:32,733 - [INFO] - from play in play-internal-execution-context-26 
+Application started (Dev)
+
+2013-11-26 09:46:55,515 - [INFO] - from play in play-internal-execution-context-26 
+database [default] connected at jdbc:h2:file:play
+
+2013-11-26 09:46:55,629 - [INFO] - from play in play-internal-execution-context-26 
+Application started (Dev)
+
+2013-11-26 09:49:07,373 - [INFO] - from play in play-internal-execution-context-35 
+database [default] connected at jdbc:h2:file:play
+
+2013-11-26 09:49:07,468 - [INFO] - from play in play-internal-execution-context-35 
+Application started (Dev)
+
+2013-11-26 09:50:43,613 - [INFO] - from play in play-internal-execution-context-41 
+database [default] connected at jdbc:h2:file:play
+
+2013-11-26 09:50:43,692 - [INFO] - from play in play-internal-execution-context-41 
+Application started (Dev)
+
+2013-11-26 09:57:10,816 - [INFO] - from play in play-internal-execution-context-43 
+database [default] connected at jdbc:h2:file:play
+
+2013-11-26 09:57:10,904 - [INFO] - from play in play-internal-execution-context-43 
+Application started (Dev)
+
+2013-11-26 10:03:55,910 - [INFO] - from play in play-internal-execution-context-44 
+database [default] connected at jdbc:h2:file:play
+
+2013-11-26 10:03:55,997 - [INFO] - from play in play-internal-execution-context-44 
+Application started (Dev)
+
+2013-11-26 10:04:34,001 - [INFO] - from play in play-internal-execution-context-44 
+database [default] connected at jdbc:h2:file:play
+
+2013-11-26 10:04:34,080 - [INFO] - from play in play-internal-execution-context-44 
+Application started (Dev)
+
+2013-11-26 10:12:38,653 - [INFO] - from play in play-internal-execution-context-44 
+database [default] connected at jdbc:h2:file:play
+
+2013-11-26 10:12:38,738 - [INFO] - from play in play-internal-execution-context-44 
+Application started (Dev)
+
+2013-11-26 10:43:07,453 - [INFO] - from play in play-internal-execution-context-63 
+database [default] connected at jdbc:h2:file:play
+
+2013-11-26 10:43:07,538 - [INFO] - from play in play-internal-execution-context-63 
+Application started (Dev)
+
+2013-11-26 10:47:05,211 - [INFO] - from play in play-internal-execution-context-63 
+database [default] connected at jdbc:h2:file:play
+
+2013-11-26 10:47:05,290 - [INFO] - from play in play-internal-execution-context-63 
+Application started (Dev)
+
+2013-11-26 10:48:53,678 - [INFO] - from play in play-internal-execution-context-67 
+database [default] connected at jdbc:h2:file:play
+
+2013-11-26 10:48:53,760 - [INFO] - from play in play-internal-execution-context-67 
+Application started (Dev)
+
+2013-11-26 10:54:02,379 - [INFO] - from play in play-internal-execution-context-83 
+database [default] connected at jdbc:h2:file:play
+
+2013-11-26 10:54:02,457 - [INFO] - from play in play-internal-execution-context-83 
+Application started (Dev)
+
+2013-11-26 10:54:27,473 - [INFO] - from play in play-internal-execution-context-85 
+database [default] connected at jdbc:h2:file:play
+
+2013-11-26 10:54:27,551 - [INFO] - from play in play-internal-execution-context-85 
+Application started (Dev)
+
+2013-11-26 10:55:19,667 - [INFO] - from play in play-internal-execution-context-85 
+database [default] connected at jdbc:h2:file:play
+
+2013-11-26 10:55:19,744 - [INFO] - from play in play-internal-execution-context-85 
+Application started (Dev)
+
+2013-11-26 10:58:09,706 - [INFO] - from play in play-internal-execution-context-98 
+database [default] connected at jdbc:h2:file:play
+
+2013-11-26 10:58:09,784 - [INFO] - from play in play-internal-execution-context-98 
+Application started (Dev)
+
+2013-11-26 10:58:50,104 - [INFO] - from play in play-internal-execution-context-98 
+database [default] connected at jdbc:h2:file:play
+
+2013-11-26 10:58:50,181 - [INFO] - from play in play-internal-execution-context-98 
+Application started (Dev)
+
+2013-11-26 11:09:56,511 - [INFO] - from play in play-internal-execution-context-110 
+database [default] connected at jdbc:h2:file:play
+
+2013-11-26 11:09:56,609 - [INFO] - from play in play-internal-execution-context-110 
+Application started (Dev)
+
+2013-11-26 11:12:51,644 - [INFO] - from play in play-internal-execution-context-110 
+database [default] connected at jdbc:h2:file:play
+
+2013-11-26 11:12:52,175 - [INFO] - from play in play-internal-execution-context-110 
 Application started (Dev)
 
