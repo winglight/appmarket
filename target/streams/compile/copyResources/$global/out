@@ -1,6 +1,0 @@
-[0m[[0mdebug[0m] [0mCopy resource mappings: [0m
-[0m[[0mdebug[0m] [0m	(D:\work\play-2.2.1\appmarket\conf\application.conf,D:\work\play-2.2.1\appmarket\target\scala-2.10\classes\application.conf)[0m
-[0m[[0mdebug[0m] [0m	(D:\work\play-2.2.1\appmarket\conf\evolutions,D:\work\play-2.2.1\appmarket\target\scala-2.10\classes\evolutions)[0m
-[0m[[0mdebug[0m] [0m	(D:\work\play-2.2.1\appmarket\conf\routes,D:\work\play-2.2.1\appmarket\target\scala-2.10\classes\routes)[0m
-[0m[[0mdebug[0m] [0m	(D:\work\play-2.2.1\appmarket\conf\evolutions\default,D:\work\play-2.2.1\appmarket\target\scala-2.10\classes\evolutions\default)[0m
-[0m[[0mdebug[0m] [0m	(D:\work\play-2.2.1\appmarket\conf\evolutions\default\1.sql,D:\work\play-2.2.1\appmarket\target\scala-2.10\classes\evolutions\default\1.sql)[0m
