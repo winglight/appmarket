@@ -46,7 +46,7 @@ public class AppModel extends Model implements Serializable{
 	
     public String appname;
     
-    public String desc;
+    public String description;
     
     public String downurl;
     
@@ -98,7 +98,7 @@ public class AppModel extends Model implements Serializable{
     public static List<AppModel> findAppsByHots(int page) {
         return find.where()
         		.eq("deleteFlag", false)
-//        		.orderBy("downloads desc, createdAt desc")
+        		.orderBy("downloads,createdAt desc")
 				.findPagingList(Constants.AMOUNT_PER_PAGE).getPage(page - 1)
 				.getList();
     }

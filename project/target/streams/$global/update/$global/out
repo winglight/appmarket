@@ -2938,7 +2938,7 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-sbt#apply-macro;0.13.0!apply-macro.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#jline;2.10.2!jline.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar[0m
-[0m[[0mdebug[0m] [0m:: resolution report :: resolve 1818ms :: artifacts dl 85ms[0m
+[0m[[0mdebug[0m] [0m:: resolution report :: resolve 1898ms :: artifacts dl 71ms[0m
 [0m[[0mdebug[0m] [0m	report for default#appmarket-build;0.1-SNAPSHOT compile produced in D:\work\play-2.2.1\appmarket\project\target\resolution-cache\reports\default-appmarket-build-compile.xml[0m
 [0m[[0mdebug[0m] [0m	report for default#appmarket-build;0.1-SNAPSHOT runtime produced in D:\work\play-2.2.1\appmarket\project\target\resolution-cache\reports\default-appmarket-build-runtime.xml[0m
 [0m[[0mdebug[0m] [0m	report for default#appmarket-build;0.1-SNAPSHOT test produced in D:\work\play-2.2.1\appmarket\project\target\resolution-cache\reports\default-appmarket-build-test.xml[0m
@@ -2952,5 +2952,5 @@
 [0m[[0mdebug[0m] [0m	report for default#appmarket-build;0.1-SNAPSHOT docs produced in D:\work\play-2.2.1\appmarket\project\target\resolution-cache\reports\default-appmarket-build-docs.xml[0m
 [0m[[0mdebug[0m] [0m	report for default#appmarket-build;0.1-SNAPSHOT pom produced in D:\work\play-2.2.1\appmarket\project\target\resolution-cache\reports\default-appmarket-build-pom.xml[0m
 [0m[[0mdebug[0m] [0m	report for default#appmarket-build;0.1-SNAPSHOT scala-tool produced in D:\work\play-2.2.1\appmarket\project\target\resolution-cache\reports\default-appmarket-build-scala-tool.xml[0m
-[0m[[0mdebug[0m] [0m	resolve done (1818ms resolve - 85ms download)[0m
+[0m[[0mdebug[0m] [0m	resolve done (1898ms resolve - 71ms download)[0m
 [0m[[0minfo[0m] [0mDone updating.[0m

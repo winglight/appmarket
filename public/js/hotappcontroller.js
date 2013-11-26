@@ -8,7 +8,6 @@ function HotController($scope, $http) {
       $scope.page = data.page;
       $scope.hotapps = data.data;
       
-      $scope.$evalAsync(refreshProduct());
     }else{
       alert("Couldn't get any app: " + data.errorMessage);
     }

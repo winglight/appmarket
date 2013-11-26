@@ -5,9 +5,9 @@
 
 create table app_model (
   dtype                     varchar(10) not null,
-  id                        bigint not null,
+  id                        bigint auto_increment not null,
   appname                   varchar(255),
-  desc                      varchar(255),
+  description               varchar(255),
   downurl                   varchar(255),
   author_id                 bigint,
   app_version               varchar(255),
@@ -18,14 +18,14 @@ create table app_model (
   icon_url                  varchar(255),
   downloads                 bigint,
   top_position              bigint,
-  delete_flag               boolean,
-  created_at                timestamp,
+  delete_flag               tinyint(1) default 0,
+  created_at                datetime,
   constraint pk_app_model primary key (id))
 ;
 
 create table user_model (
   dtype                     varchar(10) not null,
-  id                        bigint not null,
+  id                        bigint auto_increment not null,
   name                      varchar(255),
   email                     varchar(255),
   device_id                 varchar(255),
@@ -35,7 +35,7 @@ create table user_model (
   description               varchar(255),
   status                    varchar(8),
   user_role                 varchar(9),
-  created_at                timestamp,
+  created_at                datetime,
   constraint ck_user_model_status check (status in ('Active','Inactive')),
   constraint ck_user_model_user_role check (user_role in ('ADMIN','DEVELOPER','USER')),
   constraint pk_user_model primary key (id))
@@ -47,32 +47,24 @@ create table user_model_app_model (
   app_model_id                   bigint not null,
   constraint pk_user_model_app_model primary key (user_model_id, app_model_id))
 ;
-create sequence app_model_seq;
-
-create sequence user_model_seq;
-
 alter table app_model add constraint fk_app_model_author_1 foreign key (author_id) references user_model (id) on delete restrict on update restrict;
 create index ix_app_model_author_1 on app_model (author_id);
 
 
 
-alter table user_model_app_model add constraint fk_user_model_app_model_user__01 foreign key (user_model_id) references user_model (id) on delete restrict on update restrict;
+alter table user_model_app_model add constraint fk_user_model_app_model_user_model_01 foreign key (user_model_id) references user_model (id) on delete restrict on update restrict;
 
-alter table user_model_app_model add constraint fk_user_model_app_model_app_m_02 foreign key (app_model_id) references app_model (id) on delete restrict on update restrict;
+alter table user_model_app_model add constraint fk_user_model_app_model_app_model_02 foreign key (app_model_id) references app_model (id) on delete restrict on update restrict;
 
 # --- !Downs
 
-SET REFERENTIAL_INTEGRITY FALSE;
+SET FOREIGN_KEY_CHECKS=0;
 
-drop table if exists app_model;
+drop table app_model;
 
-drop table if exists user_model;
+drop table user_model;
 
-drop table if exists user_model_app_model;
+drop table user_model_app_model;
 
-SET REFERENTIAL_INTEGRITY TRUE;
-
-drop sequence if exists app_model_seq;
-
-drop sequence if exists user_model_seq;
+SET FOREIGN_KEY_CHECKS=1;
 
