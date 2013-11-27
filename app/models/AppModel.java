@@ -21,6 +21,7 @@ import play.db.ebean.Model;
 import util.Constants;
 
 import models.dto.PageInfo;
+import models.dto.SimpleAppModel;
 import models.status.UserRole;
 import models.status.UserStatus;
 
@@ -95,12 +96,13 @@ public class AppModel extends Model implements Serializable{
                 .eq("author", author).findList();
     }
     
-    public static List<AppModel> findAppsByHots(int page) {
-        return find.where()
+    public static List<SimpleAppModel> findAppsByHots(int page) {
+        List<AppModel> list = find.where()
         		.eq("deleteFlag", false)
         		.orderBy("downloads,createdAt desc")
 				.findPagingList(Constants.AMOUNT_PER_PAGE).getPage(page - 1)
 				.getList();
+        return SimpleAppModel.transferAM(list);
     }
     
     public static PageInfo getHotAppsPageInfo(int page) {

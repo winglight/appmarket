@@ -8,6 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>@title - Ultimate Black APP Market</title>
 <link rel="stylesheet" href="@routes.Assets.at("css/style.default.css")" type="text/css" />
+<link rel="stylesheet" href="@routes.Assets.at("css/bootstrap.css")" type="text/css" />
 </head>
 
 <body class="withvernav">
@@ -92,12 +93,10 @@
     
 	@content
 <!--bodywrapper-->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-<script type="text/javascript" src=@routes.Assets.at("js/plugins/jquery-ui-1.8.16.custom.min.js")></script>
-<script type="text/javascript" src=@routes.Assets.at("js/vendor/jquery.ui.widget.js")></script>
+<script type="text/javascript" src=@routes.Assets.at("js/jquery.min.js")></script>
+<script type="text/javascript" src=@routes.Assets.at("js/angular.min.js")></script>
 <script type="text/javascript" src=@routes.Assets.at("js/plugins/jquery.cookie.js")></script>
 <script type="text/javascript" src=@routes.Assets.at("js/custom/general.js")></script>
-<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js")"></script>
 
 <script>
 var appModule = angular.module('appsList', []);

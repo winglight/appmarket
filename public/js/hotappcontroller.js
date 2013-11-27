@@ -6,7 +6,7 @@ function HotController($scope, $http) {
   $http.get('/apps/hots/' + $scope.page.currentPage).success(function(data, status, headers, config) {
     if(data.flag){
       $scope.page = data.page;
-      $scope.hotapps = data.data;
+      $scope.apps = data.data;
       
     }else{
       alert("Couldn't get any app: " + data.errorMessage);

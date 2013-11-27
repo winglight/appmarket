@@ -93,28 +93,21 @@ public class Developer extends Controller {
 		MultipartFormData body = request().body().asMultipartFormData();
 		FilePart apkfile = body.getFile("files[]");
 		if (apkfile != null) {
-			String tmpPath = Play.application().path().getPath() + "/tmp/";
 			String path = Play.application().path().getPath() + "/upload/";
-			String fileTempName = String.valueOf(System.currentTimeMillis());
 
 			String contentType = apkfile.getContentType();
 
 			if (contentType == null || !contentType.startsWith("application/")) {
-				return ok("error:not apk file");
+				return ok(Json.toJson("error:not apk file"));
 			}
 
 			File file = apkfile.getFile();
-			try {
-				File tempFile = new File(tmpPath + fileTempName);
-				IOUtils.copy(new FileInputStream(file), new FileOutputStream(
-						tempFile));
-
 				ApkReader ar = null;
 				try {
 					// AndroidApk apk = new AndroidApk(tempFile);
 					ar = new ApkReader();
 					ApkInfo ai = new ApkInfo();
-					int res = ar.read(tempFile.getAbsolutePath(), ai);
+					int res = ar.read(file.getAbsolutePath(), ai);
 
 					// successfully to parse apk
 					if (res == 0) {
@@ -154,12 +147,12 @@ public class Developer extends Controller {
 							} else {
 								am.update();
 							}
-							FileUtils.copyFile(tempFile, new File(path
+							FileUtils.copyFile(file, new File(path
 									+ apkName));
-							FileUtils.forceDelete(tempFile);
+							return ok(Json.toJson(am));
 						} else {
 							// TODO:return no permission to update other's app
-
+							return ok(Json.toJson("error: No permission to update other's APP: " + am.appname));
 						}
 
 						// System.out.println("  .appVersion     = " +
@@ -175,19 +168,11 @@ public class Developer extends Controller {
 					}
 				}
 
-				return redirect(routes.Developer.index());
+				
 				// return redirect(routes.Courses.showImage(fileName));
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
 
-			return ok("error:Writting file error");
-		} else {
-			flash("error", "Missing file");
-			return ok("error:Missing file");
 		}
+			return ok(Json.toJson("error:Missing file"));
 	}
 
 	private static String saveIcon(String fileName, List<String> paths,

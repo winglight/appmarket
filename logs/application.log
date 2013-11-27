@@ -1,48 +1,177 @@
-2013-11-26 16:12:34,868 - [INFO] - from play in pool-4-thread-2 
+2013-11-27 08:29:02,772 - [INFO] - from play in pool-4-thread-2 
 Listening for HTTP on /0.0.0.0:9000
 
-2013-11-26 16:12:50,605 - [INFO] - from play in play-internal-execution-context-1 
+2013-11-27 08:29:14,740 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
 
-2013-11-26 16:12:51,108 - [ERROR] - from application in New I/O worker #1 
+2013-11-27 08:29:15,458 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
 
-
-! @6gcn47d5g - Internal server error, for (GET) [/] ->
-
-play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evolution![An SQL script need to be run on your database.]
-	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1$$anonfun$apply$1.apply$mcV$sp(Evolutions.scala:486) ~[play-jdbc_2.10.jar:2.2.1]
-	at play.api.db.evolutions.EvolutionsPlugin.withLock(Evolutions.scala:507) ~[play-jdbc_2.10.jar:2.2.1]
-	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:461) ~[play-jdbc_2.10.jar:2.2.1]
-	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:459) ~[play-jdbc_2.10.jar:2.2.1]
-	at scala.collection.immutable.List.foreach(List.scala:318) ~[scala-library.jar:na]
-	at play.api.db.evolutions.EvolutionsPlugin.onStart(Evolutions.scala:459) ~[play-jdbc_2.10.jar:2.2.1]
-	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:88) ~[play_2.10.jar:2.2.1]
-	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:88) ~[play_2.10.jar:2.2.1]
-	at scala.collection.immutable.List.foreach(List.scala:318) ~[scala-library.jar:na]
-	at play.api.Play$$anonfun$start$1.apply$mcV$sp(Play.scala:88) ~[play_2.10.jar:2.2.1]
-	at play.api.Play$$anonfun$start$1.apply(Play.scala:88) ~[play_2.10.jar:2.2.1]
-	at play.api.Play$$anonfun$start$1.apply(Play.scala:88) ~[play_2.10.jar:2.2.1]
-	at play.utils.Threads$.withContextClassLoader(Threads.scala:18) ~[play_2.10.jar:2.2.1]
-	at play.api.Play$.start(Play.scala:87) ~[play_2.10.jar:2.2.1]
-	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:139) ~[play_2.10.jar:2.2.1]
-	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1$$anonfun$1.apply(ApplicationProvider.scala:112) ~[play_2.10.jar:2.2.1]
-	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
-	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:112) ~[play_2.10.jar:2.2.1]
-	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$apply$1.apply(ApplicationProvider.scala:110) ~[play_2.10.jar:2.2.1]
-	at scala.util.Success.flatMap(Try.scala:200) ~[scala-library.jar:na]
-	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:110) ~[play_2.10.jar:2.2.1]
-	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:102) ~[play_2.10.jar:2.2.1]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) ~[scala-library.jar:na]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask$AdaptedRunnableAction.exec(ForkJoinTask.java:1361) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107) ~[scala-library.jar:na]
-
-2013-11-26 16:13:59,088 - [INFO] - from play in play-internal-execution-context-1 
+2013-11-27 08:34:26,653 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
 
-2013-11-26 16:13:59,280 - [INFO] - from play in play-internal-execution-context-1 
+2013-11-27 08:34:26,779 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2013-11-27 08:35:30,802 - [INFO] - from play in play-internal-execution-context-4 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-11-27 08:35:30,917 - [INFO] - from play in play-internal-execution-context-4 
+Application started (Dev)
+
+2013-11-27 08:35:44,203 - [INFO] - from play in play-internal-execution-context-4 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-11-27 08:35:44,315 - [INFO] - from play in play-internal-execution-context-4 
+Application started (Dev)
+
+2013-11-27 08:35:53,397 - [INFO] - from play in play-internal-execution-context-8 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-11-27 08:35:53,531 - [INFO] - from play in play-internal-execution-context-8 
+Application started (Dev)
+
+2013-11-27 08:36:01,122 - [INFO] - from play in play-internal-execution-context-9 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-11-27 08:36:01,228 - [INFO] - from play in play-internal-execution-context-9 
+Application started (Dev)
+
+2013-11-27 09:40:13,224 - [INFO] - from play in play-internal-execution-context-23 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-11-27 09:40:13,324 - [INFO] - from play in play-internal-execution-context-23 
+Application started (Dev)
+
+2013-11-27 09:49:27,517 - [INFO] - from play in play-internal-execution-context-39 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-11-27 09:49:27,628 - [INFO] - from play in play-internal-execution-context-39 
+Application started (Dev)
+
+2013-11-27 09:49:54,164 - [INFO] - from play in play-internal-execution-context-43 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-11-27 09:49:54,284 - [INFO] - from play in play-internal-execution-context-43 
+Application started (Dev)
+
+2013-11-27 10:05:59,066 - [INFO] - from play in play-internal-execution-context-62 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-11-27 10:05:59,181 - [INFO] - from play in play-internal-execution-context-62 
+Application started (Dev)
+
+2013-11-27 10:12:19,030 - [INFO] - from play in play-internal-execution-context-64 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-11-27 10:12:19,140 - [INFO] - from play in play-internal-execution-context-64 
+Application started (Dev)
+
+2013-11-27 10:14:34,194 - [INFO] - from play in play-internal-execution-context-78 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-11-27 10:14:34,303 - [INFO] - from play in play-internal-execution-context-78 
+Application started (Dev)
+
+2013-11-27 10:17:44,141 - [INFO] - from play in play-internal-execution-context-86 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-11-27 10:17:44,248 - [INFO] - from play in play-internal-execution-context-86 
+Application started (Dev)
+
+2013-11-27 10:20:31,841 - [INFO] - from play in play-internal-execution-context-90 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-11-27 10:20:31,957 - [INFO] - from play in play-internal-execution-context-90 
+Application started (Dev)
+
+2013-11-27 10:33:22,007 - [INFO] - from play in play-internal-execution-context-94 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-11-27 10:33:22,116 - [INFO] - from play in play-internal-execution-context-94 
+Application started (Dev)
+
+2013-11-27 10:36:51,437 - [INFO] - from play in play-internal-execution-context-100 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-11-27 10:36:51,550 - [INFO] - from play in play-internal-execution-context-100 
+Application started (Dev)
+
+2013-11-27 10:37:41,951 - [INFO] - from play in play-internal-execution-context-102 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-11-27 10:37:42,061 - [INFO] - from play in play-internal-execution-context-102 
+Application started (Dev)
+
+2013-11-27 10:38:47,623 - [INFO] - from play in play-internal-execution-context-107 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-11-27 10:38:47,731 - [INFO] - from play in play-internal-execution-context-107 
+Application started (Dev)
+
+2013-11-27 10:40:25,626 - [INFO] - from play in play-internal-execution-context-113 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-11-27 10:40:25,733 - [INFO] - from play in play-internal-execution-context-113 
+Application started (Dev)
+
+2013-11-27 10:40:58,123 - [INFO] - from play in play-internal-execution-context-119 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-11-27 10:40:58,233 - [INFO] - from play in play-internal-execution-context-119 
+Application started (Dev)
+
+2013-11-27 10:41:12,952 - [INFO] - from play in play-internal-execution-context-122 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-11-27 10:41:13,065 - [INFO] - from play in play-internal-execution-context-122 
+Application started (Dev)
+
+2013-11-27 10:41:30,622 - [INFO] - from play in play-internal-execution-context-125 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-11-27 10:41:30,730 - [INFO] - from play in play-internal-execution-context-125 
+Application started (Dev)
+
+2013-11-27 10:42:06,772 - [INFO] - from play in play-internal-execution-context-130 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-11-27 10:42:06,880 - [INFO] - from play in play-internal-execution-context-130 
+Application started (Dev)
+
+2013-11-27 10:45:27,419 - [INFO] - from play in play-internal-execution-context-130 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-11-27 10:45:27,528 - [INFO] - from play in play-internal-execution-context-130 
+Application started (Dev)
+
+2013-11-27 10:46:09,645 - [INFO] - from play in play-internal-execution-context-135 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-11-27 10:46:09,753 - [INFO] - from play in play-internal-execution-context-135 
+Application started (Dev)
+
+2013-11-27 10:48:06,162 - [INFO] - from play in play-internal-execution-context-135 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-11-27 10:48:06,273 - [INFO] - from play in play-internal-execution-context-135 
+Application started (Dev)
+
+2013-11-27 10:57:18,690 - [INFO] - from play in play-internal-execution-context-145 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-11-27 10:57:18,800 - [INFO] - from play in play-internal-execution-context-145 
+Application started (Dev)
+
+2013-11-27 11:29:35,002 - [INFO] - from play in play-internal-execution-context-154 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-11-27 11:29:35,114 - [INFO] - from play in play-internal-execution-context-154 
+Application started (Dev)
+
+2013-11-27 14:26:28,432 - [INFO] - from play in play-internal-execution-context-155 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-11-27 14:26:28,542 - [INFO] - from play in play-internal-execution-context-155 
 Application started (Dev)
 
