@@ -47,12 +47,17 @@ public class AppModel extends Model implements Serializable{
 	
     public String appname;
     
+    public int price;
+    
     public String description;
     
     public String downurl;
     
     @OneToOne
     public UserModel author;
+    
+    @OneToOne
+    public CategoryModel category;
     
     public String appVersion;
     

@@ -6,6 +6,7 @@ libraryDependencies ++= Seq(
   javaJdbc,
   javaEbean,
   cache,
+  filters,
   "commons-io" % "commons-io" % "2.0",
   "org.apache.httpcomponents" % "httpclient" % "4.2.3",
       "org.jsoup" % "jsoup" % "1.7.2",

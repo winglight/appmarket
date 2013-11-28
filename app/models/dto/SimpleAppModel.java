@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 import models.AppModel;
+import models.CategoryModel;
 import models.UserModel;
 import play.data.format.Formats;
 
@@ -25,6 +26,8 @@ public class SimpleAppModel implements Serializable {
     public Long authorId;
     
     public String author;
+    
+    public CategoryModel category;
     
     public String appVersion;
     
@@ -61,6 +64,7 @@ public class SimpleAppModel implements Serializable {
     	sam.downurl = am.downurl;
     	sam.authorId = am.author.id;
     	sam.author = am.author.name;
+    	sam.category = am.category;
     	sam.appVersion = am.appVersion;
     	sam.appVersionCode = am.appVersionCode;
     	sam.packageName = am.packageName;

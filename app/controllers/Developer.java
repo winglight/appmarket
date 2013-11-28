@@ -89,7 +89,7 @@ public class Developer extends Controller {
 		return notFound(filename + " is Not Found!");
 	}
 
-	public static Result uploadAPK() {
+	public static Result uploadAPK(Long cid) {
 		MultipartFormData body = request().body().asMultipartFormData();
 		FilePart apkfile = body.getFile("files[]");
 		if (apkfile != null) {
@@ -141,6 +141,11 @@ public class Developer extends Controller {
 									ai.iconFileName, path);
 							am.iconUrl = routes.Developer.showImage(am.iconUrl)
 									.absoluteURL(request());
+							
+							//add category
+							if(cid != null){
+								am.category = CategoryModel.find.byId(cid);
+							}
 
 							if (flag) {
 								am.save();

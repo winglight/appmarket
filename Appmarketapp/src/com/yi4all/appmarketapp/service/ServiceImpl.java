@@ -191,7 +191,7 @@ public class ServiceImpl {
 							type);
 			if (result != null && result.getData() != null) {
 
-				getDbService().updateIssues(result.getData());
+				getDbService().updateApps(result.getData());
 
 				return result.getData();
 			}

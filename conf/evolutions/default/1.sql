@@ -7,9 +7,11 @@ create table app_model (
   dtype                     varchar(10) not null,
   id                        bigint auto_increment not null,
   appname                   varchar(255),
+  price                     integer,
   description               varchar(255),
   downurl                   varchar(255),
   author_id                 bigint,
+  category_id               bigint,
   app_version               varchar(255),
   app_version_code          varchar(255),
   package_name              varchar(255),
@@ -23,6 +25,14 @@ create table app_model (
   constraint pk_app_model primary key (id))
 ;
 
+create table category (
+  id                        bigint auto_increment not null,
+  name                      varchar(255),
+  type                      integer,
+  created_at                datetime,
+  constraint pk_category primary key (id))
+;
+
 create table user_model (
   dtype                     varchar(10) not null,
   id                        bigint auto_increment not null,
@@ -32,7 +42,6 @@ create table user_model (
   password                  varchar(255),
   tokenid                   varchar(255),
   token_expiration_time     bigint,
-  description               varchar(255),
   status                    varchar(8),
   user_role                 varchar(9),
   created_at                datetime,
@@ -49,6 +58,8 @@ create table user_model_app_model (
 ;
 alter table app_model add constraint fk_app_model_author_1 foreign key (author_id) references user_model (id) on delete restrict on update restrict;
 create index ix_app_model_author_1 on app_model (author_id);
+alter table app_model add constraint fk_app_model_category_2 foreign key (category_id) references category (id) on delete restrict on update restrict;
+create index ix_app_model_category_2 on app_model (category_id);
 
 
 
@@ -61,6 +72,8 @@ alter table user_model_app_model add constraint fk_user_model_app_model_app_mode
 SET FOREIGN_KEY_CHECKS=0;
 
 drop table app_model;
+
+drop table category;
 
 drop table user_model;
 

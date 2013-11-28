@@ -53,8 +53,6 @@ public class UserModel extends Model implements Serializable{
     
     public Long tokenExpirationTime;
     
-    public String description;
-    
 	@Enumerated(EnumType.STRING)
 	public UserStatus status;
 	

@@ -14,25 +14,23 @@ public class UserModel implements Serializable {
 	public static final String TAG = "UserModel";
 	
 	public static final String FIELD_EMAIL = "EMAIL";
+	public static final String FIELD_NAME = "NAME";
 	public final static String FIELD_PASSWORD = "PASSWORD";
 	public final static String FIELD_SID = "DEVICE_ID";
-	public final static String FIELD_VIP = "VIP";
-	public final static String FIELD_ENDDATE = "ENDDATE";
-	public final static String FIELD_LASTUPDATETIME = "LASTUPDATETIME";
-	public final static String FIELD_HP = "HP";
+	public final static String FIELD_GOLD = "GOLD";
 
 	@DatabaseField(generatedId = true)
 	private long id = -1;
 	@DatabaseField(columnName = FIELD_EMAIL)
 	private String email;
+	@DatabaseField(columnName = FIELD_NAME)
+	public String name;
 	@DatabaseField(columnName = FIELD_PASSWORD)
 	private String password;
 	@DatabaseField(columnName = FIELD_SID)
 	private String deviceId;
-	@DatabaseField(columnName = FIELD_LASTUPDATETIME)
-	private Date lastUpdateTime;
-	@DatabaseField(columnName = FIELD_HP)
-	private int hp=5;
+	@DatabaseField(columnName = FIELD_GOLD)
+	private int gold=5;
 	
     private Date expirationDate;
 	
@@ -101,11 +99,11 @@ public class UserModel implements Serializable {
 	}
 
 	public int getHp() {
-		return hp;
+		return gold;
 	}
 
 	public void setHp(int hp) {
-		this.hp = hp;
+		this.gold = hp;
 	}
 
 }
