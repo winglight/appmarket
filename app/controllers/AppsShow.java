@@ -29,7 +29,7 @@ public class AppsShow extends Controller {
 	}
     
     public static Result getNewestapps(Long page) {
-    	List<SimpleAppModel> list = AppModel.findAppsByHots(page.intValue());
+    	List<SimpleAppModel> list = AppModel.findAppsByNewest(page.intValue());
     	PageInfo pageInfo = AppModel.getHotAppsPageInfo(page.intValue());
     	if(list.size() < Constants.AMOUNT_PER_PAGE){
     		pageInfo.setEnd(list.size());
@@ -43,7 +43,7 @@ public class AppsShow extends Controller {
 	}
     
     public static Result getCategoryapps(Long category, Long page) {
-    	List<SimpleAppModel> list = AppModel.findAppsByHots(page.intValue());
+    	List<SimpleAppModel> list = AppModel.findAppsByCategory(category, page.intValue());
     	PageInfo pageInfo = AppModel.getHotAppsPageInfo(page.intValue());
     	if(list.size() < Constants.AMOUNT_PER_PAGE){
     		pageInfo.setEnd(list.size());

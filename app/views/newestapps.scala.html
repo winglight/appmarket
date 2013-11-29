@@ -1,0 +1,20 @@
+@(user: UserModel)
+
+@main(user, "Newest APPs") {
+
+    <div class="centercontent" >
+    
+        <div class="pageheader notab">
+            <h1 class="pagetitle">Newest Updated/Uploaded APPs</h1>
+            <span class="pagedesc">newest apps in this world.</span>
+        </div><!--pageheader-->
+        
+        <div id="contentwrapper" class="contentwrapper nopadding" ng-controller='NewestController'>
+         
+         @appsgallery()
+            
+        </div><!--contentwrapper-->
+                
+	</div><!-- centercontent -->
+	<script type="text/javascript" src="@routes.Assets.at("js/newestappcontroller.js")"></script>
+}    

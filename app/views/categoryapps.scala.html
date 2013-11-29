@@ -1,20 +1,48 @@
 @(user: UserModel)
 
-@main(user, "APP Category") {
-
-    <div class="centercontent" ng-app="appsList">
+@main(user, "APPs Category") {
+	<div  ng-controller='CategoryController'>
+	<div class="vernav2 iconmenu">
+    	<ul>
+        	<li >
+        		<a href="#appsub" class="editor">APP</a>
+            	<span class="arrow"></span>
+            	<ul id="appsub">
+               		<li ng-repeat="c in categories | filter:{type : 'APP'}">
+               		<a ng-click="setCurrentCategory(c)" href="#">{{c.name}}</a>
+               		</li>
+                </ul>
+            </li>
+            
+            <li >
+        		<a href="#gamesub" class="editor">GAME</a>
+            	<span class="arrow"></span>
+            	<ul id="gamesub">
+               		<li ng-repeat="c in categories | filter:{type : 'GAME'}">
+               		<a ng-click="setCurrentCategory(c)" href="#">{{c.name}}</a>
+               		</li>
+                </ul>
+            </li>
+        </ul>
+        <a class="togglemenu"></a>
+        <br /><br />
+    </div><!--leftmenu-->
+    
+    <div class="centercontent" >
     
         <div class="pageheader notab">
-            <h1 class="pagetitle">Hot APPs</h1>
-            <span class="pagedesc">hottest apps in this world.</span>
+            <h1 class="pagetitle">Category: {{currentCategory.name}}</h1>
+            <span class="pagedesc">best of the best</span>
         </div><!--pageheader-->
         
-        <div id="contentwrapper" class="contentwrapper nopadding" ng-controller='CategoryController'>
+        <div id="contentwrapper" class="contentwrapper nopadding">
          
          @appsgallery()
             
         </div><!--contentwrapper-->
                 
 	</div><!-- centercontent -->
-	<script type="text/javascript" src="@routes.Assets.at("js/hotappcontroller.js")"></script>
+	</div>
+	<script type="text/javascript" src="@routes.Assets.at("js/categoryappcontroller.js")"></script>
+
 }    

@@ -2,26 +2,24 @@
 
 @main(user, "Upload") {
 
-    <div class="centercontent" ng-app ng-controller="AppsController">
+    <div class="centercontent" ng-controller="AppsController">
           <div class="contenttitle2">
                 	<h3>Upload Your APP</h3>
                 </div><!--contenttitle-->
                 						<p>
-                						<select id="category" name="category" >
-                							<option value="0">Choose One Category</option>
-			                            	<option value="{{category.id}}" ng-repeat="category in categories">{{category.name}}</option>
+                						<select ng-model="category" id="category" name="category" ng-options="category.id as category.name group by category.type for category in categories">
 			                            </select>
-				                        <span class="btn btn-success fileinput-button">
-									        <i class="glyphicon glyphicon-plus"></i>
-									        <span>Please click to select APK file...</span>
+				                        <span class="stdbtn btn_lime">
+									        <span onclick="jQuery('#file_upload').trigger('click');return true;">Please click to select APK file...</span>
 									        <!-- The file input field used as target for the file upload widget -->
-									        <input id="file_upload" name="files[]" type="file" multiple="false" data-url='@routes.Developer.uploadAPK()'>
+									        <input id="file_upload" name="files[]" type="file" multiple="false" data-url='@routes.Developer.uploadAPK()' style="display:none;"/>
 									    </span>
 									    <br>
 									    <!-- The global progress bar -->
-									    <div id="progress" class="progress">
-									        <div class="progress-bar progress-bar-success"></div>
-									    </div>
+									    <div id="progress" class="progress" style="display:none;">
+				                            <div class="bar2">
+				                            <div class="value bluebar" style="width: 0%;">Uploaded (%)</div></div>
+				                        </div>
 				                        </p>
                 <table cellpadding="0" cellspacing="0" border="0" class="stdtable" id="dyntable2">
                     <colgroup>
@@ -63,7 +61,7 @@
                             <td>{{app.createdAt}}</td>
                             <td class="center">
                             <ul class="buttonlist">
-		                        <li class="deleteCourse"><button  ng-click='deleteApp("{{app.id}}")' class="stdbtn btn_red">Delete</button></li>
+		                        <li class="deleteApp"><button  ng-click='deleteApp($index)' class="stdbtn btn_red">Delete</button></li>
 		                   </ul>
                             </td>
                         </tr>
@@ -80,7 +78,7 @@
 	<script>
 	//category listener
 	jQuery('#category').change(function(){
-		var category = jQuery(this).children('option:selected').val();
+		var category = angular.element('[ng-controller=AppsController]').scope().category.id;
 		var url = jQuery('#file_upload')[0].dataset.url;
 		var pos = url.indexOf("=");
 		if(pos > 0){
@@ -91,24 +89,6 @@
 	});
 	
 //load upload image file
-	uploadButton = jQuery('<button/>')
-            .addClass('btn btn-primary')
-            .prop('disabled', true)
-            .text('Processing...')
-            .on('click', function () {
-                var jQuerythis = jQuery(this),
-                    data = jQuerythis.data();
-                jQuerythis
-                    .off('click')
-                    .text('Abort')
-                    .on('click', function () {
-                        jQuerythis.remove();
-                        data.abort();
-                    });
-                data.submit().always(function () {
-                    jQuerythis.remove();
-                });
-            });
 	jQuery('#file_upload').fileupload({
         dataType: 'json',
         acceptFileTypes: /(\.|\/)(apk)$/i,
@@ -117,24 +97,23 @@
         add: function(e, data) {
 	      data.url = jQuery('#file_upload')[0].dataset.url;
 	      data.submit();
+	      jQuery('#progress').css('display', 'block');
 	    },
         done: function (e, data) {
-	        	alert(data.result);
+	        	alert("Successfully upload an APK!");
+	        	angular.element('[ng-controller=AppsController]').scope().addApp(data.result);
+	        	jQuery('#progress').css('display', 'none');
         },
         progressall: function (e, data) {
             var progress = parseInt(data.loaded / data.total * 100, 10);
-            jQuery('#progress .progress-bar').css(
+            jQuery('#progress .value').css(
                 'width',
                 progress + '%'
-            );
+            ).text("Uploaded " + progress + "%");
         }
     }).on('fileuploadfail', function (e, data) {
-        jQuery.each(data.files, function (index, file) {
-            var error = jQuery('<span class="text-danger"/>').text('File upload failed.');
-            jQuery(data.context.children()[index])
-                .append('<br>')
-                .append(error);
-        });
+        alert('File upload failed.');
+        jQuery('#progress').css('display', 'none');
     }).prop('disabled', !jQuery.support.fileInput)
         .parent().addClass(jQuery.support.fileInput ? undefined : 'disabled');
         </script>

@@ -110,5 +110,17 @@ public class Application extends Controller {
     	UserModel user = UserModel.findByloginName(name);
         return ok(hotapps.render(user));
     }
+    
+    public static Result categoryApps() {
+    	String name = Context.current().session().get(Constants.SESSION_USER_NAME);
+    	UserModel user = UserModel.findByloginName(name);
+        return ok(categoryapps.render(user));
+    }
+    
+    public static Result newestApps() {
+    	String name = Context.current().session().get(Constants.SESSION_USER_NAME);
+    	UserModel user = UserModel.findByloginName(name);
+        return ok(newestapps.render(user));
+    }
 
 }

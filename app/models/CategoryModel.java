@@ -9,6 +9,8 @@ import play.data.validation.Constraints.*;
 
 import javax.persistence.*;
 
+import models.dto.CategoryType;
+
 @Entity
 @Table(name="category")
 public class CategoryModel extends Model implements Serializable {
@@ -21,7 +23,7 @@ public class CategoryModel extends Model implements Serializable {
 	@Required
 	public String name;
 
-	public int type; //0 - app ; 1 - game
+	public CategoryType type; 
 
 	@Formats.DateTime(pattern="yyyy-MM-dd")
 	public Date createdAt;

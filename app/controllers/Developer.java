@@ -207,11 +207,11 @@ public class Developer extends Controller {
 	}
 
 	public static Result deleteApp(Long app) {
-		if (Secured.isOwnerOf(app)) {
+//		if (Secured.isOwnerOf(app)) {
 			AppModel.find.ref(app).delete();
-			return redirect(routes.Developer.index());
-		} else {
-			return forbidden();
-		}
+			return ok(Constants.RETURN_SUCCESS);
+//		} else {
+//			return ok(Constants.RETURN_FORBIDDEN);
+//		}
 	}
 }

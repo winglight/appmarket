@@ -1,14 +1,13 @@
 @(user: UserModel, title: String)(content: Html)
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="appsList">
 
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>@title - Ultimate Black APP Market</title>
 <link rel="stylesheet" href="@routes.Assets.at("css/style.default.css")" type="text/css" />
-<link rel="stylesheet" href="@routes.Assets.at("css/bootstrap.css")" type="text/css" />
 </head>
 
 <body class="withvernav">
@@ -71,8 +70,8 @@
     <div class="header">
     	<ul class="headermenu">
         	<li><a href="@routes.Application.index()"><span class="icon icon-flatscreen"></span>HOT APPS</a></li>
-            <li><a href="manageblog.html"><span class="icon icon-pencil"></span>Categories</a></li>
-            <li><a href="messages.html"><span class="icon icon-message"></span>Newest</a></li>
+            <li><a href="@routes.Application.categoryApps()"><span class="icon icon-pencil"></span>Categories</a></li>
+            <li><a href="@routes.Application.newestApps()"><span class="icon icon-message"></span>Newest</a></li>
             <li><a href="@routes.Developer.index()"><span class="icon icon-chart"></span>Upload</a></li>
         </ul>
         

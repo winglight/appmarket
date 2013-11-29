@@ -5,170 +5,170 @@ categories:
     - !!models.CategoryModel
         id:         1
         name:       Books & Reference
-        type:       0
+        type:       "APP"
                
     - !!models.CategoryModel
         id:         2
         name:       Business
-        type:       0
+        type:       "APP"
 
     - !!models.CategoryModel
         id:         3
         name:       Comics
-        type:       0
+        type:       "APP"
                
     - !!models.CategoryModel
         id:         4
         name:       Communication
-        type:       0
+        type:       "APP"
                
     - !!models.CategoryModel
         id:         5
         name:       Education
-        type:       0
+        type:       "APP"
                
     - !!models.CategoryModel
         id:         6
         name:       Entertainment
-        type:       0
+        type:       "APP"
                
     - !!models.CategoryModel
         id:         7
         name:       Finance
-        type:       0
+        type:       "APP"
                
     - !!models.CategoryModel
         id:         8
         name:       Health & Fitness
-        type:       0
+        type:       "APP"
                
     - !!models.CategoryModel
         id:         9
         name:       Lifestyle
-        type:       0
+        type:       "APP"
                
     - !!models.CategoryModel
         id:         10
         name:       Live Wallpaper
-        type:       0
+        type:       "APP"
                
     - !!models.CategoryModel
         id:         11
         name:       Media & Video
-        type:       0
+        type:       "APP"
 
     - !!models.CategoryModel
         id:         12
         name:       Medical
-        type:       0
+        type:       "APP"
         
     - !!models.CategoryModel
         id:         13
         name:       Music & Audio
-        type:       0    
+        type:       "APP"    
                
     - !!models.CategoryModel
         id:         14
         name:       News & Magazines
-        type:       0
+        type:       "APP"
                
     - !!models.CategoryModel
         id:         15
         name:       Personalization
-        type:       0
+        type:       "APP"
                
     - !!models.CategoryModel
         id:         16
         name:       Photography
-        type:       0
+        type:       "APP"
                
     - !!models.CategoryModel
         id:         17
         name:       Productivity
-        type:       0
+        type:       "APP"
                
     - !!models.CategoryModel
         id:         18
         name:       Shopping
-        type:       0
+        type:       "APP"
                
     - !!models.CategoryModel
         id:         19
         name:       Social
-        type:       0
+        type:       "APP"
         
     - !!models.CategoryModel
         id:         20
         name:       Sports
-        type:       0
+        type:       "APP"
                
     - !!models.CategoryModel
         id:         21
         name:       Tools
-        type:       0
+        type:       "APP"
 
     - !!models.CategoryModel
         id:         22
         name:       Transportation
-        type:       0
+        type:       "APP"
         
     - !!models.CategoryModel
         id:         23
         name:       Travel & Local
-        type:       0    
+        type:       "APP"    
                
     - !!models.CategoryModel
         id:         24
         name:       Weather
-        type:       0
+        type:       "APP"
                
     - !!models.CategoryModel
         id:         25
         name:       Widgets
-        type:       0
+        type:       "APP"
         
     - !!models.CategoryModel
         id:         26
         name:       Arcade & Action
-        type:       1
+        type:       "GAME"
                
     - !!models.CategoryModel
         id:         27
         name:       Brain & Puzzle
-        type:       1
+        type:       "GAME"
                
     - !!models.CategoryModel
         id:         28
         name:       Cards & Casino
-        type:       1
+        type:       "GAME"
                
     - !!models.CategoryModel
         id:         29
         name:       Casual
-        type:       1
+        type:       "GAME"
         
     - !!models.CategoryModel
         id:         30
         name:       Live Wallpaper
-        type:       1
+        type:       "GAME"
                
     - !!models.CategoryModel
         id:         31
         name:       Racing
-        type:       1
+        type:       "GAME"
 
     - !!models.CategoryModel
         id:         32
         name:       Sports Games
-        type:       1
+        type:       "GAME"
         
     - !!models.CategoryModel
         id:         33
         name:       Widgets
-        type:       1    
+        type:       "GAME"    
                
     - !!models.CategoryModel
         id:         34
         name:       Weather
-        type:       1
+        type:       "GAME"
         

@@ -30,6 +30,7 @@ create table category (
   name                      varchar(255),
   type                      integer,
   created_at                datetime,
+  constraint ck_category_type check (type in (0,1,2)),
   constraint pk_category primary key (id))
 ;
 

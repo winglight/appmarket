@@ -62,8 +62,10 @@ public class SimpleAppModel implements Serializable {
     	sam.appname = am.appname;
     	sam.description = am.description;
     	sam.downurl = am.downurl;
-    	sam.authorId = am.author.id;
-    	sam.author = am.author.name;
+    	if(am.author != null){
+	    	sam.authorId = am.author.id;
+	    	sam.author = am.author.name;
+    	}
     	sam.category = am.category;
     	sam.appVersion = am.appVersion;
     	sam.appVersionCode = am.appVersionCode;

@@ -110,6 +110,25 @@ public class AppModel extends Model implements Serializable{
         return SimpleAppModel.transferAM(list);
     }
     
+    public static List<SimpleAppModel> findAppsByCategory(Long category, int page) {
+        List<AppModel> list = find.where()
+        		.eq("deleteFlag", false)
+        		.eq("category.id", category)
+        		.orderBy("downloads,createdAt desc")
+				.findPagingList(Constants.AMOUNT_PER_PAGE).getPage(page - 1)
+				.getList();
+        return SimpleAppModel.transferAM(list);
+    }
+    
+    public static List<SimpleAppModel> findAppsByNewest(int page) {
+        List<AppModel> list = find.where()
+        		.eq("deleteFlag", false)
+        		.orderBy("createdAt desc")
+				.findPagingList(Constants.AMOUNT_PER_PAGE).getPage(page - 1)
+				.getList();
+        return SimpleAppModel.transferAM(list);
+    }
+    
     public static PageInfo getHotAppsPageInfo(int page) {
         int total = find.where()
         		.eq("deleteFlag", false).findRowCount();

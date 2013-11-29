@@ -5,6 +5,11 @@
 # Home page
 GET     /                           controllers.Application.index()
 
+# main pages 
+GET     /developer/index                  controllers.Developer.index()
+GET     /categoryapps                     controllers.Application.categoryApps()
+GET     /newestapps                     controllers.Application.newestApps()
+
 # Authentication
 GET     /login                              controllers.Application.login()
 POST    /login                              controllers.Application.authenticate()
@@ -13,7 +18,6 @@ POST    /register                           controllers.Application.register()
 GET     /logout                             controllers.Application.logout()
 
 #Developer
-GET     /developer/index                  controllers.Developer.index()
 GET     /developer/apps                  controllers.Developer.getApps()
 DELETE  /developer/:app/delete      controllers.Developer.deleteApp(app: Long)
 POST    /developer/uploadApk        controllers.Developer.uploadAPK(cid: Long ?= 0)
