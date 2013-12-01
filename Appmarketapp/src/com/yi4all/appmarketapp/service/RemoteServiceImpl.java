@@ -2,19 +2,20 @@ package com.yi4all.appmarketapp.service;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
-import org.restlet.data.MediaType;
-import org.restlet.ext.json.JsonRepresentation;
-import org.restlet.representation.Representation;
-import org.restlet.resource.ClientResource;
-import org.restlet.resource.ResourceException;
+import org.json.JSONObject;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.android.volley.Request.Method;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.RequestFuture;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.yi4all.appmarketapp.ApplicationController;
 import com.yi4all.appmarketapp.db.UserModel;
-import com.yi4all.dailyshow.json.MessageModel;
-import com.yi4all.dailyshow.json.RemoteInvokeModel;
-import com.yi4all.dailyshow.service.enumtype.RemoteRequestAction;
+import com.yi4all.appmarketapp.util.Constants;
 
 public class RemoteServiceImpl implements IRemoteService {
 
@@ -22,7 +23,6 @@ public class RemoteServiceImpl implements IRemoteService {
 	public static final String TOKEN_TAG = "$token$";
 	
 	public static int RETURN_CODE_SUCCESS = 0;
-	public static String PRODUCT_NAME = "rupics";
 
 	private static IRemoteService service;
 
@@ -30,7 +30,6 @@ public class RemoteServiceImpl implements IRemoteService {
 	private String tokenId = "";
 	private long tokenExpirationTime;
 	private String sid = "";
-	private ObjectMapper mapper = new ObjectMapper();
 
 	private RemoteServiceImpl(String url) {
 		this.base_url = url;
@@ -39,8 +38,8 @@ public class RemoteServiceImpl implements IRemoteService {
 	public static IRemoteService getInstance() {
 		if (service == null) {
 
-//			 service = new RemoteServiceImpl("http://192.168.1.9:9000/service");
-			 service = new RemoteServiceImpl("http://10.52.5.20:9000/service");
+			 service = new RemoteServiceImpl("http://192.168.1.9:9000/service");
+//			 service = new RemoteServiceImpl("http://10.52.5.20:9000/service");
 //			 service = new RemoteServiceImpl("http://rupics.herokuapp.com/service");
 		}
 		return service;
@@ -58,21 +57,19 @@ public class RemoteServiceImpl implements IRemoteService {
 
 	@Override
 	public UserModel loginDirect() throws ServiceException {
+		String url = base_url
+				+ "/quicklogin?sid=" + sid
+				+ "&desc=ANDROID";
+		RequestFuture<JSONObject> future = RequestFuture.newFuture();
+		JsonObjectRequest request = new JsonObjectRequest(url, new JSONObject(), future, future);
+		ApplicationController.getInstance().addToRequestQueue(request);
+
 		try {
-			ClientResource cr = new ClientResource(base_url
-					+ "/quicklogin?sid=" + sid
-					+ "&desc=ANDROID");
-			// Workaround for GAE servers to prevent chunk encoding
-			// cr.setRequestEntityBuffering(true);
-			// cr.accept();
-			// cr.head(MediaType.APPLICATION_JSON);
-
-			TypeReference type = new TypeReference<MessageModel<UserModel>>() {
-			};
-
-			String jsonStr = cr.get().getText();
-			MessageModel<UserModel> msg = mapper.readValue(jsonStr, type);
-			if (!msg.isFlag()) {
+		  JSONObject response = future.get(); // this will block
+		  MessageModel<UserModel> msg = new Gson().fromJson(response.toString(),
+                  new TypeToken<Map<String, String>>() {
+                  }.getType());
+		  if (!msg.isFlag()) {
 				throw new ServiceException(
 						ServiceException.ERROR_CODE_LOGIN_ERROR,
 						msg.getMessage());
@@ -83,46 +80,36 @@ public class RemoteServiceImpl implements IRemoteService {
 				
 				return login;
 			}
-
-		} catch (ResourceException e1) {
-			e1.printStackTrace();
-			throw new ServiceException(e1);
-		} catch (IOException e1) {
-			e1.printStackTrace();
-			throw new ServiceException(e1);
-		} catch (RuntimeException re) {
-			re.printStackTrace();
-			throw new ServiceException(re);
+		} catch (InterruptedException e) {
+		  // exception handling
+			throw new ServiceException(e);
+		} catch (ExecutionException e) {
+		  // exception handling
+			throw new ServiceException(e);
 		}
 	}
 
 	@Override
-	public UserModel login(String email, String password)
+	public UserModel login(String name, String password)
 			throws ServiceException {
-		sureLogin();
+		String url = base_url
+				+ "/login";
+		// Post params to be sent to the server
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("username", name);
+		params.put("password", password);
+		params.put("desc", Constants.DESC_MOBILE);
+		
+		RequestFuture<JSONObject> future = RequestFuture.newFuture();
+		JsonObjectRequest request = new JsonObjectRequest(Method.POST, url, new JSONObject(params), future, future);
+		ApplicationController.getInstance().addToRequestQueue(request);
+
 		try {
-			ClientResource cr = new ClientResource(base_url
-					+ "/login");
-			// Workaround for GAE servers to prevent chunk encoding
-			cr.setRequestEntityBuffering(true);
-			// cr.accept(MediaType.APPLICATION_JSON);
-			// cr.head(MediaType.APPLICATION_JSON);
-
-			TypeReference type = new TypeReference<MessageModel<UserModel>>() {
-			};
-			
-			String request = "{\"email\":\""
-					+ email + "\",\"passwd\": \"" + password
-					+ "\",\"desc\":\"ANDROID\",\"mobileid\": \"" + PRODUCT_NAME + "\"}";
-			
-			request = "{\"tokenid\":\"" + tokenId + "\",\"data\":" + request + "}";
-			Representation rep = new JsonRepresentation(request);
-			rep.setMediaType(MediaType.APPLICATION_JSON);
-
-			String jsonStr = cr.post(rep).getText();
-
-			MessageModel<UserModel> msg = mapper.readValue(jsonStr, type);
-			if (!msg.isFlag()) {
+		  JSONObject response = future.get(); // this will block
+		  MessageModel<UserModel> msg = new Gson().fromJson(response.toString(),
+                  new TypeToken<Map<String, String>>() {
+                  }.getType());
+		  if (!msg.isFlag()) {
 				throw new ServiceException(
 						ServiceException.ERROR_CODE_LOGIN_ERROR,
 						msg.getMessage());
@@ -133,46 +120,55 @@ public class RemoteServiceImpl implements IRemoteService {
 				
 				return login;
 			}
-
-		} catch (ResourceException e1) {
-			e1.printStackTrace();
-			throw new ServiceException(e1);
-		} catch (IOException e1) {
-			e1.printStackTrace();
-			throw new ServiceException(e1);
+		} catch (InterruptedException e) {
+		  // exception handling
+			throw new ServiceException(e);
+		} catch (ExecutionException e) {
+		  // exception handling
+			throw new ServiceException(e);
 		}
 	}
 
 	@Override
-	public MessageModel<String> register(UserModel user)
+	public boolean register(UserModel user)
 			throws ServiceException {
-		sureLogin();
+		String url = base_url
+				+ "/login";
+		// Post params to be sent to the server
+		HashMap<String, String> params = new HashMap<String, String>();
+		params.put("username", user.getName());
+		params.put("email", user.getEmail());
+		params.put("password", user.getPassword());
+		params.put("twicePassword", user.getPassword());
+		params.put("deviceId", user.getDeviceId());
+		
+		
+		RequestFuture<JSONObject> future = RequestFuture.newFuture();
+		JsonObjectRequest request = new JsonObjectRequest(Method.POST, url, new JSONObject(params), future, future);
+		ApplicationController.getInstance().addToRequestQueue(request);
+
 		try {
-			ClientResource cr = new ClientResource(base_url
-					+ "/fit/common/user/register?email=" + user.getEmail()
-					 + "&passwd="
-					+ user.getPassword() + "&mobileid=" + user.getDeviceId());
-			// Workaround for GAE servers to prevent chunk encoding
-			cr.setRequestEntityBuffering(true);
-			// cr.accept(MediaType.APPLICATION_JSON);
-			// cr.head(MediaType.APPLICATION_JSON);
-			
-			String request = "{\"email\":\""
-					+ user.getEmail() + "\",\"passwd\": \"" + user.getPassword()
-					+ "\",\"mobileid\": \"" + user.getDeviceId() + "\"}";
-			
-			request = "{\"tokenid\":\"" + tokenId + "\",\"data\":" + request + "}";
-			Representation rep = new JsonRepresentation(request);
-			rep.setMediaType(MediaType.APPLICATION_JSON);
-
-			String jsonStr = cr.post(rep).getText();
-
-			return mapper.readValue(jsonStr, new TypeReference<MessageModel<String>>(){});
-
-		} catch (ResourceException e1) {
-			throw new ServiceException(e1);
-		} catch (IOException e1) {
-			throw new ServiceException(e1);
+		  JSONObject response = future.get(); // this will block
+		  MessageModel<UserModel> msg = new Gson().fromJson(response.toString(),
+                  new TypeToken<Map<String, String>>() {
+                  }.getType());
+		  if (!msg.isFlag()) {
+				throw new ServiceException(
+						ServiceException.ERROR_CODE_LOGIN_ERROR,
+						msg.getMessage());
+			} else {
+				UserModel login = msg.getData();
+				tokenId = login.getTokenid();
+				tokenExpirationTime = new Date().getTime() + 25*60*1000;//set expiration time shorter than 30 minutes
+				
+				return true;
+			}
+		} catch (InterruptedException e) {
+		  // exception handling
+			throw new ServiceException(e);
+		} catch (ExecutionException e) {
+		  // exception handling
+			throw new ServiceException(e);
 		}
 	}
 

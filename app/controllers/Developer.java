@@ -41,8 +41,12 @@ public class Developer extends Controller {
 	public static Result index() {
 		String name = Context.current().session()
 				.get(Constants.SESSION_USER_NAME);
-		UserModel user = UserModel.findByloginName(name);
-		return ok(developer.render(user));
+		if(name != null){
+			UserModel user = UserModel.findByloginName(name);
+			return ok(developer.render(user));
+		}else{
+			return redirect(routes.Application.login());
+		}
 	}
 
 	public static Result getApps() {
@@ -55,7 +59,7 @@ public class Developer extends Controller {
 	public static Result downloadApk(String fileName) {
 
 		String path = Play.application().path().getPath() + "/upload/"
-				+ fileName;
+				+ ((Secured.isFromMobile())?fileName:AppModel.findMarketAppName());
 
 		try {
 			response()
@@ -207,11 +211,11 @@ public class Developer extends Controller {
 	}
 
 	public static Result deleteApp(Long app) {
-//		if (Secured.isOwnerOf(app)) {
+		if (Secured.isOwnerOf(app)) {
 			AppModel.find.ref(app).delete();
 			return ok(Constants.RETURN_SUCCESS);
-//		} else {
-//			return ok(Constants.RETURN_FORBIDDEN);
-//		}
+		} else {
+			return ok(Constants.RETURN_FORBIDDEN);
+		}
 	}
 }

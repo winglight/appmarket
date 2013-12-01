@@ -22,6 +22,7 @@ public class Application extends Controller {
 
 		public String username;
 		public String password;
+		public String desc;//login device desc
 
 		public String validate() {
 			if (UserModel.authenticate(username, password) == null) {
@@ -38,6 +39,7 @@ public class Application extends Controller {
 		public String email;
 		public String password;
 		public String twicePassword;
+		public String deviceId;
 
 		public String validate() {
 			if(password == null || !password.equals(twicePassword)){
@@ -80,6 +82,9 @@ public class Application extends Controller {
 				return badRequest(login.render(loginForm));
 			} else {
 				session(Constants.SESSION_USER_NAME, loginForm.get().username);
+				if(loginForm.get().desc != null && loginForm.get().desc.length() > 0){
+					session(Constants.SESSION_DESC, loginForm.get().desc);
+				}
 				return redirect(routes.Application.index());
 			}
 	}
@@ -97,6 +102,7 @@ public class Application extends Controller {
 			um.createdAt = new Date();
 			um.status = UserStatus.Active;
 			um.userRole = UserRole.DEVELOPER;
+			um.deviceId = register.deviceId;
 			//save user
 			um.save();
 			

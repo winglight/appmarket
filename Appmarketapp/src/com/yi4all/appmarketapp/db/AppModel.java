@@ -3,11 +3,9 @@ package com.yi4all.appmarketapp.db;
 import java.io.Serializable;
 import java.util.Date;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
 @DatabaseTable(tableName = "apps")
 public class AppModel implements Serializable {
 
@@ -20,8 +18,10 @@ public class AppModel implements Serializable {
 	
 	public static final String DESCRIPTION = "DESCRIPTION";
 	public final static String APPNAME = "APPNAME";
+	public final static String SERVERID = "SERVERID";
 	public final static String PRICE = "PRICE";
 	public final static String DOWNURL = "DOWNURL";
+	public final static String CATEGORY = "CATEGORY";
 	public final static String AUTHOR = "AUTHOR";
 	public final static String AUTHORID = "AUTHORID";
 	public final static String APPVERSION = "APPVERSION";
@@ -35,8 +35,10 @@ public class AppModel implements Serializable {
 	public final static String DELETEFLAG = "DELETEFLAG";
 	public final static String CREATEDAT = "CREATEDAT";
 
-	@DatabaseField(generatedId = true)
+	@DatabaseField
 	private long id = -1;
+	@DatabaseField(columnName = SERVERID)
+	private String serverId;
 	@DatabaseField(columnName = APPNAME)
 	private String appname;
 	@DatabaseField(columnName = PRICE)
@@ -45,6 +47,8 @@ public class AppModel implements Serializable {
 	private String description;
 	@DatabaseField(columnName = DOWNURL)
 	private String downurl;
+	@DatabaseField(columnName = CATEGORY)
+	public CategoryModel category;
 	@DatabaseField(columnName = AUTHOR)
 	public String author;
 	@DatabaseField(columnName = AUTHORID)
@@ -208,6 +212,22 @@ public class AppModel implements Serializable {
 
 	public void setPrice(int price) {
 		this.price = price;
+	}
+
+	public String getServerId() {
+		return serverId;
+	}
+
+	public void setServerId(String serverId) {
+		this.serverId = serverId;
+	}
+
+	public CategoryModel getCategory() {
+		return category;
+	}
+
+	public void setCategory(CategoryModel category) {
+		this.category = category;
 	}
 
 

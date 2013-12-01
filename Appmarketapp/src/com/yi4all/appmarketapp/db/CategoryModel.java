@@ -16,23 +16,17 @@ public class CategoryModel implements Serializable {
 	public final static String LOGTAG = "CategoryModel";
 	
 	public  static final String NAME = "NAME";
-	public  static final String COVER = "COVER";
-	public static final String FIELD_SERVERID = "SERVERID";
+	public  static final String TYPE = "TYPE";
 	public  static final String CREATED_AT = "CREATED_AT";
-	public  static final String SUBSCRIBED = "SUBSCRIBED";
 	
-	@DatabaseField(generatedId = true)
+	@DatabaseField
 	private long id = -1;
-	@DatabaseField(columnName = FIELD_SERVERID)
-	private Long serverId;// ID of server
 	@DatabaseField(index = true, columnName = NAME)
 	private String name;
-	@DatabaseField(columnName = COVER)
-	private String cover;//image path
+	@DatabaseField(columnName = TYPE)
+	private CategoryType type;
 	@DatabaseField(columnName = CREATED_AT)
 	private Date createdAt; 
-	@DatabaseField(columnName = SUBSCRIBED)
-	private boolean subscribed=true; 
 	
 	public CategoryModel(){
 		
@@ -54,23 +48,6 @@ public class CategoryModel implements Serializable {
 		this.name = name;
 	}
 
-	public String getCover() {
-		return cover;
-	}
-
-	public void setCover(String cover) {
-		this.cover = cover;
-	}
-
-
-	public Long getServerId() {
-		return serverId;
-	}
-
-	public void setServerId(Long serverId) {
-		this.serverId = serverId;
-	}
-
 	public Date getCreatedAt() {
 		return createdAt;
 	}
@@ -79,13 +56,14 @@ public class CategoryModel implements Serializable {
 		this.createdAt = createdAt;
 	}
 
-	public boolean isSubscribed() {
-		return subscribed;
+	public CategoryType getType() {
+		return type;
 	}
 
-	public void setSubscribed(boolean subscribed) {
-		this.subscribed = subscribed;
+	public void setType(CategoryType type) {
+		this.type = type;
 	}
+
 	
 	
 }

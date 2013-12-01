@@ -4,5 +4,8 @@
     <string name="app_name">Appmarketapp</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="generic_server_down">Server is down temporary! Please try again later.</string>
+    <string name="no_internet">No internet connection now!</string>
+    <string name="generic_error">Network error!</string>
 
 </resources>

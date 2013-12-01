@@ -22,6 +22,10 @@ public class Secured extends Security.Authenticator {
         return Context.current().session().get(Constants.SESSION_USER_NAME).equals(userName);
     }
     
+    public static boolean isFromMobile() {
+        return Constants.SESSION_DEVICE_MOBILE.equals(Context.current().session().get(Constants.SESSION_DESC));
+    }
+    
     public static boolean isOwnerOf(Long app) {
         return AppModel.isOwner(
                 app,

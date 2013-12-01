@@ -3,11 +3,9 @@ package com.yi4all.appmarketapp.db;
 import java.io.Serializable;
 import java.util.Date;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
 @DatabaseTable(tableName = "user")
 public class UserModel implements Serializable {
 
@@ -24,7 +22,7 @@ public class UserModel implements Serializable {
 	@DatabaseField(columnName = FIELD_EMAIL)
 	private String email;
 	@DatabaseField(columnName = FIELD_NAME)
-	public String name;
+	private String name;
 	@DatabaseField(columnName = FIELD_PASSWORD)
 	private String password;
 	@DatabaseField(columnName = FIELD_SID)
@@ -104,6 +102,22 @@ public class UserModel implements Serializable {
 
 	public void setHp(int hp) {
 		this.gold = hp;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getGold() {
+		return gold;
+	}
+
+	public void setGold(int gold) {
+		this.gold = gold;
 	}
 
 }
