@@ -107,6 +107,24 @@ public class DBServiceImpl implements IDBService {
 		}
 		return null;
 	}
+	
+	@Override
+	public UserModel queryUserBySid(String sid) {
+		try {
+			Dao<UserModel, Long> udao = appsHelper.getUserDAO();
+
+			List<UserModel> list = udao.queryForEq(UserModel.FIELD_SID, sid);
+
+			if (list != null && list.size() > 0) {
+				return list.get(0);
+			}
+
+		} catch (SQLException e) {
+
+			Log.e(LOG_TAG, e.getMessage());
+		}
+		return null;
+	}
 
 	@Override
 	public boolean updateUser(UserModel user) {

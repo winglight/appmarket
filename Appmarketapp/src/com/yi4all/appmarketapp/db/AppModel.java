@@ -48,29 +48,29 @@ public class AppModel implements Serializable {
 	@DatabaseField(columnName = DOWNURL)
 	private String downurl;
 	@DatabaseField(columnName = CATEGORY)
-	public CategoryModel category;
+	private CategoryModel category;
 	@DatabaseField(columnName = AUTHOR)
-	public String author;
+	private String author;
 	@DatabaseField(columnName = AUTHORID)
-	public Long authorId;
+	private Long authorId;
 	@DatabaseField(columnName = APPVERSION)
-    public String appVersion;
+    private String appVersion;
 	@DatabaseField(columnName = APPVERSIONCODE)
-    public String appVersionCode;
+    private String appVersionCode;
 	@DatabaseField(columnName = PACKAGENAME)
-    public String packageName;
+    private String packageName;
 	@DatabaseField(columnName = MINSDKVERSION)
-    public String minSdkVersion;
+    private String minSdkVersion;
 	@DatabaseField(columnName = TARGETSDKVERSION)
-    public String targetSdkVersion;
+    private String targetSdkVersion;
 	@DatabaseField(columnName = ICONURL)
-    public String iconUrl;
+    private String iconUrl;
 	@DatabaseField(columnName = DOWNLOADS)
-    public Long downloads;
+    private Long downloads;
 	@DatabaseField(columnName = TOPPOSITION)
-    public Long topPosition;//Top ten position: 1 - 10
+    private Long topPosition;//Top ten position: 1 - 10
 	@DatabaseField(columnName = DOWNURL)
-    public boolean deleteFlag;
+    private boolean deleteFlag;
 	@DatabaseField(columnName = CREATEDAT)
 	private Date createdAt;
 

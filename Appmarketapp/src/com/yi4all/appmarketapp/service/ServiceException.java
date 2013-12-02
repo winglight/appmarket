@@ -1,8 +1,7 @@
 package com.yi4all.appmarketapp.service;
 
 import java.io.IOException;
-
-import org.restlet.resource.ResourceException;
+import java.util.concurrent.ExecutionException;
 
 public class ServiceException extends Exception{
 
@@ -27,10 +26,10 @@ public class ServiceException extends Exception{
 	private String message;
 	
 	public ServiceException(Exception e){
-		if(e instanceof ResourceException){
-			this.errorCode = ((ResourceException) e).getStatus().getCode();
+		if(e instanceof InterruptedException){
+			this.errorCode = ERROR_CODE_IO_ERROR;
 			this.message = "网络异常,请稍后再试";
-		}else if( e instanceof IOException){
+		}else if( e instanceof ExecutionException){
 			this.errorCode = ERROR_CODE_IO_ERROR;
 			this.message = "访问网络异常,请稍后再试";
 		}else{

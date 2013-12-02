@@ -8,7 +8,10 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.HttpClientStack;
+import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.ImageLoader.ImageCache;
 import com.android.volley.toolbox.Volley;
+import com.yi4all.appmarketapp.util.BitmapCache;
 
 import android.app.Application;
 import android.text.TextUtils;
@@ -32,6 +35,9 @@ public class ApplicationController extends Application {
     
  // http client instance
     private DefaultHttpClient mHttpClient;
+    
+    private  ImageLoader mImageLoader;
+    private  ImageCache mImageCache;
 
     @Override
     public void onCreate() {
@@ -63,8 +69,17 @@ public class ApplicationController extends Application {
         }
         return mRequestQueue;
     }
+    
 
-    /**
+    public ImageLoader getmImageLoader() {
+    	if(mImageLoader == null){
+    		mImageCache = new BitmapCache();
+            mImageLoader = new ImageLoader(getRequestQueue(),mImageCache);
+    	}
+		return mImageLoader;
+	}
+
+	/**
      * Adds the specified request to the global queue, if tag is specified
      * then it is used else Default TAG is used.
      * 

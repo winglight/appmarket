@@ -12,6 +12,7 @@ public interface IDBService {
 	
 	//users
 	public UserModel queryDefaultUser();
+	public UserModel queryUserBySid(String sid);
 	public boolean createUser(UserModel user);
 	public boolean updateUser(UserModel user);
 

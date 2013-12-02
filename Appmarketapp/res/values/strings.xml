@@ -7,5 +7,12 @@
     <string name="generic_server_down">Server is down temporary! Please try again later.</string>
     <string name="no_internet">No internet connection now!</string>
     <string name="generic_error">Network error!</string>
+    <string-array name="main_tab_label">
+        <item >CATEGORY</item>
+        <item >HOTS</item>
+        <item >NEWEST</item>
+        <item >ADULT</item>
+        <item >UPLOAD</item>
+    </string-array>
 
 </resources>
