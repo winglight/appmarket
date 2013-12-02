@@ -6,7 +6,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.j256.ormlite.android.apptools.OpenHelperManager;
+import com.j256.ormlite.dao.Dao;
+import com.j256.ormlite.stmt.QueryBuilder;
+import com.j256.ormlite.stmt.Where;
 import com.yi4all.appmarketapp.db.AppDBOpenHelper;
+import com.yi4all.appmarketapp.db.AppModel;
+import com.yi4all.appmarketapp.db.CategoryModel;
+import com.yi4all.appmarketapp.db.UserModel;
+import com.yi4all.appmarketapp.util.Constants;
 
 import android.content.Context;
 import android.util.Log;
@@ -40,27 +48,6 @@ public class DBServiceImpl implements IDBService {
 		return appsHelper;
 	}
 
-	@Override
-	public UserModel queryUserByEmail(String email, String password) {
-		try {
-			Dao<UserModel, Long> udao = appsHelper.getUserDAO();
-
-			QueryBuilder<UserModel, Long> queryBuilder = udao.queryBuilder();
-			Where<UserModel, Long> where = queryBuilder.where();
-			where.eq(UserModel.FIELD_EMAIL, email);
-			if (password != null) {
-				where.and();
-				where.eq(UserModel.FIELD_PASSWORD, password);
-			}
-
-			return udao.queryForFirst(queryBuilder.prepare());
-
-		} catch (SQLException e) {
-
-			Log.e(LOG_TAG, e.getMessage());
-		}
-		return null;
-	}
 
 	@Override
 	public boolean createUser(UserModel user) {
@@ -104,24 +91,6 @@ public class DBServiceImpl implements IDBService {
 	}
 
 	@Override
-	public UserModel queryUserBySid(String sid) {
-		try {
-			Dao<UserModel, Long> udao = appsHelper.getUserDAO();
-
-			List<UserModel> list = udao.queryForEq(UserModel.FIELD_SID, sid);
-
-			if (list != null && list.size() > 0) {
-				return list.get(0);
-			}
-
-		} catch (SQLException e) {
-
-			Log.e(LOG_TAG, e.getMessage());
-		}
-		return null;
-	}
-
-	@Override
 	public UserModel queryDefaultUser() {
 		try {
 			Dao<UserModel, Long> udao = appsHelper.getUserDAO();
@@ -159,10 +128,7 @@ public class DBServiceImpl implements IDBService {
 		try {
 			Dao<CategoryModel, Long> udao = appsHelper.getCategoryDAO();
 
-			QueryBuilder<CategoryModel, Long> queryBuilder = udao.queryBuilder();
-			queryBuilder.orderBy(IssueModel.CREATED_AT, false);
-			
-			return udao.query(queryBuilder.prepare());
+			return udao.queryForAll();
 
 		} catch (SQLException e) {
 
@@ -172,154 +138,70 @@ public class DBServiceImpl implements IDBService {
 	}
 
 	@Override
-	public List<IssueModel> getIssueByCategory(List<CategoryModel> catgegory, int page) {
+	public List<AppModel> getAppsByCategory(CategoryModel catgegory, int page) {
 		try {
-			Dao<IssueModel, Long> dba = appsHelper.getIssueDAO();
-			QueryBuilder<IssueModel, Long> queryBuilder = dba.queryBuilder();
+			Dao<AppModel, Long> dba = appsHelper.getAppDAO();
+			QueryBuilder<AppModel, Long> queryBuilder = dba.queryBuilder();
 			queryBuilder.limit((long) Constants.AMOUNT_PER_PAGE);
 			queryBuilder.offset((long) (page - 1) * Constants.AMOUNT_PER_PAGE);
-			queryBuilder.orderBy(IssueModel.CREATED_AT, false);
-
-			if(catgegory != null && catgegory.size() > 0){
-				Where<IssueModel, Long> where = queryBuilder.where();
-				where.in(IssueModel.CATEGORY, catgegory);
-			}
-
-			return dba.query(queryBuilder.prepare());
-
-		} catch (SQLException e) {
-
-			Log.e(LOG_TAG, e.getMessage());
-		}
-		return new ArrayList<IssueModel>();
-	}
-
-	@Override
-	public List<ImageModel> getImageByIssue(IssueModel issue) {
-		try {
-			Dao<ImageModel, Long> dba = appsHelper.getImageDAO();
-
-			QueryBuilder<ImageModel, Long> queryBuilder = dba.queryBuilder();
-			queryBuilder.orderBy(ImageModel.ORDER, true);
-
-			Where<ImageModel, Long> where = queryBuilder.where();
-			where.eq(ImageModel.ISSUE, issue);
-
-			return dba.query(queryBuilder.prepare());
-
-		} catch (SQLException e) {
-
-			Log.e(LOG_TAG, e.getMessage());
-		}
-		return new ArrayList<ImageModel>();
-	}
-
-	@Override
-	public void updateCategories(List<CategoryModel> list) {
-		try {
-			Dao<CategoryModel, Long> udao = appsHelper.getCategoryDAO();
-
-			for (CategoryModel cm : list) {
-				CategoryModel cm2 = udao.queryForId(cm.getId());
-				if (cm2 == null) {
-					cm.setSubscribed(true);
-					udao.create(cm);
-				}else{
-					cm2.setCover(cm.getCover());
-					cm2.setName(cm.getName());
-					udao.update(cm2);
-				}
-			}
-
-		} catch (SQLException e) {
-
-			Log.e(LOG_TAG, e.getMessage());
-		}
-	}
-
-	@Override
-	public void updateApps(List<IssueModel> list) {
-		try {
-			Dao<IssueModel, Long> udao = appsHelper.getIssueDAO();
-
-			for (IssueModel im : list) {				
-				List<IssueModel> list2 = udao.queryForEq(IssueModel.FIELD_SERVERID, im.getId());
-				if (list2 == null || list2.size() == 0) {
-					//create a new issue
-					im.setCategory(getCategoryMap().get(im.getCategoryId()));
-					im.setServerId(im.getId());
-					udao.create(im);
-					
-					updateImages(im.getImages(), im);
-				}else{
-					//update local issue
-					IssueModel im2 = list2.get(0);
-					im2.setCover(im.getCover());
-					im2.setName(im.getName());
-					im2.setImageAmount(im.getImageAmount());
-					im2.setCreatedAt(im.getCreatedAt());
-					udao.update(im2);
-					
-//					updateImages(im.getImages(), im2);
-				}
-			}
-
-		} catch (SQLException e) {
-
-			Log.e(LOG_TAG, e.getMessage());
-		}
-
-	}
-
-	@Override
-	public void updateImages(List<ImageModel> list, IssueModel iim) {
-		try {
-			Dao<ImageModel, Long> udao = appsHelper.getImageDAO();
-
-			for (ImageModel im : list) {
-				im.setIssue(iim);
-				List<ImageModel> list2 = udao.queryForEq(ImageModel.FIELD_SERVERID, im.getId());
-				if (list2 == null || list2.size() == 0) {
-					im.setServerId(im.getId());
-					udao.create(im);
-				}
-			}
-
-		} catch (SQLException e) {
-
-			Log.e(LOG_TAG, e.getMessage());
-		}
-
-	}
-
-	@Override
-	public List<CategoryModel> getHotApps() {
-		try {
-			Dao<CategoryModel, Long> udao = appsHelper.getCategoryDAO();
-
-			List<CategoryModel> list = udao.queryForEq(CategoryModel.SUBSCRIBED, true);
+			queryBuilder.orderBy(AppModel.CREATEDAT, false);
 			
-				return list;
+			Where<AppModel, Long> where = queryBuilder.where();
+			if(catgegory != null){
+				where.eq(AppModel.CATEGORY, catgegory);
+			}
+			where.eq(AppModel.DELETEFLAG, false);
+
+			return dba.query(queryBuilder.prepare());
+
+		} catch (SQLException e) {
+
+			Log.e(LOG_TAG, e.getMessage());
+		}
+		return new ArrayList<AppModel>();
+	}
+
+	@Override
+	public void updateApps(List<AppModel> list) {
+		try {
+			Dao<AppModel, Long> udao = appsHelper.getAppDAO();
+
+			for (AppModel im : list) {				
+				AppModel app = udao.queryForId(im.getId());
+				if (app == null) {
+					//create a new app
+					udao.create(im);
+				}
+			}
+
+		} catch (SQLException e) {
+
+			Log.e(LOG_TAG, e.getMessage());
+		}
+
+	}
+
+	@Override
+	public List<AppModel> getHotApps(int page) {
+		try {
+			Dao<AppModel, Long> dba = appsHelper.getAppDAO();
+
+			QueryBuilder<AppModel, Long> queryBuilder = dba.queryBuilder();
+			queryBuilder.limit((long) Constants.AMOUNT_PER_PAGE);
+			queryBuilder.offset((long) (page - 1) * Constants.AMOUNT_PER_PAGE);
+			queryBuilder.orderBy(AppModel.DOWNLOADS, false);
+			queryBuilder.orderBy(AppModel.CREATEDAT, false);
+			
+			Where<AppModel, Long> where = queryBuilder.where();
+			where.eq(AppModel.DELETEFLAG, false);
+
+			return dba.query(queryBuilder.prepare());
 
 		} catch (SQLException e) {
 
 			Log.e(LOG_TAG, e.getMessage());
 		}
 		return null;
-	}
-
-	@Override
-	public void updateCategory(CategoryModel cm) {
-		try {
-			Dao<CategoryModel, Long> udao = appsHelper.getCategoryDAO();
-
-			udao.update(cm);
-
-		} catch (SQLException e) {
-
-			Log.e(LOG_TAG, e.getMessage());
-		}
-		
 	}
 
 	public Map<Long, CategoryModel> getCategoryMap() {
@@ -331,6 +213,18 @@ public class DBServiceImpl implements IDBService {
 			}
 		}
 		return categoryMap;
+	}
+
+	@Override
+	public List<AppModel> getNewestApps(int page) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<AppModel> getAdultApps(int page) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

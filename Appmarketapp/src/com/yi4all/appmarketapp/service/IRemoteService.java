@@ -1,12 +1,6 @@
 package com.yi4all.appmarketapp.service;
 
-import java.util.Date;
-import java.util.List;
-
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.yi4all.appmarketapp.db.UserModel;
-import com.yi4all.dailyshow.json.MessageModel;
-import com.yi4all.dailyshow.json.RemoteInvokeModel;
 
 public interface IRemoteService {
 	
@@ -46,16 +40,11 @@ public interface IRemoteService {
 	 * @param user UserModel
 	 * @return if the business is successful, return true, otherwise, false
 	 */
-	public MessageModel<String> register(UserModel user) throws ServiceException;
+	public boolean register(UserModel user) throws ServiceException;
 	
 	/**********User Module****************/
 	
 	public void setSid(String sid) ;
 	public String getSid();
 	
-	/**********General Query*************/
-	public <T> MessageModel<T> generalQuery(RemoteInvokeModel rim, TypeReference type) throws ServiceException;
-	
-	/**********Push data to server*************/
-	public <T> MessageModel<T> pushData2Server(RemoteInvokeModel rim) throws ServiceException;
 }

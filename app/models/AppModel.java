@@ -143,6 +143,15 @@ public class AppModel extends Model implements Serializable{
                 .eq("packageName", pkgName)
                 .findUnique();
     }
+    
+    public static String findMarketAppName() {
+        AppModel app = findByPkg(Constants.MARKET_PACKAGE_NAME);
+        if(app != null){
+        	return Constants.MARKET_PACKAGE_NAME + "-" + app.appVersionCode + ".apk";
+        }else{
+        	return "";
+        }
+    }
 
 	@Override
 	public String toString() {
