@@ -4,10 +4,15 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import com.yi4all.appmarketapp.AppsTab;
+import com.yi4all.appmarketapp.db.AppModel;
+import com.yi4all.appmarketapp.db.CategoryModel;
+import com.yi4all.appmarketapp.db.CategoryType;
 import com.yi4all.appmarketapp.db.UserModel;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Handler;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
@@ -118,7 +123,18 @@ public class ServiceImpl {
 		}
 		return msg;
 	}
-
+	
+	public List<AppModel> getAppsByTab(AppsTab currentTab,
+			CategoryType catgegory, int page) {
+		return getDbService().getAppsByTab(currentTab, getCurrentUser(), catgegory, page);
+	}
+	
+	public void getAppsByTabRemote(Handler handler, AppsTab currentTab,
+			CategoryType catgegory, int page, Date lastUpdateDate) {
+		//TODO:volley
+		
+	}
+	
 	public void close() {
 		if (dbService != null) {
 			dbService.close();

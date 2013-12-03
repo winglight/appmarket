@@ -10,9 +10,11 @@ import com.j256.ormlite.android.apptools.OpenHelperManager;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.stmt.QueryBuilder;
 import com.j256.ormlite.stmt.Where;
+import com.yi4all.appmarketapp.AppsTab;
 import com.yi4all.appmarketapp.db.AppDBOpenHelper;
 import com.yi4all.appmarketapp.db.AppModel;
 import com.yi4all.appmarketapp.db.CategoryModel;
+import com.yi4all.appmarketapp.db.CategoryType;
 import com.yi4all.appmarketapp.db.UserModel;
 import com.yi4all.appmarketapp.util.Constants;
 
@@ -156,7 +158,7 @@ public class DBServiceImpl implements IDBService {
 	}
 
 	@Override
-	public List<AppModel> getAppsByCategory(CategoryModel catgegory, int page) {
+	public List<AppModel> getAppsByCategory(CategoryType catgegory, int page) {
 		try {
 			Dao<AppModel, Long> dba = appsHelper.getAppDAO();
 			QueryBuilder<AppModel, Long> queryBuilder = dba.queryBuilder();
@@ -166,7 +168,7 @@ public class DBServiceImpl implements IDBService {
 			
 			Where<AppModel, Long> where = queryBuilder.where();
 			if(catgegory != null){
-				where.eq(AppModel.CATEGORY, catgegory);
+				where.in(AppModel.CATEGORY, appsHelper.getCategoryDAO().queryForEq(CategoryModel.TYPE, catgegory));
 			}
 			where.eq(AppModel.DELETEFLAG, false);
 
@@ -235,14 +237,73 @@ public class DBServiceImpl implements IDBService {
 
 	@Override
 	public List<AppModel> getNewestApps(int page) {
-		// TODO Auto-generated method stub
+		try {
+			Dao<AppModel, Long> dba = appsHelper.getAppDAO();
+
+			QueryBuilder<AppModel, Long> queryBuilder = dba.queryBuilder();
+			queryBuilder.limit((long) Constants.AMOUNT_PER_PAGE);
+			queryBuilder.offset((long) (page - 1) * Constants.AMOUNT_PER_PAGE);
+			queryBuilder.orderBy(AppModel.CREATEDAT, false);
+			queryBuilder.orderBy(AppModel.DOWNLOADS, false);
+			
+			Where<AppModel, Long> where = queryBuilder.where();
+			where.eq(AppModel.DELETEFLAG, false);
+
+			return dba.query(queryBuilder.prepare());
+
+		} catch (SQLException e) {
+
+			Log.e(LOG_TAG, e.getMessage());
+		}
 		return null;
 	}
 
 	@Override
-	public List<AppModel> getAdultApps(int page) {
-		// TODO Auto-generated method stub
+	public List<AppModel> getUploadedApps(UserModel currentUser, int page) {
+		try {
+			Dao<AppModel, Long> dba = appsHelper.getAppDAO();
+
+			QueryBuilder<AppModel, Long> queryBuilder = dba.queryBuilder();
+			queryBuilder.limit((long) Constants.AMOUNT_PER_PAGE);
+			queryBuilder.offset((long) (page - 1) * Constants.AMOUNT_PER_PAGE);
+			queryBuilder.orderBy(AppModel.CREATEDAT, false);
+			
+			Where<AppModel, Long> where = queryBuilder.where();
+			where.eq(AppModel.DELETEFLAG, false);
+			where.eq(AppModel.AUTHOR, currentUser);
+
+			return dba.query(queryBuilder.prepare());
+
+		} catch (SQLException e) {
+
+			Log.e(LOG_TAG, e.getMessage());
+		}
 		return null;
 	}
 
+	@Override
+	public List<AppModel> getAppsByTab(AppsTab currentTab, UserModel currentUser,
+			CategoryType catgegory, int page) {
+		switch(currentTab){
+		case HOTS:{
+			return getHotApps(page);
+		}
+		case APP:{
+			return getAppsByCategory(CategoryType.APP, page);
+		}
+		case GAME:{
+			return getAppsByCategory(CategoryType.GAME, page);
+		}
+		case NEWEST:{
+			return getNewestApps(page);
+		}
+		case ADULT:{
+			return getAppsByCategory(CategoryType.ADULT, page);
+		}
+		case UPLOAD:{
+			return getUploadedApps(currentUser, page);
+		}
+		}
+		return null;
+	}
 }

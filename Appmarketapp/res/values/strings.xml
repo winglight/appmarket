@@ -8,7 +8,8 @@
     <string name="no_internet">No internet connection now!</string>
     <string name="generic_error">Network error!</string>
     <string-array name="main_tab_label">
-        <item >CATEGORY</item>
+        <item >APP</item>
+        <item >GAME</item>
         <item >HOTS</item>
         <item >NEWEST</item>
         <item >ADULT</item>

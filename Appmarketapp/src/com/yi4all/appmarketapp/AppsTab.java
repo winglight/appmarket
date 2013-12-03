@@ -2,11 +2,12 @@ package com.yi4all.appmarketapp;
 
 public enum AppsTab {
 
-	HOTS(1, "HOTS"),
-	CATEGORY(0, "CATEGORY"),
-	NEWEST(2, "NEWEST"),
-	ADULT(3, "ADULT"),
-	UPLOAD(4, "UPLOAD");
+	APP(0, "APP"),
+	GAME(1, "GAME"),
+	HOTS(2, "HOTS"),
+	NEWEST(3, "NEWEST"),
+	ADULT(4, "ADULT"),
+	UPLOAD(5, "UPLOAD");
 
 	private int value = 0;
 	

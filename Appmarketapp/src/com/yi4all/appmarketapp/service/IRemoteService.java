@@ -1,5 +1,11 @@
 package com.yi4all.appmarketapp.service;
 
+import java.util.Date;
+
+import android.os.Handler;
+
+import com.yi4all.appmarketapp.AppsTab;
+import com.yi4all.appmarketapp.db.CategoryType;
 import com.yi4all.appmarketapp.db.UserModel;
 
 public interface IRemoteService {
@@ -46,5 +52,9 @@ public interface IRemoteService {
 	
 	public void setSid(String sid) ;
 	public String getSid();
+	
+	/****************App fetch*********************/
+	public void getAppsByTabRemote(Handler handler, AppsTab currentTab,
+			CategoryType catgegory, int page, Date lastUpdateDate);
 	
 }

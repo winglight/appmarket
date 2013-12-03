@@ -1,9 +1,11 @@
 package com.yi4all.appmarketapp.db;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 
 import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
 
 @DatabaseTable(tableName = "user")
@@ -29,6 +31,8 @@ public class UserModel implements Serializable {
 	private String deviceId;
 	@DatabaseField(columnName = FIELD_GOLD)
 	private int gold=5;
+	@ForeignCollectionField(eager = false, columnName = FIELD_GOLD)
+	public Collection<AppModel> downloadApps;
 	
     private Date expirationDate;
 	
@@ -118,6 +122,14 @@ public class UserModel implements Serializable {
 
 	public void setGold(int gold) {
 		this.gold = gold;
+	}
+
+	public Collection<AppModel> getDownloadApps() {
+		return downloadApps;
+	}
+
+	public void setDownloadApps(Collection<AppModel> downloadApps) {
+		this.downloadApps = downloadApps;
 	}
 
 }

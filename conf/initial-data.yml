@@ -172,3 +172,8 @@ categories:
         name:       Weather
         type:       "GAME"
         
+    - !!models.CategoryModel
+        id:         35
+        name:       Adult
+        type:       "ADULT"        
+        

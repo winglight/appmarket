@@ -47,7 +47,7 @@ public class AppModel implements Serializable {
 	private String description;
 	@DatabaseField(columnName = DOWNURL)
 	private String downurl;
-	@DatabaseField(columnName = CATEGORY)
+	@DatabaseField(foreignAutoRefresh = true, foreign = true, columnName = CATEGORY)
 	private CategoryModel category;
 	@DatabaseField(columnName = AUTHOR)
 	private String author;

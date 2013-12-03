@@ -25,9 +25,10 @@ GET     /developer/downloadApk/:name     controllers.Developer.downloadApk(name:
 GET     /developer/downloadIcon/:name     controllers.Developer.showImage(name: String)
 
 #APPS
-GET     /apps/hots/:page                  controllers.AppsShow.getHotapps(page: Long)
-GET     /apps/newest/:page                  controllers.AppsShow.getNewestapps(page: Long)
-GET     /apps/category/:category/:page                  controllers.AppsShow.getCategoryapps(category: Long, page: Long)
+GET     /apps/hots/:page                  controllers.AppsShow.getHotapps(page: Long, lastUpdateDate: Long ?= 0)
+GET     /apps/newest/:page                  controllers.AppsShow.getNewestapps(page: Long, lastUpdateDate: Long ?= 0)
+GET     /apps/category/:category/:page                  controllers.AppsShow.getCategoryapps(category: Long, page: Long, lastUpdateDate: Long ?= 0)
+GET     /apps/categorytype/:categorytype/:page                  controllers.AppsShow.getCategoryTypeapps(categorytype: String, page: Long, lastUpdateDate: Long ?= 0)
 GET     /categories                  controllers.AppsShow.getCategories()
 
 # Map static resources from the /public folder to the /assets URL path

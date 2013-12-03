@@ -8,12 +8,16 @@ import java.util.concurrent.ExecutionException;
 
 import org.json.JSONObject;
 
+import android.os.Handler;
+
 import com.android.volley.Request.Method;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.RequestFuture;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.yi4all.appmarketapp.ApplicationController;
+import com.yi4all.appmarketapp.AppsTab;
+import com.yi4all.appmarketapp.db.CategoryType;
 import com.yi4all.appmarketapp.db.UserModel;
 import com.yi4all.appmarketapp.util.Constants;
 
@@ -197,6 +201,67 @@ public class RemoteServiceImpl implements IRemoteService {
 			throws ServiceException {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void getAppsByTabRemote(Handler handler, AppsTab currentTab,
+			CategoryType catgegory, int page, Date lastUpdateDate) {
+		String url = base_url;
+		switch(currentTab){
+		case HOTS:{
+			url += "/apps/hots/" + page;
+			break;
+		}
+		case APP:{
+			url += "/apps/hots/" + page;
+			break;
+		}
+		case GAME:{
+			url += "/apps/hots/" + page;
+			break;
+		}
+		case NEWEST:{
+			url += "/apps/newest/" + page;
+			break;
+		}
+		case ADULT:{
+			url += "/apps/categorytype/" + catgegory.getDisplayName() + "/" + page;
+			break;
+		}
+		case UPLOAD:{
+			url += "/apps/hots/" + page;
+			break;
+		}
+		}
+		
+		RequestFuture<JSONObject> future = RequestFuture.newFuture();
+		JsonObjectRequest request = new JsonObjectRequest(url, new JSONObject(), future, future);
+		ApplicationController.getInstance().addToRequestQueue(request);
+
+		try {
+		  JSONObject response = future.get(); // this will block
+		  MessageModel<UserModel> msg = new Gson().fromJson(response.toString(),
+                  new TypeToken<Map<String, String>>() {
+                  }.getType());
+		  if (!msg.isFlag()) {
+				throw new ServiceException(
+						ServiceException.ERROR_CODE_LOGIN_ERROR,
+						msg.getMessage());
+			} else {
+				UserModel login = msg.getData();
+				tokenId = login.getTokenid();
+				tokenExpirationTime = new Date().getTime() + 25*60*1000;//set expiration time shorter than 30 minutes
+				
+				return login;
+			}
+		} catch (InterruptedException e) {
+		  // exception handling
+			throw new ServiceException(e);
+		} catch (ExecutionException e) {
+		  // exception handling
+			throw new ServiceException(e);
+		}
+		
 	}
 
 }
