@@ -54,7 +54,5 @@ public interface IRemoteService {
 	public String getSid();
 	
 	/****************App fetch*********************/
-	public void getAppsByTabRemote(Handler handler, AppsTab currentTab,
-			CategoryType catgegory, int page, Date lastUpdateDate);
 	
 }

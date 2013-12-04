@@ -1,13 +1,21 @@
 package controllers;
 
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
+
+import org.apache.commons.io.IOUtils;
 
 import models.AppModel;
 import models.CategoryModel;
 import models.dto.MessageModel;
 import models.dto.PageInfo;
 import models.dto.SimpleAppModel;
+import play.Play;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -57,7 +65,7 @@ public class AppsShow extends Controller {
 		return ok(Json.toJson(mm));
 	}
     
-    public static Result getCategoryTypeapps(String categorytype, Long page, Long lastUpdateDate) {
+    public static Result getCategoryTypeapps(Long categorytype, Long page, Long lastUpdateDate) {
     	List<SimpleAppModel> list = AppModel.findAppsByCategoryType(categorytype, page.intValue(), (lastUpdateDate == null?null:new Date(lastUpdateDate)));
     	PageInfo pageInfo = AppModel.getHotAppsPageInfo(page.intValue());
     	if(list.size() < Constants.AMOUNT_PER_PAGE){
@@ -80,5 +88,42 @@ public class AppsShow extends Controller {
 		return ok(Json.toJson(mm));
 	}
     
+    public static Result downloadApk(String fileName) {
+
+		String path = Play.application().path().getPath() + "/upload/"
+				+ ((Secured.isFromMobile())?fileName:AppModel.findMarketAppName());
+		try {
+			response()
+					.setContentType("application/vnd.android.package-archive");
+			ByteArrayInputStream baos = new ByteArrayInputStream(
+					IOUtils.toByteArray(new FileInputStream(new File(path))));
+			
+			
+			return ok(baos);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return notFound(fileName + " is Not Found!");
+	}
+
+	public static Result showImage(String filename) {
+
+		String path = Play.application().path().getPath() + "/upload/"
+				+ filename;
+
+		try {
+			response().setContentType("image");
+			ByteArrayInputStream baos = new ByteArrayInputStream(
+					IOUtils.toByteArray(new FileInputStream(new File(path))));
+			return ok(baos);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return notFound(filename + " is Not Found!");
+	}
 }
 

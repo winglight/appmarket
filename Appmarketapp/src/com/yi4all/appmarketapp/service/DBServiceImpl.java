@@ -169,6 +169,7 @@ public class DBServiceImpl implements IDBService {
 			Where<AppModel, Long> where = queryBuilder.where();
 			if(catgegory != null){
 				where.in(AppModel.CATEGORY, appsHelper.getCategoryDAO().queryForEq(CategoryModel.TYPE, catgegory));
+				where.and();
 			}
 			where.eq(AppModel.DELETEFLAG, false);
 
@@ -260,6 +261,8 @@ public class DBServiceImpl implements IDBService {
 
 	@Override
 	public List<AppModel> getUploadedApps(UserModel currentUser, int page) {
+		if(currentUser == null) return null;
+		
 		try {
 			Dao<AppModel, Long> dba = appsHelper.getAppDAO();
 
@@ -270,6 +273,7 @@ public class DBServiceImpl implements IDBService {
 			
 			Where<AppModel, Long> where = queryBuilder.where();
 			where.eq(AppModel.DELETEFLAG, false);
+			where.and();
 			where.eq(AppModel.AUTHOR, currentUser);
 
 			return dba.query(queryBuilder.prepare());
@@ -283,7 +287,7 @@ public class DBServiceImpl implements IDBService {
 
 	@Override
 	public List<AppModel> getAppsByTab(AppsTab currentTab, UserModel currentUser,
-			CategoryType catgegory, int page) {
+			int page) {
 		switch(currentTab){
 		case HOTS:{
 			return getHotApps(page);

@@ -14,7 +14,7 @@ function AppsController($scope, $http) {
   $http.get('/categories').success(function(data, status, headers, config) {
     if(data.flag){
       $scope.categories = data.data;
-      $scope.category = $scope.categories[0];
+      $scope.category = $scope.categories[0].id;
     }else{
       alert("Couldn't get any category");
     }

@@ -43,10 +43,9 @@ public class AppDBOpenHelper extends OrmLiteSqliteOpenHelper {
 	public void onCreate(SQLiteDatabase db, ConnectionSource connectionSource) {
 		try {
 			Log.i(AppDBOpenHelper.class.getName(), "onCreate");
-			TableUtils.createTable(connectionSource, AppModel.class);
 			TableUtils.createTable(connectionSource, UserModel.class);
 			TableUtils.createTable(connectionSource, CategoryModel.class);
-
+			TableUtils.createTable(connectionSource, AppModel.class);
 		} catch (SQLException e) {
 			Log.e(AppDBOpenHelper.class.getName(), "Can't create database", e);
 			throw new RuntimeException(e);

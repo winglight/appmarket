@@ -7,6 +7,10 @@
     <string name="generic_server_down">Server is down temporary! Please try again later.</string>
     <string name="no_internet">No internet connection now!</string>
     <string name="generic_error">Network error!</string>
+    <string name="refresh_no_data">No new data updated!</string>
+    <string name="load_no_more_data">No more data to load!</string>
+    <string name="login_error">Failed to login for network error!</string>
+    
     <string-array name="main_tab_label">
         <item >APP</item>
         <item >GAME</item>

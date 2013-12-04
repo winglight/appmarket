@@ -34,7 +34,7 @@ public class ApplicationController extends Application {
     private static ApplicationController sInstance;
     
  // http client instance
-    private DefaultHttpClient mHttpClient;
+//    private DefaultHttpClient mHttpClient;
     
     private  ImageLoader mImageLoader;
     private  ImageCache mImageCache;
@@ -63,9 +63,11 @@ public class ApplicationController extends Application {
         if (mRequestQueue == null) {
             // Create an instance of the Http client. 
             // We need this in order to access the cookie store
-            mHttpClient = new DefaultHttpClient();
+//        	if(mHttpClient == null){
+//        		mHttpClient = new DefaultHttpClient();
+//        	}
             // create the request queue
-            mRequestQueue = Volley.newRequestQueue(this, new HttpClientStack(mHttpClient));
+            mRequestQueue = Volley.newRequestQueue(this);
         }
         return mRequestQueue;
     }
@@ -123,9 +125,9 @@ public class ApplicationController extends Application {
     /**
      * Method to set a cookie
      */
-    public void setCookie(String key, String value) {
-        CookieStore cs = mHttpClient.getCookieStore();
-        // create a cookie
-        cs.addCookie(new BasicClientCookie2(key, value));
-    }
+//    public void setCookie(String key, String value) {
+//        CookieStore cs = mHttpClient.getCookieStore();
+//        // create a cookie
+//        cs.addCookie(new BasicClientCookie2(key, value));
+//    }
 }

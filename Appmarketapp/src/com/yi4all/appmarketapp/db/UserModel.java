@@ -31,8 +31,6 @@ public class UserModel implements Serializable {
 	private String deviceId;
 	@DatabaseField(columnName = FIELD_GOLD)
 	private int gold=5;
-	@ForeignCollectionField(eager = false, columnName = FIELD_GOLD)
-	public Collection<AppModel> downloadApps;
 	
     private Date expirationDate;
 	
@@ -122,14 +120,6 @@ public class UserModel implements Serializable {
 
 	public void setGold(int gold) {
 		this.gold = gold;
-	}
-
-	public Collection<AppModel> getDownloadApps() {
-		return downloadApps;
-	}
-
-	public void setDownloadApps(Collection<AppModel> downloadApps) {
-		this.downloadApps = downloadApps;
 	}
 
 }

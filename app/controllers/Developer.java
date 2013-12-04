@@ -56,43 +56,6 @@ public class Developer extends Controller {
 		return ok(Json.toJson(mm));
 	}
 
-	public static Result downloadApk(String fileName) {
-
-		String path = Play.application().path().getPath() + "/upload/"
-				+ ((Secured.isFromMobile())?fileName:AppModel.findMarketAppName());
-
-		try {
-			response()
-					.setContentType("application/vnd.android.package-archive");
-			ByteArrayInputStream baos = new ByteArrayInputStream(
-					IOUtils.toByteArray(new FileInputStream(new File(path))));
-			return ok(baos);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return notFound(fileName + " is Not Found!");
-	}
-
-	public static Result showImage(String filename) {
-
-		String path = Play.application().path().getPath() + "/upload/"
-				+ filename;
-
-		try {
-			response().setContentType("image");
-			ByteArrayInputStream baos = new ByteArrayInputStream(
-					IOUtils.toByteArray(new FileInputStream(new File(path))));
-			return ok(baos);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return notFound(filename + " is Not Found!");
-	}
-
 	public static Result uploadAPK(Long cid) {
 		MultipartFormData body = request().body().asMultipartFormData();
 		FilePart apkfile = body.getFile("files[]");
@@ -138,16 +101,16 @@ public class Developer extends Controller {
 
 							String apkName = am.packageName + "-"
 									+ am.appVersionCode + ".apk";
-							am.downurl = routes.Developer.downloadApk(apkName)
+							am.downurl = routes.AppsShow.downloadApk(apkName)
 									.absoluteURL(request());
 							am.iconUrl = saveIcon(am.packageName + "-"
 									+ am.appVersionCode + ".png",
 									ai.iconFileName, path);
-							am.iconUrl = routes.Developer.showImage(am.iconUrl)
+							am.iconUrl = routes.AppsShow.showImage(am.iconUrl)
 									.absoluteURL(request());
 							
 							//add category
-							if(cid != null){
+							if(cid != null && cid > 0){
 								am.category = CategoryModel.find.byId(cid);
 							}
 

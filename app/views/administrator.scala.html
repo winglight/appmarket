@@ -76,6 +76,17 @@
 <script type="text/javascript" src=@routes.Assets.at("js/vendor/jquery.ui.widget.js")></script>
 <script type="text/javascript" src=@routes.Assets.at("js/jquery.fileupload.js")></script>
 	<script>
+	//category listener
+	jQuery('#category').change(function(){
+		var category = angular.element('[ng-controller=AppsController]').scope().category.id;
+		var url = jQuery('#file_upload')[0].dataset.url;
+		var pos = url.indexOf("=");
+		if(pos > 0){
+			jQuery('#file_upload')[0].dataset.url = url.substring(0, pos+1) + category;
+		}else{
+			jQuery('#file_upload')[0].dataset.url = url + "?cid=" + category;
+		}
+	});
 	
 //load upload image file
 	jQuery('#file_upload').fileupload({
@@ -84,7 +95,7 @@
         maxFileSize: 20000000, // 20 MB
         autoUpload: true,
         add: function(e, data) {
-	      data.url = jQuery('#file_upload')[0].dataset.url + "?cid=" + angular.element('[ng-controller=AppsController]').scope().category;
+	      data.url = jQuery('#file_upload')[0].dataset.url;
 	      data.submit();
 	      jQuery('#progress').css('display', 'block');
 	    },

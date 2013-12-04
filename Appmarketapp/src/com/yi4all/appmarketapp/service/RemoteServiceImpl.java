@@ -3,12 +3,14 @@ package com.yi4all.appmarketapp.service;
 import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 import org.json.JSONObject;
 
 import android.os.Handler;
+import android.os.Message;
 
 import com.android.volley.Request.Method;
 import com.android.volley.toolbox.JsonObjectRequest;
@@ -17,6 +19,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.yi4all.appmarketapp.ApplicationController;
 import com.yi4all.appmarketapp.AppsTab;
+import com.yi4all.appmarketapp.db.AppModel;
 import com.yi4all.appmarketapp.db.CategoryType;
 import com.yi4all.appmarketapp.db.UserModel;
 import com.yi4all.appmarketapp.util.Constants;
@@ -42,8 +45,8 @@ public class RemoteServiceImpl implements IRemoteService {
 	public static IRemoteService getInstance() {
 		if (service == null) {
 
-			 service = new RemoteServiceImpl("http://192.168.1.9:9000/service");
-//			 service = new RemoteServiceImpl("http://10.52.5.20:9000/service");
+//			 service = new RemoteServiceImpl("http://192.168.1.9:9000/service");
+			 service = new RemoteServiceImpl("http://10.52.5.20:9000");
 //			 service = new RemoteServiceImpl("http://rupics.herokuapp.com/service");
 		}
 		return service;
@@ -62,8 +65,8 @@ public class RemoteServiceImpl implements IRemoteService {
 	@Override
 	public UserModel loginDirect() throws ServiceException {
 		String url = base_url
-				+ "/quicklogin?sid=" + sid
-				+ "&desc=ANDROID";
+				+ "/quicklogin?name=" + sid
+				+ "&desc=mobile";
 		RequestFuture<JSONObject> future = RequestFuture.newFuture();
 		JsonObjectRequest request = new JsonObjectRequest(url, new JSONObject(), future, future);
 		ApplicationController.getInstance().addToRequestQueue(request);
@@ -71,7 +74,7 @@ public class RemoteServiceImpl implements IRemoteService {
 		try {
 		  JSONObject response = future.get(); // this will block
 		  MessageModel<UserModel> msg = new Gson().fromJson(response.toString(),
-                  new TypeToken<Map<String, String>>() {
+                  new TypeToken<MessageModel<UserModel>>() {
                   }.getType());
 		  if (!msg.isFlag()) {
 				throw new ServiceException(
@@ -111,7 +114,7 @@ public class RemoteServiceImpl implements IRemoteService {
 		try {
 		  JSONObject response = future.get(); // this will block
 		  MessageModel<UserModel> msg = new Gson().fromJson(response.toString(),
-                  new TypeToken<Map<String, String>>() {
+                  new TypeToken<MessageModel<UserModel>>() {
                   }.getType());
 		  if (!msg.isFlag()) {
 				throw new ServiceException(
@@ -154,7 +157,7 @@ public class RemoteServiceImpl implements IRemoteService {
 		try {
 		  JSONObject response = future.get(); // this will block
 		  MessageModel<UserModel> msg = new Gson().fromJson(response.toString(),
-                  new TypeToken<Map<String, String>>() {
+                  new TypeToken<MessageModel<UserModel>>() {
                   }.getType());
 		  if (!msg.isFlag()) {
 				throw new ServiceException(
@@ -201,67 +204,6 @@ public class RemoteServiceImpl implements IRemoteService {
 			throws ServiceException {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-	@Override
-	public void getAppsByTabRemote(Handler handler, AppsTab currentTab,
-			CategoryType catgegory, int page, Date lastUpdateDate) {
-		String url = base_url;
-		switch(currentTab){
-		case HOTS:{
-			url += "/apps/hots/" + page;
-			break;
-		}
-		case APP:{
-			url += "/apps/hots/" + page;
-			break;
-		}
-		case GAME:{
-			url += "/apps/hots/" + page;
-			break;
-		}
-		case NEWEST:{
-			url += "/apps/newest/" + page;
-			break;
-		}
-		case ADULT:{
-			url += "/apps/categorytype/" + catgegory.getDisplayName() + "/" + page;
-			break;
-		}
-		case UPLOAD:{
-			url += "/apps/hots/" + page;
-			break;
-		}
-		}
-		
-		RequestFuture<JSONObject> future = RequestFuture.newFuture();
-		JsonObjectRequest request = new JsonObjectRequest(url, new JSONObject(), future, future);
-		ApplicationController.getInstance().addToRequestQueue(request);
-
-		try {
-		  JSONObject response = future.get(); // this will block
-		  MessageModel<UserModel> msg = new Gson().fromJson(response.toString(),
-                  new TypeToken<Map<String, String>>() {
-                  }.getType());
-		  if (!msg.isFlag()) {
-				throw new ServiceException(
-						ServiceException.ERROR_CODE_LOGIN_ERROR,
-						msg.getMessage());
-			} else {
-				UserModel login = msg.getData();
-				tokenId = login.getTokenid();
-				tokenExpirationTime = new Date().getTime() + 25*60*1000;//set expiration time shorter than 30 minutes
-				
-				return login;
-			}
-		} catch (InterruptedException e) {
-		  // exception handling
-			throw new ServiceException(e);
-		} catch (ExecutionException e) {
-		  // exception handling
-			throw new ServiceException(e);
-		}
-		
 	}
 
 }

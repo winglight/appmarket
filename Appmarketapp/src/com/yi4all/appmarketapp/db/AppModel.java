@@ -35,7 +35,7 @@ public class AppModel implements Serializable {
 	public final static String DELETEFLAG = "DELETEFLAG";
 	public final static String CREATEDAT = "CREATEDAT";
 
-	@DatabaseField
+	@DatabaseField(id = true)
 	private long id = -1;
 	@DatabaseField(columnName = SERVERID)
 	private String serverId;
@@ -69,7 +69,7 @@ public class AppModel implements Serializable {
     private Long downloads;
 	@DatabaseField(columnName = TOPPOSITION)
     private Long topPosition;//Top ten position: 1 - 10
-	@DatabaseField(columnName = DOWNURL)
+	@DatabaseField(columnName = DELETEFLAG)
     private boolean deleteFlag;
 	@DatabaseField(columnName = CREATEDAT)
 	private Date createdAt;

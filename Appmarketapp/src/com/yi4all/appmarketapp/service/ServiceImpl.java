@@ -3,16 +3,33 @@ package com.yi4all.appmarketapp.service;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.RequestFuture;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+import com.yi4all.appmarketapp.ApplicationController;
 import com.yi4all.appmarketapp.AppsTab;
+import com.yi4all.appmarketapp.R;
 import com.yi4all.appmarketapp.db.AppModel;
 import com.yi4all.appmarketapp.db.CategoryModel;
 import com.yi4all.appmarketapp.db.CategoryType;
 import com.yi4all.appmarketapp.db.UserModel;
+import com.yi4all.appmarketapp.util.JsonDateDeserializer;
+import com.yi4all.appmarketapp.util.Utils;
 
 import android.app.Activity;
 import android.content.Context;
 import android.os.Handler;
+import android.os.Message;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 
@@ -25,6 +42,8 @@ public class ServiceImpl {
 	private UserModel currentUser;
 	private Activity context;
 
+	private Gson gson = new GsonBuilder().registerTypeAdapter(Date.class, new JsonDateDeserializer()).create();
+	
 	private static ServiceImpl instance;
 
 	public static ServiceImpl getInstance(Activity context) {
@@ -70,6 +89,8 @@ public class ServiceImpl {
 				currentUser = msg.getData();
 				
 			}else{
+				Utils.toastMsg(context, R.string.login_error);
+				
 				return false;
 			}
 		}
@@ -124,14 +145,101 @@ public class ServiceImpl {
 		return msg;
 	}
 	
-	public List<AppModel> getAppsByTab(AppsTab currentTab,
-			CategoryType catgegory, int page) {
-		return getDbService().getAppsByTab(currentTab, getCurrentUser(), catgegory, page);
+	public List<AppModel> getAppsByTab(AppsTab currentTab, int page) {
+		if(currentTab == AppsTab.UPLOAD){
+			if(!sureLogin()){
+				return null;
+			}
+		}
+		return getDbService().getAppsByTab(currentTab, getCurrentUser(), page);
 	}
 	
-	public void getAppsByTabRemote(Handler handler, AppsTab currentTab,
-			CategoryType catgegory, int page, Date lastUpdateDate) {
-		//TODO:volley
+	public void downloadApk(final Handler handler, String url){
+			//sure to login the server;
+			if(sureLogin()){
+			
+			//TODO:download apk
+			}
+	}
+	
+	public void getAppsByTabRemote(final Handler handler, final AppsTab currentTab,
+			 final int page, Date lastUpdateDate) {
+			String url = remoteService.getBaseUrl();
+			switch(currentTab){
+			case HOTS:{
+				url += "/apps/hots/" + page;
+				break;
+			}
+			case APP:{
+				url += "/apps/categorytype/" + CategoryType.APP.value() + "/" + page;
+				break;
+			}
+			case GAME:{
+				url += "/apps/categorytype/" + CategoryType.GAME.value() + "/" + page;
+				break;
+			}
+			case NEWEST:{
+				url += "/apps/newest/" + page;
+				break;
+			}
+			case ADULT:{
+				url += "/apps/categorytype/" + CategoryType.ADULT.value() + "/" + page;
+				break;
+			}
+			case UPLOAD:{
+				if(sureLogin()){
+					url += "/developer/apps";
+					//TODO:download apk
+					}else{
+					return;
+				}
+				
+				break;
+			}
+			}
+			
+			JsonObjectRequest req = new JsonObjectRequest(url, null,
+				       new Response.Listener<JSONObject>() {
+				           @Override
+				           public void onResponse(JSONObject response) {
+				        	   Message messsage = handler.obtainMessage();
+				       		messsage.what = currentTab.value();
+				       		messsage.arg2 = page;
+				       		
+				       		  MessageModel<List<AppModel>> msg = gson.fromJson(response.toString(),
+				                         new TypeToken<MessageModel<List<AppModel>>>() {}.getType());
+				       		  
+				       		  if (!msg.isFlag()) {
+				       			  
+				       				messsage.arg1 = 1;//fail flag
+				       				messsage.obj = msg.getMessage();
+				       			} else {
+				       				List<AppModel> apps = msg.getData();
+				       				messsage.arg1 = 0;//success flag
+				       				messsage.obj = apps;
+				       				
+				       				//save apps into local db
+				       				getDbService().updateApps(apps);
+				       			}
+				       		
+				       		handler.sendMessage(messsage);
+				           }
+				       }, new Response.ErrorListener() {
+				           @Override
+				           public void onErrorResponse(VolleyError error) {
+				               VolleyLog.e("Error: ", error.getMessage());
+				               
+				               Message messsage = handler.obtainMessage();
+					       		messsage.what = currentTab.value();
+					       		messsage.arg2 = page;
+					       		messsage.arg1 = 1;//fail flag
+			       				messsage.obj = VolleyErrorHelper.getMessage(error, context);
+			       				
+			       				handler.sendMessage(messsage);
+				           }
+				       });
+			
+			ApplicationController.getInstance().addToRequestQueue(req);
 		
 	}
 	

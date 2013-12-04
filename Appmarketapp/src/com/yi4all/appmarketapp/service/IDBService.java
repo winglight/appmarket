@@ -22,7 +22,7 @@ public interface IDBService {
 	public List<CategoryModel> getAllCategory();
 	
 	//apps
-	public List<AppModel> getAppsByTab(AppsTab currentTab, UserModel currentUser, CategoryType catgegory, int page);
+	public List<AppModel> getAppsByTab(AppsTab currentTab, UserModel currentUser, int page);
 	
 	public List<AppModel> getHotApps(int page);
 	

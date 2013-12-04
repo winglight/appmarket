@@ -20,6 +20,7 @@ import play.data.validation.Constraints;
 import play.db.ebean.Model;
 import util.Constants;
 
+import models.dto.CategoryType;
 import models.dto.PageInfo;
 import models.dto.SimpleAppModel;
 import models.status.UserRole;
@@ -138,11 +139,11 @@ public class AppModel extends Model implements Serializable {
 		}
 	}
 	
-	public static List<SimpleAppModel> findAppsByCategoryType(String categoryType,
+	public static List<SimpleAppModel> findAppsByCategoryType(Long categoryType,
 			int page, Date lastUpdateDate) {
 		if (lastUpdateDate != null) {
 			List<AppModel> list = find.where().eq("deleteFlag", false)
-					.eq("category.type", categoryType)
+					.eq("category.type", categoryType.intValue())
 					.gt("createdAt", lastUpdateDate)
 					.orderBy("downloads,createdAt desc")
 					.findPagingList(Constants.AMOUNT_PER_PAGE)
@@ -150,7 +151,7 @@ public class AppModel extends Model implements Serializable {
 			return SimpleAppModel.transferAM(list);
 		} else {
 			List<AppModel> list = find.where().eq("deleteFlag", false)
-					.eq("category.type", categoryType)
+					.eq("category.type", categoryType.intValue())
 					.orderBy("downloads,createdAt desc")
 					.findPagingList(Constants.AMOUNT_PER_PAGE)
 					.getPage(page - 1).getList();
@@ -191,10 +192,21 @@ public class AppModel extends Model implements Serializable {
 	public static String findMarketAppName() {
 		AppModel app = findByPkg(Constants.MARKET_PACKAGE_NAME);
 		if (app != null) {
-			return Constants.MARKET_PACKAGE_NAME + "-" + app.appVersionCode
+			return Constants.MARKET_PACKAGE_NAME + Constants.NAME_DELIMITOR + app.appVersionCode
 					+ ".apk";
 		} else {
 			return "";
+		}
+	}
+	
+	public static void downloadCount(String filename) {
+		if(filename ==  null) return;
+		int pos = filename.indexOf(Constants.NAME_DELIMITOR);
+		if(pos > 0){
+			String pkgName = filename.substring(0, pos);
+			AppModel app = findByPkg(pkgName);
+			app.downloads = app.downloads + 1;
+			app.update();
 		}
 	}
 

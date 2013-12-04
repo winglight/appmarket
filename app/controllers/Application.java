@@ -5,11 +5,13 @@ import static play.data.Form.form;
 import java.util.Date;
 
 import models.UserModel;
+import models.dto.MessageModel;
 import models.status.UserRole;
 import models.status.UserStatus;
 
 import play.*;
 import play.data.Form;
+import play.libs.Json;
 import play.mvc.*;
 import play.mvc.Http.Context;
 
@@ -33,6 +35,20 @@ public class Application extends Controller {
 
 	}
 	
+	public static class LoginDirect {
+
+		public String username;
+		public String desc;//login device desc
+
+		public String validate() {
+			if (username == null || desc == null || desc.length() == 0) {
+				return "Invalid user or desc";
+			}
+			return null;
+		}
+
+	}
+	
 	public static class Register {
 
 		public String username;
@@ -40,6 +56,7 @@ public class Application extends Controller {
 		public String password;
 		public String twicePassword;
 		public String deviceId;
+		public UserRole role;
 
 		public String validate() {
 			if(password == null || !password.equals(twicePassword)){
@@ -89,6 +106,34 @@ public class Application extends Controller {
 			}
 	}
 	
+	public static Result loginDirect() {
+		Form<LoginDirect> loginForm = form(LoginDirect.class).bindFromRequest();
+			MessageModel<UserModel> msg = new MessageModel<UserModel>();
+			msg.setFlag(false);
+			
+			if(!loginForm.hasErrors()){
+				String name = loginForm.get().username;
+				String desc = loginForm.get().desc;
+				UserModel user = UserModel.findByloginName(name);
+				if(user == null){
+					user = new UserModel();
+					user.name = name;
+					user.password = name;
+					user.deviceId = name;
+					user.createdAt = new Date();
+					user.status = UserStatus.Active;
+					user.userRole = UserRole.USER;
+					
+					user.save();
+				}
+				session(Constants.SESSION_USER_NAME, name);
+				session(Constants.SESSION_DESC, desc);
+				msg.setData(user);
+				msg.setFlag(true);
+			}
+			return ok(Json.toJson(msg));
+}
+	
 	public static Result register() {
 		Form<Register> registerForm = form(Register.class).bindFromRequest();
 		if (registerForm.hasErrors()) {
@@ -101,7 +146,11 @@ public class Application extends Controller {
 			um.password = register.password;
 			um.createdAt = new Date();
 			um.status = UserStatus.Active;
-			um.userRole = UserRole.DEVELOPER;
+			if(register.role != null){
+				um.userRole = UserRole.USER;
+			}else{
+				um.userRole = UserRole.DEVELOPER;
+			}
 			um.deviceId = register.deviceId;
 			//save user
 			um.save();

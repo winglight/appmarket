@@ -2,17 +2,24 @@ package models.dto;
 
 public enum CategoryType {
 
-	APP("APP"),
-	GAME("GAME"),
-	ADULT("ADULT");
+	APP(0, "APP"),
+	GAME(1, "GAME"),
+	ADULT(2, "ADULT");
 
 	private final String displayName;
+	
+	private int value = 0;
 
-	CategoryType(String displayName) {
+	CategoryType(int value, String displayName) {
+		this.value = value;
 		this.displayName = displayName;
 	}
 
 	public String getDisplayName() {
 		return displayName;
 	}
+	
+	public int value() {
+        return this.value;
+    }
 }

@@ -13,6 +13,7 @@ GET     /newestapps                     controllers.Application.newestApps()
 # Authentication
 GET     /login                              controllers.Application.login()
 POST    /login                              controllers.Application.authenticate()
+POST    /quicklogin                              controllers.Application.loginDirect()
 GET     /register                              controllers.Application.registerPage()
 POST    /register                           controllers.Application.register()
 GET     /logout                             controllers.Application.logout()
@@ -21,14 +22,14 @@ GET     /logout                             controllers.Application.logout()
 GET     /developer/apps                  controllers.Developer.getApps()
 DELETE  /developer/:app/delete      controllers.Developer.deleteApp(app: Long)
 POST    /developer/uploadApk        controllers.Developer.uploadAPK(cid: Long ?= 0)
-GET     /developer/downloadApk/:name     controllers.Developer.downloadApk(name: String)
-GET     /developer/downloadIcon/:name     controllers.Developer.showImage(name: String)
 
 #APPS
+GET     /apps/downloadApk/:name     controllers.AppsShow.downloadApk(name: String)
+GET     /apps/downloadIcon/:name     controllers.AppsShow.showImage(name: String)
 GET     /apps/hots/:page                  controllers.AppsShow.getHotapps(page: Long, lastUpdateDate: Long ?= 0)
 GET     /apps/newest/:page                  controllers.AppsShow.getNewestapps(page: Long, lastUpdateDate: Long ?= 0)
 GET     /apps/category/:category/:page                  controllers.AppsShow.getCategoryapps(category: Long, page: Long, lastUpdateDate: Long ?= 0)
-GET     /apps/categorytype/:categorytype/:page                  controllers.AppsShow.getCategoryTypeapps(categorytype: String, page: Long, lastUpdateDate: Long ?= 0)
+GET     /apps/categorytype/:categorytype/:page                  controllers.AppsShow.getCategoryTypeapps(categorytype: Long, page: Long, lastUpdateDate: Long ?= 0)
 GET     /categories                  controllers.AppsShow.getCategories()
 
 # Map static resources from the /public folder to the /assets URL path

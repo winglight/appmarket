@@ -19,7 +19,7 @@ public class CategoryModel implements Serializable {
 	public  static final String TYPE = "TYPE";
 	public  static final String CREATED_AT = "CREATED_AT";
 	
-	@DatabaseField
+	@DatabaseField(id = true)
 	private long id = -1;
 	@DatabaseField(index = true, columnName = NAME)
 	private String name;
