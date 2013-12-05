@@ -192,6 +192,19 @@ public class DBServiceImpl implements IDBService {
 				if (app == null) {
 					//create a new app
 					udao.create(im);
+				}else{
+					app.setAppname(im.getAppname());
+					app.setAppVersion(im.getAppVersion());
+					app.setAppVersionCode(im.getAppVersionCode());
+					app.setCategory(im.getCategory());
+					app.setCreatedAt(im.getCreatedAt());
+					app.setDownloads(im.getDownloads());
+					app.setDownurl(im.getDownurl());
+					app.setIconUrl(im.getIconUrl());
+					app.setPrice(im.getPrice());
+					app.setTopPosition(im.getTopPosition());
+					
+					udao.update(app);
 				}
 			}
 

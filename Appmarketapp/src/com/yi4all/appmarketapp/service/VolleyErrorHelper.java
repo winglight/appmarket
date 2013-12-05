@@ -84,10 +84,12 @@ public class VolleyErrorHelper {
                    }
 
                } catch (Exception e) {
-                   e.printStackTrace();
+//                   e.printStackTrace();
                }
                // invalid request
-               return error.getMessage();
+               if(error.getMessage() != null){
+            	   return error.getMessage();
+               }
 
            default:
                return context.getResources().getString(R.string.generic_server_down);

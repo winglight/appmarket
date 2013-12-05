@@ -12,6 +12,7 @@ import android.content.SharedPreferences.Editor;
 import android.os.Build;
 import android.os.Environment;
 import android.preference.PreferenceManager;
+import android.view.Gravity;
 
 import com.devspark.appmsg.AppMsg;
 
@@ -40,7 +41,9 @@ public class Utils {
 
 			@Override
 			public void run() {
-				AppMsg.makeText(context, msg, AppMsg.STYLE_INFO).show();
+				AppMsg message = AppMsg.makeText(context, msg, AppMsg.STYLE_INFO);
+				message.setLayoutGravity(Gravity.BOTTOM);
+				message.show();
 
 			}
 		});

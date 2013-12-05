@@ -109,22 +109,28 @@ public class MyPullToRefreshListFragment extends PullToRefreshListFragment{
 			final int page) {
 		Log.d(LOGTAG, "begin loadListByPage:" + page);
 
-		if (apps.size() == 0 || page != currentPage) {
+		if (page == 1 || page != currentPage) {
 			currentPage = page;
 			
 			final int position = apps.size();
 
 			Date lastUpdateDate = null;
 			
+			if(position > 0){
+				lastUpdateDate = apps.get(0).getCreatedAt();
+			}
+			
 			Log.d(LOGTAG, "begin getAppsByTab:" + page);
-			List<AppModel> moreApps = ((BaseActivity)getActivity()).getService().getAppsByTab(tab, page);
-			if (moreApps != null && moreApps.size() > 0) {
-				Log.d(LOGTAG, "getAppsByTab size:" + moreApps.size());
-
-				lastUpdateDate = moreApps.get(0).getCreatedAt();
-				// update
-				apps.addAll(moreApps);
-
+			if(position == 0 || page != 1){
+				List<AppModel> moreApps = ((BaseActivity)getActivity()).getService().getAppsByTab(tab, page);
+				if (moreApps != null && moreApps.size() > 0) {
+					Log.d(LOGTAG, "getAppsByTab size:" + moreApps.size());
+	
+					lastUpdateDate = moreApps.get(0).getCreatedAt();
+					// update
+					apps.addAll(moreApps);
+	
+				}
 			}
 
 			if (!getPullToRefreshListView().isRefreshing()) {

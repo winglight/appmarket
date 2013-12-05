@@ -2,6 +2,7 @@ package com.yi4all.appmarketapp.service;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -23,6 +24,7 @@ import com.yi4all.appmarketapp.db.AppModel;
 import com.yi4all.appmarketapp.db.CategoryModel;
 import com.yi4all.appmarketapp.db.CategoryType;
 import com.yi4all.appmarketapp.db.UserModel;
+import com.yi4all.appmarketapp.util.Constants;
 import com.yi4all.appmarketapp.util.JsonDateDeserializer;
 import com.yi4all.appmarketapp.util.Utils;
 
@@ -198,7 +200,13 @@ public class ServiceImpl {
 			}
 			}
 			
-			JsonObjectRequest req = new JsonObjectRequest(url, null,
+			HashMap<String, Long> params = new HashMap<String, Long>();
+			
+			if(lastUpdateDate != null){
+				params.put("lastUpdateDate", lastUpdateDate.getTime());
+			}
+			
+			JsonObjectRequest req = new JsonObjectRequest(url, new JSONObject(params),
 				       new Response.Listener<JSONObject>() {
 				           @Override
 				           public void onResponse(JSONObject response) {
