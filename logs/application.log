@@ -1,9 +1,21 @@
-2013-12-05 10:12:51,624 - [INFO] - from play in pool-4-thread-5 
+2013-12-05 17:46:12,091 - [INFO] - from play in pool-4-thread-5 
 Listening for HTTP on /0.0.0.0:9000
 
-2013-12-05 10:21:18,099 - [INFO] - from play in play-internal-execution-context-1 
+2013-12-05 17:46:26,069 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
 
-2013-12-05 10:21:18,781 - [INFO] - from play in play-internal-execution-context-1 
+2013-12-05 17:46:26,729 - [INFO] - from play in play-internal-execution-context-1 
+Application started (Dev)
+
+2013-12-05 17:49:48,041 - [INFO] - from play in play-internal-execution-context-5 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-12-05 17:49:48,190 - [INFO] - from play in play-internal-execution-context-5 
+Application started (Dev)
+
+2013-12-05 17:51:50,708 - [INFO] - from play in play-internal-execution-context-5 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-12-05 17:51:50,850 - [INFO] - from play in play-internal-execution-context-5 
 Application started (Dev)
 
