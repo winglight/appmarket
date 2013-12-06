@@ -19,6 +19,8 @@ public class SimpleAppModel implements Serializable {
 	
     public String appname;
     
+    public int price=0;
+    
     public String description;
     
     public String downurl;
@@ -60,6 +62,7 @@ public class SimpleAppModel implements Serializable {
     	SimpleAppModel sam = new SimpleAppModel();
     	sam.id = am.id;
     	sam.appname = am.appname;
+    	sam.price = am.price;
     	sam.description = am.description;
     	sam.downurl = am.downurl;
     	if(am.author != null){

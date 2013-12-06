@@ -49,16 +49,14 @@
                           <td align="center"><span class="center">
                             <input type="checkbox" value="{{app.id}}"/>
                           </span></td>
-                            <td>{{app.appname}}</td>
+                            <td><a ng-href='{{app.downurl}}'>{{app.appname}}</a></td>
                             <td>{{app.category.name}}</td>
                             <td>{{app.appVersion}}</td>
                             <td>{{app.appVersionCode}}</td>
                             <td>{{app.packageName}}</td>
                             <td><img ng-src='{{app.iconUrl}}' style="width:100px;height:100px"/></td>
-                            <td>
-                            <a ng-href='{{app.downurl}}'>DOWNLOAD</a>
-                            </td>
-                            <td>{{app.createdAt}}</td>
+                            <td>{{app.downloads}}</td>
+                            <td>{{app.createdAt | date:'yyyy-MM-dd HH:mm:ss Z'}}</td>
                             <td class="center">
                             <ul class="buttonlist">
 		                        <li class="deleteApp"><button  ng-click='deleteApp($index)' class="stdbtn btn_red">Delete</button></li>

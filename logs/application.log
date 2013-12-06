@@ -61,3 +61,45 @@ database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&ch
 2013-12-06 11:08:01,279 - [INFO] - from play in play-internal-execution-context-42 
 Application started (Dev)
 
+2013-12-06 13:54:44,621 - [INFO] - from play in play-internal-execution-context-69 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-12-06 13:54:44,747 - [INFO] - from play in play-internal-execution-context-69 
+Application started (Dev)
+
+2013-12-06 13:58:00,075 - [INFO] - from play in play-internal-execution-context-78 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-12-06 13:58:00,201 - [INFO] - from play in play-internal-execution-context-78 
+Application started (Dev)
+
+2013-12-06 14:18:44,071 - [INFO] - from play in play-internal-execution-context-83 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-12-06 14:18:44,196 - [INFO] - from play in play-internal-execution-context-83 
+Application started (Dev)
+
+2013-12-06 14:19:07,400 - [INFO] - from play in play-internal-execution-context-86 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-12-06 14:19:07,548 - [INFO] - from play in play-internal-execution-context-86 
+Application started (Dev)
+
+2013-12-06 14:21:09,440 - [INFO] - from play in play-internal-execution-context-92 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-12-06 14:21:09,565 - [INFO] - from play in play-internal-execution-context-92 
+Application started (Dev)
+
+2013-12-06 14:43:49,789 - [INFO] - from play in play-internal-execution-context-93 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-12-06 14:43:49,912 - [INFO] - from play in play-internal-execution-context-93 
+Application started (Dev)
+
+2013-12-06 14:48:55,404 - [INFO] - from play in play-internal-execution-context-100 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-12-06 14:48:55,538 - [INFO] - from play in play-internal-execution-context-100 
+Application started (Dev)
+

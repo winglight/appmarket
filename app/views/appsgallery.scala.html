@@ -15,17 +15,18 @@
                 <ul class="prodlist">
                     <li  prod-hover ng-repeat='app in apps'>
                     	
-                        <div class="thumb" align="center" style="width:162px;height:162px">
-	                        	<img ng-src="{{app.iconUrl}}" alt="{{app.appname}}"  style="width:162px;height:162px"/>
+                        <div class="thumb" align="center">
+	                        	<img ng-src="{{app.iconUrl}}" alt="{{app.appname}}" />
                         </div>
                         <div class="content" >
                         	<a ng-href="{{app.downurl}}">
                         	<div class="contentinner">
                             	<div>
-                            		<span class="price">Price: {{app.price}}</span>
+                            		<span class="price">{{app.price}}G</span>
                             		<a ng-href="{{app.downurl}}" class="title">{{app.appname}}</a>
                                 </div>
-                                <p class="desc" align="center"><a ng-href="{{app.downurl}}"><img ng-src="http://api.qrserver.com/v1/create-qr-code/?data={{app.downurl}}&size=120x120"/></a></p>
+                                <div class="by">Downloads:{{app.downloads}}</a></div>
+                                <p class="desc" align="center"><a ng-href="{{app.downurl}}"><img ng-src="http://api.qrserver.com/v1/create-qr-code/?data={{app.downurl}}&size=100x100"/></a></p>
                             </div><!--contentinner-->
                             </a>
                         </div><!--content-->

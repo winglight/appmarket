@@ -71,7 +71,7 @@ public class AppModel extends Model implements Serializable {
 
 	public String iconUrl;
 
-	public Long downloads;
+	public Long downloads=0L;
 
 	public Long topPosition;// Top ten position: 1 - 10
 
