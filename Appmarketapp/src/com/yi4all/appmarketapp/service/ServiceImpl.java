@@ -12,6 +12,7 @@ import org.json.JSONObject;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
+import com.android.volley.Request.Method;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.RequestFuture;
 import com.google.gson.Gson;
@@ -200,13 +201,11 @@ public class ServiceImpl {
 			}
 			}
 			
-			HashMap<String, Long> params = new HashMap<String, Long>();
-			
 			if(lastUpdateDate != null){
-				params.put("lastUpdateDate", lastUpdateDate.getTime());
+				url += "?lastUpdateDate=" + lastUpdateDate.getTime();
 			}
 			
-			JsonObjectRequest req = new JsonObjectRequest(url, new JSONObject(params),
+			JsonObjectRequest req = new JsonObjectRequest(Method.GET, url, null,
 				       new Response.Listener<JSONObject>() {
 				           @Override
 				           public void onResponse(JSONObject response) {

@@ -133,10 +133,6 @@ public class MyPullToRefreshListFragment extends PullToRefreshListFragment{
 				}
 			}
 
-			if (!getPullToRefreshListView().isRefreshing()) {
-				getPullToRefreshListView().setRefreshing();
-			}
-
 			// TODO:notify updating local db
 			Log.d(LOGTAG, "begin getAppsByTabRemote:" + page);
 			((BaseActivity)getActivity()).getService().getAppsByTabRemote(new Handler() {
@@ -160,7 +156,9 @@ public class MyPullToRefreshListFragment extends PullToRefreshListFragment{
 						} else {
 							if (page == 1) {
 								// TODO:notify no updated data
+								if (getPullToRefreshListView().isRefreshing()) {
 								Utils.toastMsg(getActivity(), R.string.refresh_no_data);
+								}
 							} else {
 								// TODO:notify no more data
 								Utils.toastMsg(getActivity(), R.string.load_no_more_data);

@@ -47,7 +47,7 @@ public class AppModel extends Model implements Serializable {
 
 	public String appname;
 
-	public int price;
+	public int price=0;
 
 	public String description;
 

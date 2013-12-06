@@ -1,21 +1,63 @@
-2013-12-05 17:46:12,091 - [INFO] - from play in pool-4-thread-5 
+2013-12-06 09:11:32,037 - [INFO] - from play in pool-4-thread-2 
 Listening for HTTP on /0.0.0.0:9000
 
-2013-12-05 17:46:26,069 - [INFO] - from play in play-internal-execution-context-1 
+2013-12-06 09:11:46,206 - [INFO] - from play in play-internal-execution-context-1 
 database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
 
-2013-12-05 17:46:26,729 - [INFO] - from play in play-internal-execution-context-1 
+2013-12-06 09:11:46,856 - [INFO] - from play in play-internal-execution-context-1 
 Application started (Dev)
 
-2013-12-05 17:49:48,041 - [INFO] - from play in play-internal-execution-context-5 
+2013-12-06 10:38:49,903 - [INFO] - from play in play-internal-execution-context-13 
 database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
 
-2013-12-05 17:49:48,190 - [INFO] - from play in play-internal-execution-context-5 
+2013-12-06 10:38:50,054 - [INFO] - from play in play-internal-execution-context-13 
 Application started (Dev)
 
-2013-12-05 17:51:50,708 - [INFO] - from play in play-internal-execution-context-5 
+2013-12-06 10:43:06,074 - [INFO] - from play in play-internal-execution-context-16 
 database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
 
-2013-12-05 17:51:50,850 - [INFO] - from play in play-internal-execution-context-5 
+2013-12-06 10:43:06,226 - [INFO] - from play in play-internal-execution-context-16 
+Application started (Dev)
+
+2013-12-06 10:44:59,870 - [INFO] - from play in play-internal-execution-context-19 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-12-06 10:45:00,004 - [INFO] - from play in play-internal-execution-context-19 
+Application started (Dev)
+
+2013-12-06 10:46:15,510 - [INFO] - from play in play-internal-execution-context-21 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-12-06 10:46:15,671 - [INFO] - from play in play-internal-execution-context-21 
+Application started (Dev)
+
+2013-12-06 10:47:45,007 - [INFO] - from play in play-internal-execution-context-25 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-12-06 10:47:45,153 - [INFO] - from play in play-internal-execution-context-25 
+Application started (Dev)
+
+2013-12-06 10:53:01,049 - [INFO] - from play in play-internal-execution-context-31 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-12-06 10:53:01,179 - [INFO] - from play in play-internal-execution-context-31 
+Application started (Dev)
+
+2013-12-06 10:54:40,788 - [INFO] - from play in play-internal-execution-context-34 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-12-06 10:54:40,916 - [INFO] - from play in play-internal-execution-context-34 
+Application started (Dev)
+
+2013-12-06 10:55:04,268 - [INFO] - from play in play-internal-execution-context-36 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-12-06 10:55:04,396 - [INFO] - from play in play-internal-execution-context-36 
+Application started (Dev)
+
+2013-12-06 11:08:01,153 - [INFO] - from play in play-internal-execution-context-42 
+database [default] connected at jdbc:mysql://localhost/market?useUnicode=true&characterEncoding=UTF-8
+
+2013-12-06 11:08:01,279 - [INFO] - from play in play-internal-execution-context-42 
 Application started (Dev)
 

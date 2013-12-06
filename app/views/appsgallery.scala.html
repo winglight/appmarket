@@ -13,22 +13,23 @@
          	<div class="prodcontent">
             
                 <ul class="prodlist">
-                    <li class="one_third" prod-hover ng-repeat='app in apps'>
-                        <div class="thumb" align="center">
-	                        <a ng-href="{{app.downurl}}">
-	                        	<img ng-src="{{app.iconUrl}}" alt=""  style="width:162px;height:162px"/>
-	                        </a>
+                    <li  prod-hover ng-repeat='app in apps'>
+                    	
+                        <div class="thumb" align="center" style="width:162px;height:162px">
+	                        	<img ng-src="{{app.iconUrl}}" alt="{{app.appname}}"  style="width:162px;height:162px"/>
                         </div>
-                        <div class="content" ng-href="{{app.downurl}}">
+                        <div class="content" >
+                        	<a ng-href="{{app.downurl}}">
                         	<div class="contentinner">
                             	<div>
-                            		<span class="price">Version: {{app.appVersion}}</span>
-                            		<a href="#" class="title">{{app.name}}</a>
+                            		<span class="price">Price: {{app.price}}</span>
+                            		<a ng-href="{{app.downurl}}" class="title">{{app.appname}}</a>
                                 </div>
-                                <div class="by">By: <a href="#">{{app.author}}</a></div>
-                                <p class="desc" align="center"><img ng-src="http://api.qrserver.com/v1/create-qr-code/?data={{app.downurl}}&size=120x120"/></p>
+                                <p class="desc" align="center"><a ng-href="{{app.downurl}}"><img ng-src="http://api.qrserver.com/v1/create-qr-code/?data={{app.downurl}}&size=120x120"/></a></p>
                             </div><!--contentinner-->
+                            </a>
                         </div><!--content-->
+                        
                     </li>
 
                 </ul>

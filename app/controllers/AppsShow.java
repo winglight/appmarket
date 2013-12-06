@@ -24,7 +24,7 @@ import util.Constants;
 public class AppsShow extends Controller {
   
     public static Result getHotapps(Long page, Long lastUpdateDate) {
-    	List<SimpleAppModel> list = AppModel.findAppsByHots(page.intValue(), (lastUpdateDate == null?null:new Date(lastUpdateDate)));
+    	List<SimpleAppModel> list = AppModel.findAppsByHots(page.intValue(), (lastUpdateDate > 0?new Date(lastUpdateDate):null));
     	PageInfo pageInfo = AppModel.getHotAppsPageInfo(page.intValue());
     	if(list.size() < Constants.AMOUNT_PER_PAGE){
     		pageInfo.setEnd(list.size());
@@ -38,7 +38,7 @@ public class AppsShow extends Controller {
 	}
     
     public static Result getNewestapps(Long page, Long lastUpdateDate) {
-    	List<SimpleAppModel> list = AppModel.findAppsByNewest(page.intValue(), (lastUpdateDate == null?null:new Date(lastUpdateDate)));
+    	List<SimpleAppModel> list = AppModel.findAppsByNewest(page.intValue(), (lastUpdateDate > 0?new Date(lastUpdateDate):null));
     	PageInfo pageInfo = AppModel.getHotAppsPageInfo(page.intValue());
     	if(list.size() < Constants.AMOUNT_PER_PAGE){
     		pageInfo.setEnd(list.size());
@@ -52,7 +52,7 @@ public class AppsShow extends Controller {
 	}
     
     public static Result getCategoryapps(Long category, Long page, Long lastUpdateDate) {
-    	List<SimpleAppModel> list = AppModel.findAppsByCategory(category, page.intValue(), (lastUpdateDate == null?null:new Date(lastUpdateDate)));
+    	List<SimpleAppModel> list = AppModel.findAppsByCategory(category, page.intValue(), (lastUpdateDate > 0?new Date(lastUpdateDate):null));
     	PageInfo pageInfo = AppModel.getHotAppsPageInfo(page.intValue());
     	if(list.size() < Constants.AMOUNT_PER_PAGE){
     		pageInfo.setEnd(list.size());
