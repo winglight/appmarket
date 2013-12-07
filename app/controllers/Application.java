@@ -178,4 +178,9 @@ public class Application extends Controller {
         return ok(newestapps.render(user));
     }
 
+    public static Result forum() {
+        String name = Context.current().session().get(Constants.SESSION_USER_NAME);
+        UserModel user = UserModel.findByloginName(name);
+        return ok(forum.render(user));
+    }
 }

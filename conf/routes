@@ -9,6 +9,7 @@ GET     /                           controllers.Application.index()
 GET     /developer/index                  controllers.Developer.index()
 GET     /categoryapps                     controllers.Application.categoryApps()
 GET     /newestapps                     controllers.Application.newestApps()
+GET     /forum                     controllers.Application.forum()
 
 # Authentication
 GET     /login                              controllers.Application.login()
