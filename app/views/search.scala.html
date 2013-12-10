@@ -1,0 +1,20 @@
+@(user: UserModel)
+
+@main(user, "Search Result") {
+
+    <div class="centercontent" >
+    
+        <div class="pageheader notab">
+            <h1 class="pagetitle">APPs </h1>
+            <span class="pagedesc">hottest apps in this world.</span>
+        </div><!--pageheader-->
+        
+        <div id="contentwrapper" class="contentwrapper nopadding" ng-controller='HotController'>
+         
+         @appsgallery()
+            
+        </div><!--contentwrapper-->
+                
+	</div><!-- centercontent -->
+	<script type="text/javascript" src="@routes.Assets.at("js/hotappcontroller.js")"></script>
+}    
