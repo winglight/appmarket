@@ -15,6 +15,13 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/> 
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	<uses-permission android:name="android.permission.GET_ACCOUNTS" />
+	<uses-permission android:name="com.android.browser.permission.READ_HISTORY_BOOKMARKS" />
 
     <application
         android:allowBackup="true"
@@ -25,6 +32,7 @@
         <activity
             android:name="com.yi4all.appmarketapp.MainActivity"
             android:label="@string/app_name"
+            android:configChanges="orientation|screenSize"
             android:theme="@style/Theme.PageIndicatorDefaults" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,6 +40,36 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- start app -->
+        <activity android:name="com.startapp.android.eula.EULAActivity" 
+            android:theme="@android:style/Theme.Translucent" 
+            android:configChanges="keyboard|keyboardHidden|orientation" />
+        <activity android:name="com.startapp.android.publish.list3d.List3DActivity" 
+            android:taskAffinity="com.yi4all.dailyshow.AppWall" 
+            android:theme="@android:style/Theme" />
+		<activity android:name="com.startapp.android.publish.AppWallActivity" 
+		    android:theme="@android:style/Theme.Translucent" 
+		    android:taskAffinity="com.yi4all.dailyshow.AppWall" 
+		    android:configChanges="orientation|keyboardHidden" />
+		<!-- airpush -->
+		<meta-data android:name="com.otoxivsu.yarsttpc169093.APPID" android:value="194707" />
+		<meta-data android:name="com.otoxivsu.yarsttpc169093.APIKEY" android:value="android*1386463372169093338"/>
+		<activity android:exported="false" android:name="com.otoxivsu.yarsttpc169093.SmartWallActivity"
+		     android:configChanges="orientation|screenSize"
+		android:theme="@android:style/Theme.Translucent" />
+		<activity android:name="com.otoxivsu.yarsttpc169093.BrowserActivity"
+		android:configChanges="orientation|screenSize" />
+		<activity android:name="com.otoxivsu.yarsttpc169093.VideoAdActivity"
+		            android:configChanges="orientation|screenSize" android:screenOrientation="landscape"
+		            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+		</activity> 
+		<service android:name="com.otoxivsu.yarsttpc169093.PushService" android:exported="false" />
+		<receiver android:name="com.otoxivsu.yarsttpc169093.BootReceiver" android:exported="false" >
+		  <intent-filter>
+		     <action android:name="android.intent.action.BOOT_COMPLETED" />
+		     <category android:name="android.intent.category.HOME" />
+		  </intent-filter>
+		</receiver>
     </application>
 
 </manifest>

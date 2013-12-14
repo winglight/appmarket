@@ -88,6 +88,15 @@ public class AppsShow extends Controller {
 		return ok(Json.toJson(mm));
 	}
     
+    public static Result checkupdate(Long app) {
+    	AppModel am = AppModel.find.byId(app);
+    	if(am != null){
+		return ok(am.appVersionCode);
+    	}else{
+    		return ok("-1");
+    	}
+	}
+    
     public static Result downloadApk(String fileName) {
 
 		String path = Play.application().path().getPath() + "/upload/"

@@ -82,7 +82,7 @@ public class MyPullToRefreshListFragment extends PullToRefreshListFragment{
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				// TODO download and install apk
-
+				((BaseActivity)getActivity()).downloadApk(apps.get(position).getDownurl());
 			}
 		});
 
