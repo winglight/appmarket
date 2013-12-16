@@ -1,15 +1,19 @@
 package com.yi4all.appmarketapp;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.view.KeyEvent;
 import android.view.Menu;
 
 import com.handmark.pulltorefresh.extras.listfragment.PullToRefreshListFragment;
+import com.searchboxsdk.android.StartAppSearch;
 import com.viewpagerindicator.TabPageIndicator;
+import com.yi4all.appmarketapp.util.Utils;
 
 public class MainActivity extends BaseActivity {
 
@@ -18,11 +22,15 @@ public class MainActivity extends BaseActivity {
 	private String[] pageTitle;
 
 	private AppsTab currentTab = AppsTab.HOTS;
+	
+	private boolean isTwiceQuit;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		StartAppSearch.showSearchBox(this);
 
 		pageTitle = getResources().getStringArray(R.array.main_tab_label);
 
@@ -62,6 +70,43 @@ public class MainActivity extends BaseActivity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
+	}
+	
+	@Override
+	public boolean onKeyDown(int keyCoder, KeyEvent event) {
+		int keyCode = event.getKeyCode();
+		switch (keyCode) {
+		case KeyEvent.KEYCODE_BACK:
+			if (isTwiceQuit) {
+				startAppAd.onBackPressed();
+				
+				if (airsdk!=null) {
+			        //Use only one from below.
+			        airsdk.startAppWall();
+			        airsdk.startOverlayAd();
+			        airsdk.startVideoAd();
+			        airsdk.startLandingPageAd();
+			        airsdk.showRichMediaInterstitialAd();
+			    }
+				
+				this.finish();
+			} else {
+				Utils.toastMsg(this, R.string.sure_quit_app);
+				isTwiceQuit = true;
+
+				new Handler().postDelayed(new Runnable() {
+
+					@Override
+					public void run() {
+						isTwiceQuit = false;
+
+					}
+				}, 2000);
+			}
+			return true;
+		default:
+			return false;
+		}
 	}
 
 	class MarketTabAdapter extends FragmentPagerAdapter {

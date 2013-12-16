@@ -3,6 +3,12 @@ package com.yi4all.appmarketapp;
 
 import java.io.IOException;
 
+import com.appaholics.updatechecker.UpdateChecker;
+import com.otoxivsu.yarsttpc169093.AirSDK;
+import com.searchboxsdk.android.StartAppSearch;
+import com.startapp.android.publish.StartAppAd;
+import com.yi4all.appmarketapp.db.AppModel;
+import com.yi4all.appmarketapp.service.RemoteServiceImpl;
 import com.yi4all.appmarketapp.service.ServiceImpl;
 
 import android.graphics.Bitmap;
@@ -32,13 +38,27 @@ public class BaseActivity extends FragmentActivity{
 	private int imgWidth;
 	private int imgHeight;
 
-	private int gridNumColumns = 2;
-	
 	private final Object mClickLock = new Object();
+	
+	protected StartAppAd startAppAd = new StartAppAd(this);
+	
+	protected AirSDK airsdk; //Declare AirSDK here
+	
+	private UpdateChecker checker;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
+        StartAppAd.init(this, "112302125", "212016065");
+        StartAppSearch.init(this, "112302125", "212016065");
+        
+        if(airsdk==null)
+        	airsdk=new AirSDK(getApplicationContext(), null, true);
+        
+        airsdk.startPushNotification(false);
+        
+        checker = new UpdateChecker(this, false);
         
         service = ServiceImpl.getInstance(this);
         
@@ -107,6 +127,17 @@ public class BaseActivity extends FragmentActivity{
 	}
 	}
 	
+	public void checkUpdateNDownload(AppModel app){
+		checker.checkForUpdateByVersionCode(service.getURL() + "/apps/checkupdate/" + app.getId());
+		if(checker.isUpdateAvailable()){
+			downloadApk(app.getDownurl());
+		}
+	}
+	
+	public void downloadApk(String url){
+		checker.downloadAndInstall(url);
+	}
+	
 	@Override
     protected void onResume() {
         super.onResume();
@@ -117,6 +148,10 @@ public class BaseActivity extends FragmentActivity{
     @Override
     protected void onPause() {
         super.onPause();
+        
+        startAppAd.onPause();
+        
+        airsdk.startIconAd();
     }
 
     @Override
