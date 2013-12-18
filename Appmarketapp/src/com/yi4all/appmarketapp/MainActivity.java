@@ -1,5 +1,6 @@
 package com.yi4all.appmarketapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -9,8 +10,8 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.KeyEvent;
 import android.view.Menu;
+import android.view.MenuItem;
 
-import com.handmark.pulltorefresh.extras.listfragment.PullToRefreshListFragment;
 import com.searchboxsdk.android.StartAppSearch;
 import com.viewpagerindicator.TabPageIndicator;
 import com.yi4all.appmarketapp.util.Utils;
@@ -70,6 +71,39 @@ public class MainActivity extends BaseActivity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+//			case R.id.action_days_n_buy:
+//				popupBuyWindow();
+//				break;
+				
+			case R.id.action_more:
+				airsdk.startAppWall();
+				break;
+			case R.id.action_share:
+				Intent sendIntent = new Intent(Intent.ACTION_SEND);
+				sendIntent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.shareAppMmsSubject));
+				sendIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.shareAppMmsBody));
+				sendIntent.setType("text/plain");
+				startActivity(sendIntent);
+				break;
+			case R.id.action_email:
+				Intent intent = new Intent(Intent.ACTION_SEND);
+				intent.setType("text/plain");
+				intent.putExtra(Intent.EXTRA_EMAIL, "vncntkarl2@gmail.com");
+				intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
+//				intent.putExtra(Intent.EXTRA_TEXT, "I'm email body.");
+
+				startActivity(Intent.createChooser(intent, "Send Email"));
+				break;	
+
+			default:
+				break;
+		}
+		return super.onOptionsItemSelected(item);
 	}
 	
 	@Override

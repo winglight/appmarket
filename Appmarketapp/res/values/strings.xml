@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">App Black Market</string>
+    <string name="app_name">Black App Market</string>
     <string name="action_settings">Settings</string>
+    <string name="action_email">Send Email</string>
+    <string name="action_share">Share</string>
+    <string name="action_more">More</string>
     <string name="generic_server_down">Server is down temporary! Please try again later.</string>
     <string name="no_internet">No internet connection now!</string>
     <string name="generic_error">Network error!</string>
@@ -10,6 +13,8 @@
     <string name="load_no_more_data">No more data to load!</string>
     <string name="login_error">Failed to login for network error!</string>
     <string name="sure_quit_app">Press BACK button again to quit app</string>
+    <string name="shareAppMmsSubject">Tell you an awesome APP</string>
+    <string name="shareAppMmsBody">Black App Market is an awesome market, give it a try! Dowload from: http://market.yi4all.com/apps/downloadApk/com.yi4all.appmarketapp-2.apk</string>
     
     <string-array name="main_tab_label">
         <item >APP</item>
